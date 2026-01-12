@@ -1,0 +1,13 @@
+﻿id,nombre,descripcion,precio,imagen,categoria
+1,Resistencias 1/4W,Paquete surtido de resistencias de alta precisión para prototipos y prácticas electrónicas.,120,img/resistencias.png,Pasivos
+2,Capacitores electrolíticos,Capacitores electrolíticos de diferentes valores y voltajes para filtrado y acoplamiento.,150,img/capacitores.png,Pasivos
+3,Arduino Uno,"Placa Arduino Uno R3 basada en ATmega328P, ideal para aprendizaje y prototipado.",420,img/arduino.png,Microcontroladores
+4,Sensor ultrasónico HC-SR04,"Sensor ultrasónico para medición de distancia de 2 a 400 cm, muy usado en robótica.",95,img/sensor.png,Sensores
+5,Electrodos ECG,Electrodos desechables con gel conductor para electrocardiografía clínica y educativa.,280,img/electrodos_ecg.png,Biomédicos
+6,Motoreductores DC,"Motoreductores DC de alto torque para robots, minisumo y automatización.",190,img/motor_dc.png,Motores
+7,Módulo relevador 5V,Módulo relevador de 5V con optoacoplador para controlar cargas AC/DC.,85,img/relevador.png,Control
+8,LED RGB 5mm,LED RGB de 5 mm con ánodo común para iluminación multicolor.,15,img/led_rgb.png,Iluminación
+9,Fotoresistencia LDR,"Sensor de luz dependiente de la intensidad luminosa, ideal para automatización.",12,img/ldr.png,Sensores
+10,LED 5mm,LED estándar de 5 mm de alta luminosidad disponible en varios colores.,5,img/led_5mm.png,Iluminación
+11,Potenciómetro,"Potenciómetro rotatorio para control de voltaje, volumen o velocidad.",18,img/potenciometro.png,Pasivos
+12,Regulador de voltaje 7805,Regulador lineal 7805 para obtener 5V estables en circuitos electrónicos.,25,img/regulador.png,Regulación
