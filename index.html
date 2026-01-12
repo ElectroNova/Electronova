@@ -124,6 +124,10 @@
   <a href="#contacto">Contacto</a>
 </nav>
 
+<div style="text-align:center; padding:20px; background:#f4f6f8;">
+  <input type="text" id="searchInput" placeholder="Buscar productos..." style="width:60%; max-width:400px; padding:10px; font-size:16px; border-radius:5px; border:1px solid #ccc;" />
+</div>
+
 <section class="hero">
   <h2>Componentes electrónicos de calidad</h2>
   <p>Resistencias, capacitores, microcontroladores, sensores y mucho más para estudiantes, makers e ingenieros.</p>
@@ -131,7 +135,7 @@
 
 <section class="container" id="productos">
   <h2 class="section-title">Productos destacados</h2>
-  <div class="products">
+  <div class="products" id="productList">
     <div class="product-card">
       <img src="https://cdn-icons-png.flaticon.com/512/2983/2983067.png" alt="Resistencias" />
       <h3>Resistencias 1/4W</h3>
@@ -179,5 +183,20 @@
   <p>© 2026 Electronova. Todos los derechos reservados.</p>
 </footer>
 
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const products = document.querySelectorAll('.product-card');
+
+  searchInput.addEventListener('keyup', function () {
+    const filter = searchInput.value.toLowerCase();
+
+    products.forEach(product => {
+      const text = product.innerText.toLowerCase();
+      product.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+</script>
+
 </body>
 </html>
+
