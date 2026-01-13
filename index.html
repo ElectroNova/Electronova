@@ -32,7 +32,7 @@ header{
   backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e9f2;
 }
-header img{height:48px}
+header img{height:46px}
 
 /* NAV */
 .nav-box{
@@ -95,11 +95,11 @@ header img{height:48px}
   padding:20px;
 }
 
-/* ANUNCIO FLYER */
+/* FLYER */
 .flyer{
   background:#ffffff;
   border-radius:22px;
-  padding:18px;
+  padding:16px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
   margin-bottom:25px;
 }
@@ -130,6 +130,7 @@ header img{height:48px}
   border-radius:14px;
   margin-bottom:12px;
 }
+
 .category{
   font-size:.7em;
   text-transform:uppercase;
@@ -142,6 +143,7 @@ header img{height:48px}
   font-weight:800;
   color:#007bff;
 }
+
 .btn{
   margin-top:12px;
   display:block;
@@ -191,7 +193,7 @@ footer{
 </section>
 
 <section class="container" id="anuncios">
-  <div class="flyer" id="flyerBox">
+  <div class="flyer">
     <img src="img/flyer_entregas_escuela.png" alt="Entregas hasta la puerta de tu escuela">
   </div>
 </section>
@@ -205,37 +207,46 @@ footer{
 </footer>
 
 <script>
-fetch('productos.csv')
-.then(r=>r.text())
+fetch('./productos.csv')
+.then(r=>{
+  if(!r.ok) throw new Error('No se pudo cargar productos.csv');
+  return r.text();
+})
 .then(t=>{
- const rows=t.trim().split('\n').slice(1);
- const list=document.getElementById('productList');
+  const rows = t.trim().split('\n').slice(1);
+  const list = document.getElementById('productList');
 
- rows.forEach(row=>{
-  const [id,nombre,descripcion,precio,imagen,categoria]=row.split(',');
-  const card=document.createElement('div');
-  card.className='card';
-  card.innerHTML=`
-   <img src="${imagen}">
-   <div class="category">${categoria}</div>
-   <h3>${nombre}</h3>
-   <p>${descripcion}</p>
-   <div class="price">$${precio} MXN</div>
-   <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">
-     Comprar por WhatsApp
-   </a>`;
-  list.appendChild(card);
- });
-
- document.getElementById('searchInput').addEventListener('keyup',e=>{
-  const v=e.target.value.toLowerCase();
-  document.getElementById('anuncios').style.display=v?'none':'block';
-  document.querySelectorAll('.card').forEach(c=>{
-   c.style.display=c.innerText.toLowerCase().includes(v)?'':'none';
+  rows.forEach(row=>{
+    const [id,nombre,descripcion,precio,imagen,categoria] = row.split(',');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${imagen}">
+      <div class="category">${categoria}</div>
+      <h3>${nombre}</h3>
+      <p>${descripcion}</p>
+      <div class="price">$${precio} MXN</div>
+      <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">
+        Comprar por WhatsApp
+      </a>`;
+    list.appendChild(card);
   });
- });
+
+  document.getElementById('searchInput').addEventListener('keyup',e=>{
+    const v = e.target.value.toLowerCase();
+    document.getElementById('anuncios').style.display = v ? 'none' : 'block';
+    document.querySelectorAll('.card').forEach(c=>{
+      c.style.display = c.innerText.toLowerCase().includes(v) ? '' : 'none';
+    });
+  });
+})
+.catch(err=>{
+  document.getElementById('productList').innerHTML =
+    '<p style="text-align:center;color:#999">No se pudieron cargar los productos.</p>';
+  console.error(err);
 });
 </script>
 
 </body>
 </html>
+
