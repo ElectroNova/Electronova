@@ -3,46 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electronova | Componentes Electrónicos</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Electronova | Tecnología e Innovación</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-.news{
-  max-width:900px;
-  margin:0 auto 80px;
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
-  border-radius:26px;
-  padding:40px;
-  box-shadow:0 25px 60px rgba(0,0,0,.6);
-  text-align:center;
-  min-height:160px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.news h3{
-  font-size:1.6em;
-  margin-bottom:10px;
-}
-.news p{
-  font-size:1.05em;
-  opacity:.85;
-}
-
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:'Montserrat',sans-serif;
-  background:linear-gradient(180deg,#050814,#0b1a3a,#050814);
-  color:#eaf0ff;
+  font-family:'Inter',sans-serif;
+  background:#f7f9fc;
+  color:#1a1a1a;
 }
 
-/* LOGO FONDO */
+/* LOGO TECNOLÓGICO DE FONDO */
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  background:url('logo.png') center/500px no-repeat;
-  opacity:.05;
+  background:url('logo.png') center/520px no-repeat;
+  opacity:.04;
   z-index:-1;
 }
 
@@ -54,14 +32,14 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:18px 50px;
-  background:rgba(5,8,20,.85);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.06)
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e5e9f2
 }
 header img{height:54px}
 nav a{
   margin-left:30px;
-  color:#cfe2ff;
+  color:#2c3e70;
   text-decoration:none;
   font-weight:600;
   position:relative
@@ -71,26 +49,26 @@ nav a::after{
   position:absolute;
   left:0;bottom:-8px;
   width:0;height:2px;
-  background:linear-gradient(90deg,#4dd0ff,#8fa4ff);
+  background:linear-gradient(90deg,#007bff,#00c6ff);
   transition:.3s
 }
 nav a:hover::after{width:100%}
 
 .hero{
-  padding:140px 20px 110px;
+  padding:130px 20px 100px;
   text-align:center;
 }
 .hero h1{
-  font-size:4em;
+  font-size:3.8em;
   font-weight:800;
-  margin-bottom:10px;
-  background:linear-gradient(90deg,#4dd0ff,#aab6ff);
+  margin-bottom:12px;
+  background:linear-gradient(90deg,#007bff,#00c6ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent
 }
 .hero p{
-  font-size:1.3em;
-  opacity:.85;
+  font-size:1.25em;
+  color:#4a4a4a;
   margin-bottom:40px
 }
 
@@ -102,18 +80,17 @@ nav a:hover::after{width:100%}
   width:100%;
   padding:18px 26px;
   border-radius:50px;
-  border:none;
+  border:1px solid #dde3ee;
   outline:none;
   font-size:16px;
-  background:rgba(255,255,255,.12);
-  color:#fff
 }
 
 .section-title{
   text-align:center;
-  font-size:2.4em;
+  font-size:2.3em;
   font-weight:700;
-  margin-bottom:50px
+  margin-bottom:50px;
+  color:#2c3e70
 }
 
 .container{
@@ -122,6 +99,17 @@ nav a:hover::after{width:100%}
   padding:80px 30px
 }
 
+/* NOTICIAS */
+.news{
+  max-width:1000px;
+  margin:0 auto 90px;
+  background:#ffffff;
+  border-radius:26px;
+  padding:45px;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -129,30 +117,19 @@ nav a:hover::after{width:100%}
 }
 
 .card{
-  position:relative;
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  background:#ffffff;
   border-radius:26px;
   padding:28px;
-  box-shadow:0 25px 60px rgba(0,0,0,.6);
-  transition:.4s
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+  transition:.35s
 }
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:26px;
-  background:linear-gradient(120deg,transparent,rgba(77,208,255,.15),transparent);
-  opacity:0;
-  transition:.4s
-}
-.card:hover::before{opacity:1}
-.card:hover{transform:translateY(-16px)}
+.card:hover{transform:translateY(-12px)}
 
 .card img{
   width:100%;
   height:200px;
   object-fit:contain;
-  background:rgba(0,0,0,.4);
+  background:#f1f4fa;
   border-radius:18px;
   padding:14px;
   margin-bottom:18px
@@ -162,13 +139,13 @@ nav a:hover::after{width:100%}
   font-size:.75em;
   letter-spacing:1.2px;
   text-transform:uppercase;
-  color:#8fa4ff;
+  color:#007bff;
   margin-bottom:8px
 }
 
-.card h3{margin:6px 0 12px;font-size:1.25em}
-.card p{font-size:.95em;opacity:.85;min-height:70px}
-.price{font-size:1.4em;font-weight:800;color:#4dd0ff;margin-top:14px}
+.card h3{margin:6px 0 12px;font-size:1.25em;color:#1a1a1a}
+.card p{font-size:.95em;color:#555;min-height:70px}
+.price{font-size:1.4em;font-weight:800;color:#007bff;margin-top:14px}
 
 .btn{
   margin-top:20px;
@@ -176,8 +153,8 @@ nav a:hover::after{width:100%}
   padding:16px;
   border-radius:50px;
   text-align:center;
-  background:linear-gradient(90deg,#4dd0ff,#8fa4ff);
-  color:#050814;
+  background:linear-gradient(90deg,#007bff,#00c6ff);
+  color:#fff;
   font-weight:700;
   text-decoration:none
 }
@@ -185,8 +162,9 @@ nav a:hover::after{width:100%}
 footer{
   padding:50px 20px;
   text-align:center;
-  background:rgba(5,8,20,.9);
-  opacity:.85
+  background:#ffffff;
+  color:#777;
+  border-top:1px solid #e5e9f2
 }
 </style>
 </head>
@@ -196,6 +174,7 @@ footer{
   <img src="logo.png" alt="Electronova">
   <nav>
     <a href="#">Inicio</a>
+    <a href="#noticias">Noticias</a>
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
   </nav>
@@ -203,7 +182,7 @@ footer{
 
 <section class="hero">
   <h1>Electronova</h1>
-  <p>Componentes electrónicos • Robótica • Innovación</p>
+  <p>Tecnología • Innovación • Componentes Electrónicos</p>
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Buscar productos...">
   </div>
@@ -222,6 +201,27 @@ footer{
 <footer id="contacto">© 2026 Electronova · Tecnología e Innovación</footer>
 
 <script>
+const news=[
+ {title:'Nuevos microcontroladores disponibles',text:'Llegan nuevos modelos compatibles con Arduino y ESP32 ideales para robótica y automatización.',img:'img/news_microcontroladores.png'},
+ {title:'Tendencias en robótica educativa 2026',text:'La robótica educativa crece con sensores inteligentes y plataformas abiertas.',img:'img/news_robotica.png'},
+ {title:'Componentes biomédicos en auge',text:'Aumenta la demanda de sensores y electrodos para proyectos biomédicos.',img:'img/news_biomedica.png'},
+ {title:'Innovación en energía y control',text:'Reguladores y módulos de potencia más eficientes para proyectos modernos.',img:'img/news_energia.png'}
+];
+let i=0;
+const box=document.getElementById('newsBox');
+function showNews(){
+ box.innerHTML=`<div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center;">
+   <img src="${news[i].img}" alt="${news[i].title}" style="width:240px;height:150px;object-fit:cover;border-radius:18px;">
+   <div style="max-width:460px;text-align:left">
+     <h3>${news[i].title}</h3>
+     <p>${news[i].text}</p>
+   </div>
+ </div>`;
+ i=(i+1)%news.length;
+}
+showNews();
+setInterval(showNews,6000);
+
 fetch('productos.csv')
 .then(r=>r.text())
 .then(t=>{
@@ -240,22 +240,7 @@ fetch('productos.csv')
    <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">Comprar por WhatsApp</a>`
   list.appendChild(card)
  })
- const news=[
- {title:'Nuevos microcontroladores disponibles',text:'Llegan nuevos modelos compatibles con Arduino y ESP32 ideales para robótica y automatización.'},
- {title:'Tendencias en robótica educativa 2026',text:'La robótica educativa crece con sensores inteligentes y plataformas abiertas.'},
- {title:'Componentes biomédicos en auge',text:'Aumenta la demanda de sensores y electrodos para proyectos biomédicos.'},
- {title:'Innovación en energía y control',text:'Reguladores y módulos de potencia más eficientes para proyectos modernos.'}
-];
-let i=0;
-const box=document.getElementById('newsBox');
-function showNews(){
- box.innerHTML=`<div><h3>${news[i].title}</h3><p>${news[i].text}</p></div>`;
- i=(i+1)%news.length;
-}
-showNews();
-setInterval(showNews,5000);
-
-document.getElementById('searchInput').addEventListener('keyup',e=>{
+ document.getElementById('searchInput').addEventListener('keyup',e=>{
   const v=e.target.value.toLowerCase()
   document.querySelectorAll('.card').forEach(c=>{
    c.style.display=c.innerText.toLowerCase().includes(v)?'':'none'
