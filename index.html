@@ -34,7 +34,7 @@ header{
 }
 header img{height:48px}
 
-/* NAV ENCAJONADO */
+/* NAV */
 .nav-box{
   display:flex;
   gap:14px;
@@ -93,6 +93,20 @@ header img{height:48px}
   max-width:1200px;
   margin:auto;
   padding:20px;
+}
+
+/* ANUNCIO FLYER */
+.flyer{
+  background:#ffffff;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+  margin-bottom:25px;
+}
+.flyer img{
+  width:100%;
+  border-radius:16px;
+  display:block;
 }
 
 /* PRODUCTOS */
@@ -176,6 +190,12 @@ footer{
   </div>
 </section>
 
+<section class="container" id="anuncios">
+  <div class="flyer" id="flyerBox">
+    <img src="img/flyer_entregas_escuela.png" alt="Entregas hasta la puerta de tu escuela">
+  </div>
+</section>
+
 <section class="container" id="productos">
   <div class="products" id="productList"></div>
 </section>
@@ -209,6 +229,7 @@ fetch('productos.csv')
 
  document.getElementById('searchInput').addEventListener('keyup',e=>{
   const v=e.target.value.toLowerCase();
+  document.getElementById('anuncios').style.display=v?'none':'block';
   document.querySelectorAll('.card').forEach(c=>{
    c.style.display=c.innerText.toLowerCase().includes(v)?'':'none';
   });
