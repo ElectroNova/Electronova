@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Electronova | Tecnología e Innovación</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+ 
 <style>
 *{box-sizing:border-box}
-
+ 
 body{
   margin:0;
   font-family:'Inter',sans-serif;
@@ -18,7 +18,7 @@ body{
     radial-gradient(circle at 80% 30%, rgba(0,198,255,0.08), transparent 45%),
     linear-gradient(180deg,#f7f9fc,#eef2f8);
 }
-
+ 
 /* HEADER */
 header{
   position:sticky;
@@ -33,13 +33,12 @@ header{
   border-bottom:1px solid #e5e9f2;
 }
 header img{height:48px}
-
-/* NAV ENCAJONADO */
+ 
+/* NAV */
 .nav-box{
   display:flex;
   gap:14px;
 }
-
 .nav-box a{
   padding:10px 22px;
   border-radius:12px;
@@ -50,20 +49,19 @@ header img{height:48px}
   text-decoration:none;
   transition:.25s;
 }
-
 .nav-box a:hover{
   background:linear-gradient(90deg,#007bff,#00c6ff);
   color:white;
   border-color:transparent;
 }
-
+ 
 /* HERO */
 .hero{
-  padding:55px 20px 40px;
+  padding:45px 20px 30px;
   text-align:center;
 }
 .hero h1{
-  font-size:3.2em;
+  font-size:3em;
   font-weight:800;
   margin:0 0 6px;
   background:linear-gradient(90deg,#007bff,#00c6ff);
@@ -71,11 +69,11 @@ header img{height:48px}
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  font-size:1.15em;
+  font-size:1.1em;
   color:#4a4a4a;
-  margin:0 0 18px;
+  margin:0 0 16px;
 }
-
+ 
 /* BUSCADOR */
 .search-box{
   max-width:500px;
@@ -88,195 +86,156 @@ header img{height:48px}
   border:1px solid #dde3ee;
   outline:none;
   font-size:15px;
-  background:white;
 }
-
+ 
 /* CONTENEDORES */
 .container{
-  max-width:1400px;
+  max-width:1200px;
   margin:auto;
-  padding:25px 30px;
+  padding:20px;
 }
-
-/* PROMOCIONES */
-.news{
-  max-width:1000px;
-  margin:0 auto 25px;
+ 
+/* ANUNCIO FLYER */
+.flyer{
   background:#ffffff;
-  border-radius:20px;
-  padding:22px;
+  border-radius:22px;
+  padding:18px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
+  margin-bottom:25px;
 }
-
-/* TITULOS */
-.section-title{
-  text-align:center;
-  font-size:2em;
-  font-weight:700;
-  margin-bottom:18px;
-  color:#2c3e70;
+.flyer img{
+  width:100%;
+  border-radius:16px;
+  display:block;
 }
-
+ 
 /* PRODUCTOS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:28px;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:26px;
 }
-
+ 
 .card{
   background:#ffffff;
   border-radius:20px;
-  padding:22px;
+  padding:20px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
-  transition:.25s;
 }
-.card:hover{transform:translateY(-6px)}
-
 .card img{
   width:100%;
-  height:180px;
+  height:170px;
   object-fit:contain;
-  background:#ffffff;
+  background:white;
   border-radius:14px;
-  padding:8px;
   margin-bottom:12px;
 }
-
 .category{
-  font-size:.72em;
-  letter-spacing:1px;
+  font-size:.7em;
   text-transform:uppercase;
   color:#007bff;
-  margin-bottom:4px;
 }
-
-.card h3{
-  margin:4px 0 8px;
-  font-size:1.15em;
-}
-.card p{
-  font-size:.9em;
-  color:#555;
-  min-height:55px;
-}
-
+.card h3{margin:6px 0}
+.card p{font-size:.9em;color:#555}
 .price{
-  font-size:1.25em;
+  font-size:1.2em;
   font-weight:800;
   color:#007bff;
-  margin-top:8px;
 }
-
 .btn{
-  margin-top:14px;
+  margin-top:12px;
   display:block;
   padding:12px;
   border-radius:50px;
   text-align:center;
   background:linear-gradient(90deg,#007bff,#00c6ff);
-  color:#fff;
+  color:white;
   font-weight:700;
   text-decoration:none;
 }
-
+ 
 /* FOOTER */
 footer{
-  padding:30px 20px;
+  padding:30px;
   text-align:center;
   background:#ffffff;
   color:#777;
   border-top:1px solid #e5e9f2;
 }
+ 
+/* MOBILE */
+@media(max-width:768px){
+  header{padding:10px 16px}
+  .hero h1{font-size:2.3em}
+  .products{grid-template-columns:1fr}
+}
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <header>
-  <img src="logo.png" alt="Electronova">
-  <nav class="nav-box">
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<img src="logo.png" alt="Electronova">
+<nav class="nav-box">
+<a href="#productos">Productos</a>
+<a href="#contacto">Contacto</a>
+</nav>
 </header>
-
+ 
 <section class="hero">
-  <h1>Electronova</h1>
-  <p>Tecnología • Innovación • Componentes Electrónicos</p>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Buscar productos...">
-  </div>
+<h1>Electronova</h1>
+<p>Tecnología • Innovación • Componentes Electrónicos</p>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Buscar productos...">
+</div>
 </section>
-
-<section class="container" id="noticias">
-  <div class="news" id="newsBox"></div>
+ 
+<section class="container" id="anuncios">
+<div class="flyer" id="flyerBox">
+<img src="img/flyer_entregas_escuela.png" alt="Entregas hasta la puerta de tu escuela">
+</div>
 </section>
-
+ 
 <section class="container" id="productos">
-  <div class="section-title">Nuestro catálogo</div>
-  <div class="products" id="productList"></div>
+<div class="products" id="productList"></div>
 </section>
-
+ 
 <footer id="contacto">
   © 2026 Electronova · Tecnología e Innovación
 </footer>
-
+ 
 <script>
-const news=[
- {title:'🔥 Promoción Arduino Uno',text:'Precio especial por tiempo limitado.',img:'img/promo_arduino.png'},
- {title:'⚡ Kits de robótica',text:'Sensores y motores con descuento.',img:'img/promo_robotica.png'},
- {title:'🧠 Biomédica',text:'Electrodos ECG disponibles.',img:'img/promo_biomedica.png'}
-];
-
-let i=0;
-const box=document.getElementById('newsBox');
-
-function showNews(){
- box.innerHTML=`
- <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center;">
-   <img src="${news[i].img}" style="width:210px;height:130px;object-fit:cover;border-radius:14px;">
-   <div style="max-width:400px">
-     <h3>${news[i].title}</h3>
-     <p>${news[i].text}</p>
-   </div>
- </div>`;
- i=(i+1)%news.length;
-}
-showNews();
-setInterval(showNews,6000);
-
 fetch('productos.csv')
 .then(r=>r.text())
 .then(t=>{
- const rows=t.trim().split('\n').slice(1);
- const list=document.getElementById('productList');
-
- rows.forEach(row=>{
+const rows=t.trim().split('\n').slice(1);
+const list=document.getElementById('productList');
+ 
+rows.forEach(row=>{
   const [id,nombre,descripcion,precio,imagen,categoria]=row.split(',');
   const card=document.createElement('div');
   card.className='card';
   card.innerHTML=`
-   <img src="${imagen}">
-   <div class="category">${categoria}</div>
-   <h3>${nombre}</h3>
-   <p>${descripcion}</p>
-   <div class="price">$${precio} MXN</div>
-   <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">
+<img src="${imagen}">
+<div class="category">${categoria}</div>
+<h3>${nombre}</h3>
+<p>${descripcion}</p>
+<div class="price">$${precio} MXN</div>
+<a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">
      Comprar por WhatsApp
-   </a>`;
+</a>`;
   list.appendChild(card);
- });
-
- document.getElementById('searchInput').addEventListener('keyup',e=>{
+});
+ 
+document.getElementById('searchInput').addEventListener('keyup',e=>{
   const v=e.target.value.toLowerCase();
-  document.getElementById('noticias').style.display=v?'none':'block';
+  document.getElementById('anuncios').style.display=v?'none':'block';
   document.querySelectorAll('.card').forEach(c=>{
    c.style.display=c.innerText.toLowerCase().includes(v)?'':'none';
   });
- });
+});
 });
 </script>
-
+ 
 </body>
 </html>
