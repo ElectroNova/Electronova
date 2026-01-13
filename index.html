@@ -34,24 +34,28 @@ header{
 }
 header img{height:48px}
 
-nav a{
-  margin-left:22px;
-  color:#2c3e70;
-  text-decoration:none;
-  font-weight:600;
-  position:relative;
+/* NAV ENCAJONADO */
+.nav-box{
+  display:flex;
+  gap:14px;
 }
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0;
-  height:2px;
-  background:linear-gradient(90deg,#007bff,#00c6ff);
+
+.nav-box a{
+  padding:10px 22px;
+  border-radius:12px;
+  border:1px solid #dde3ee;
+  background:#ffffff;
+  color:#2c3e70;
+  font-weight:600;
+  text-decoration:none;
   transition:.25s;
 }
-nav a:hover::after{width:100%}
+
+.nav-box a:hover{
+  background:linear-gradient(90deg,#007bff,#00c6ff);
+  color:white;
+  border-color:transparent;
+}
 
 /* HERO */
 .hero{
@@ -94,7 +98,7 @@ nav a:hover::after{width:100%}
   padding:25px 30px;
 }
 
-/* PROMOS */
+/* PROMOCIONES */
 .news{
   max-width:1000px;
   margin:0 auto 25px;
@@ -191,8 +195,7 @@ footer{
 
 <header>
   <img src="logo.png" alt="Electronova">
-  <nav>
-    <a href="#">Inicio</a>
+  <nav class="nav-box">
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
   </nav>
