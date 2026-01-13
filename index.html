@@ -131,7 +131,7 @@ nav a:hover::after{width:100%}
   object-fit:contain;
   background:#ffffff;
   border-radius:18px;
-  padding:14px;
+  padding:10px;
   margin-bottom:18px
 }
 
@@ -189,6 +189,7 @@ footer{
 </section>
 
 <section class="container" id="noticias">
+  <div class="section-title">Noticias relevantes</div>
   <div class="news" id="newsBox"></div>
 </section>
 
@@ -201,10 +202,11 @@ footer{
 
 <script>
 const news=[
- {title:'Nuevos microcontroladores disponibles',text:'...',img:'...'},
+ {title:'Nuevos microcontroladores disponibles',text:'Llegan nuevos modelos compatibles con Arduino y ESP32 ideales para robótica y automatización.',img:'img/news_microcontroladores.png'},
+ {title:'Tendencias en robótica educativa 2026',text:'La robótica educativa crece con sensores inteligentes y plataformas abiertas.',img:'img/news_robotica.png'},
+ {title:'Componentes biomédicos en auge',text:'Aumenta la demanda de sensores y electrodos para proyectos biomédicos.',img:'img/news_biomedica.png'},
+ {title:'Innovación en energía y control',text:'Reguladores y módulos de potencia más eficientes para proyectos modernos.',img:'img/news_energia.png'}
 ];
-
-  
 let i=0;
 const box=document.getElementById('newsBox');
 function showNews(){
@@ -238,25 +240,21 @@ fetch('productos.csv')
    <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">Comprar por WhatsApp</a>`
   list.appendChild(card)
  })
-document.getElementById('searchInput').addEventListener('keyup', e => {
-  const v = e.target.value.toLowerCase();
-  const newsSection = document.getElementById('noticias');
+ document.getElementById('searchInput').addEventListener('keyup',e=>{
+  const v=e.target.value.toLowerCase();
+  const newsSection=document.getElementById('noticias');
 
-  // Ocultar o mostrar noticias
-  if (v.length > 0) {
-    newsSection.style.display = 'none';
-  } else {
-    newsSection.style.display = 'block';
+  if(v.length>0){
+    newsSection.style.display='none';
+  }else{
+    newsSection.style.display='block';
   }
 
-  // Filtrar productos
-  document.querySelectorAll('.card').forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(v)
-      ? ''
-      : 'none';
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display=c.innerText.toLowerCase().includes(v)?'':'none';
   });
-});
-
+})
+ })
 })
 </script>
 
