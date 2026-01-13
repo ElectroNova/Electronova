@@ -34,7 +34,7 @@ header{
 }
 header img{height:48px}
 
-/* NAV */
+/* NAV ENCAJONADO */
 .nav-box{
   display:flex;
   gap:14px;
@@ -57,11 +57,11 @@ header img{height:48px}
 
 /* HERO */
 .hero{
-  padding:45px 20px 30px;
+  padding:55px 20px 40px;
   text-align:center;
 }
 .hero h1{
-  font-size:3em;
+  font-size:3.2em;
   font-weight:800;
   margin:0 0 6px;
   background:linear-gradient(90deg,#007bff,#00c6ff);
@@ -69,9 +69,9 @@ header img{height:48px}
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  font-size:1.1em;
+  font-size:1.15em;
   color:#4a4a4a;
-  margin:0 0 16px;
+  margin:0 0 18px;
 }
 
 /* BUSCADOR */
@@ -86,88 +86,166 @@ header img{height:48px}
   border:1px solid #dde3ee;
   outline:none;
   font-size:15px;
+  background:white;
 }
 
 /* CONTENEDORES */
 .container{
-  max-width:1200px;
+  max-width:1400px;
   margin:auto;
-  padding:20px;
+  padding:25px 30px;
 }
 
-/* ANUNCIO FLYER */
-.flyer{
+/* PROMOS */
+.news{
+  max-width:1000px;
+  margin:0 auto 25px;
   background:#ffffff;
-  border-radius:22px;
-  padding:18px;
+  border-radius:20px;
+  padding:22px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
-  margin-bottom:25px;
 }
-.flyer img{
-  width:100%;
-  border-radius:16px;
-  display:block;
+
+/* TITULOS */
+.section-title{
+  text-align:center;
+  font-size:2em;
+  font-weight:700;
+  margin-bottom:18px;
+  color:#2c3e70;
 }
 
 /* PRODUCTOS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:28px;
 }
 
 .card{
   background:#ffffff;
   border-radius:20px;
-  padding:20px;
+  padding:22px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
+  transition:.25s;
 }
+.card:hover{transform:translateY(-6px)}
+
 .card img{
   width:100%;
-  height:170px;
+  height:180px;
   object-fit:contain;
-  background:white;
+  background:#ffffff;
   border-radius:14px;
+  padding:8px;
   margin-bottom:12px;
 }
+
 .category{
-  font-size:.7em;
+  font-size:.72em;
+  letter-spacing:1px;
   text-transform:uppercase;
   color:#007bff;
+  margin-bottom:4px;
 }
-.card h3{margin:6px 0}
-.card p{font-size:.9em;color:#555}
+
+.card h3{
+  margin:4px 0 8px;
+  font-size:1.15em;
+}
+.card p{
+  font-size:.9em;
+  color:#555;
+  min-height:55px;
+}
+
 .price{
-  font-size:1.2em;
+  font-size:1.25em;
   font-weight:800;
   color:#007bff;
+  margin-top:8px;
 }
+
 .btn{
-  margin-top:12px;
+  margin-top:14px;
   display:block;
   padding:12px;
   border-radius:50px;
   text-align:center;
   background:linear-gradient(90deg,#007bff,#00c6ff);
-  color:white;
+  color:#fff;
   font-weight:700;
   text-decoration:none;
 }
 
 /* FOOTER */
 footer{
-  padding:30px;
+  padding:30px 20px;
   text-align:center;
   background:#ffffff;
   color:#777;
   border-top:1px solid #e5e9f2;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  header{padding:10px 16px}
-  .hero h1{font-size:2.3em}
-  .products{grid-template-columns:1fr}
+/* ===================== */
+/* 📱 RESPONSIVE MOBILE */
+/* ===================== */
+@media (max-width:768px){
+
+  header{
+    padding:10px 16px;
+  }
+
+  header img{
+    height:40px;
+  }
+
+  .nav-box a{
+    padding:8px 14px;
+    font-size:.9em;
+  }
+
+  .hero{
+    padding:40px 16px 30px;
+  }
+
+  .hero h1{
+    font-size:2.4em;
+  }
+
+  .hero p{
+    font-size:1em;
+  }
+
+  .search-box input{
+    padding:12px 18px;
+    font-size:14px;
+  }
+
+  .container{
+    padding:20px 16px;
+  }
+
+  .news{
+    padding:18px;
+  }
+
+  .products{
+    grid-template-columns:1fr; /* UNA COLUMNA */
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .card img{
+    height:160px;
+  }
+
+  .btn{
+    padding:14px;
+    font-size:1em;
+  }
 }
 </style>
 </head>
@@ -190,13 +268,12 @@ footer{
   </div>
 </section>
 
-<section class="container" id="anuncios">
-  <div class="flyer" id="flyerBox">
-    <img src="img/flyer_entregas_escuela.png" alt="Entregas hasta la puerta de tu escuela">
-  </div>
+<section class="container" id="noticias">
+  <div class="news" id="newsBox"></div>
 </section>
 
 <section class="container" id="productos">
+  <div class="section-title">Nuestro catálogo</div>
   <div class="products" id="productList"></div>
 </section>
 
@@ -205,6 +282,29 @@ footer{
 </footer>
 
 <script>
+const news=[
+ {title:'🔥 Promoción Arduino Uno',text:'Precio especial por tiempo limitado.',img:'img/promo_arduino.png'},
+ {title:'⚡ Kits de robótica',text:'Sensores y motores con descuento.',img:'img/promo_robotica.png'},
+ {title:'🧠 Biomédica',text:'Electrodos ECG disponibles.',img:'img/promo_biomedica.png'}
+];
+
+let i=0;
+const box=document.getElementById('newsBox');
+
+function showNews(){
+ box.innerHTML=`
+ <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;">
+   <img src="${news[i].img}" style="width:180px;height:120px;object-fit:cover;border-radius:14px;">
+   <div style="max-width:360px">
+     <h3>${news[i].title}</h3>
+     <p>${news[i].text}</p>
+   </div>
+ </div>`;
+ i=(i+1)%news.length;
+}
+showNews();
+setInterval(showNews,6000);
+
 fetch('productos.csv')
 .then(r=>r.text())
 .then(t=>{
@@ -229,7 +329,7 @@ fetch('productos.csv')
 
  document.getElementById('searchInput').addEventListener('keyup',e=>{
   const v=e.target.value.toLowerCase();
-  document.getElementById('anuncios').style.display=v?'none':'block';
+  document.getElementById('noticias').style.display=v?'none':'block';
   document.querySelectorAll('.card').forEach(c=>{
    c.style.display=c.innerText.toLowerCase().includes(v)?'':'none';
   });
@@ -239,5 +339,3 @@ fetch('productos.csv')
 
 </body>
 </html>
-
-
