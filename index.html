@@ -240,12 +240,25 @@ fetch('productos.csv')
    <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${nombre}" target="_blank">Comprar por WhatsApp</a>`
   list.appendChild(card)
  })
- document.getElementById('searchInput').addEventListener('keyup',e=>{
-  const v=e.target.value.toLowerCase()
-  document.querySelectorAll('.card').forEach(c=>{
-   c.style.display=c.innerText.toLowerCase().includes(v)?'':'none'
-  })
- })
+document.getElementById('searchInput').addEventListener('keyup', e => {
+  const v = e.target.value.toLowerCase();
+  const newsSection = document.getElementById('noticias');
+
+  // Ocultar o mostrar noticias
+  if (v.length > 0) {
+    newsSection.style.display = 'none';
+  } else {
+    newsSection.style.display = 'block';
+  }
+
+  // Filtrar productos
+  document.querySelectorAll('.card').forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(v)
+      ? ''
+      : 'none';
+  });
+});
+
 })
 </script>
 
