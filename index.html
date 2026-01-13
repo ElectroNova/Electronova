@@ -200,41 +200,10 @@ footer{
 <footer id="contacto">© 2026 Electronova · Tecnología e Innovación</footer>
 
 <script>
-const promos = [
- {
-  title: '🔥 Descuento en Arduino Uno',
-  text: 'Llévate Arduino Uno con precio especial por tiempo limitado.',
-  img: 'img/promo_arduino.png'
- },
- {
-  title: '⚡ Kits de robótica en oferta',
-  text: 'Sensores, motores y módulos con descuento esta semana.',
-  img: 'img/promo_robotica.png'
- },
- {
-  title: '🧠 Componentes biomédicos',
-  text: 'Electrodos ECG y sensores disponibles con precios especiales.',
-  img: 'img/promo_biomedica.png'
- }
+const news=[
+ {title:'Nuevos microcontroladores disponibles',text:'...',img:'...'},
 ];
 
-let i = 0;
-const box = document.getElementById('newsBox');
-
-function showPromo(){
- box.innerHTML = `
-  <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center;">
-    <img src="${promos[i].img}" style="width:260px;height:160px;object-fit:cover;border-radius:18px;">
-    <div style="max-width:460px;text-align:left">
-      <h3>${promos[i].title}</h3>
-      <p>${promos[i].text}</p>
-    </div>
-  </div>`;
- i = (i + 1) % promos.length;
-}
-
-showPromo();
-setInterval(showPromo, 6000);
   
 let i=0;
 const box=document.getElementById('newsBox');
