@@ -200,12 +200,42 @@ footer{
 <footer id="contacto">© 2026 Electronova · Tecnología e Innovación</footer>
 
 <script>
-const news=[
- {title:'Nuevos microcontroladores disponibles',text:'Llegan nuevos modelos compatibles con Arduino y ESP32 ideales para robótica y automatización.',img:'img/news_microcontroladores.png'},
- {title:'Tendencias en robótica educativa 2026',text:'La robótica educativa crece con sensores inteligentes y plataformas abiertas.',img:'img/news_robotica.png'},
- {title:'Componentes biomédicos en auge',text:'Aumenta la demanda de sensores y electrodos para proyectos biomédicos.',img:'img/news_biomedica.png'},
- {title:'Innovación en energía y control',text:'Reguladores y módulos de potencia más eficientes para proyectos modernos.',img:'img/news_energia.png'}
+const promos = [
+ {
+  title: '🔥 Descuento en Arduino Uno',
+  text: 'Llévate Arduino Uno con precio especial por tiempo limitado.',
+  img: 'img/promo_arduino.png'
+ },
+ {
+  title: '⚡ Kits de robótica en oferta',
+  text: 'Sensores, motores y módulos con descuento esta semana.',
+  img: 'img/promo_robotica.png'
+ },
+ {
+  title: '🧠 Componentes biomédicos',
+  text: 'Electrodos ECG y sensores disponibles con precios especiales.',
+  img: 'img/promo_biomedica.png'
+ }
 ];
+
+let i = 0;
+const box = document.getElementById('newsBox');
+
+function showPromo(){
+ box.innerHTML = `
+  <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center;">
+    <img src="${promos[i].img}" style="width:260px;height:160px;object-fit:cover;border-radius:18px;">
+    <div style="max-width:460px;text-align:left">
+      <h3>${promos[i].title}</h3>
+      <p>${promos[i].text}</p>
+    </div>
+  </div>`;
+ i = (i + 1) % promos.length;
+}
+
+showPromo();
+setInterval(showPromo, 6000);
+  
 let i=0;
 const box=document.getElementById('newsBox');
 function showNews(){
