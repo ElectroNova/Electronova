@@ -97,7 +97,7 @@ header img{
   border-radius:50px;
   border:1px solid #dde3ee;
   outline:none;
-  font-size:16px; /* evita zoom en iOS */
+  font-size:16px;
 }
 
 /* ================= CONTENEDORES ================= */
@@ -194,24 +194,20 @@ footer{
 /* ================= MOBILE ================= */
 @media(max-width:600px){
   header{
-    flex-direction:column;
-    gap:10px;
-    padding:12px 16px;
-  }
-
-  .nav-box{
-    width:100%;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-
-  .nav-box a{
-    padding:8px 16px;
-    font-size:14px;
+    padding:10px 12px;
   }
 
   header img{
-    height:42px;
+    height:38px;
+  }
+
+  .nav-box{
+    gap:8px;
+  }
+
+  .nav-box a{
+    padding:7px 14px;
+    font-size:13px;
   }
 }
 </style>
