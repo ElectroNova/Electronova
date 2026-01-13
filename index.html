@@ -12,18 +12,11 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:#f7f9fc;
   color:#1a1a1a;
-}
-
-/* LOGO DE FONDO */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url('logo.png') center/480px no-repeat;
-  opacity:.035;
-  z-index:-1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,123,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(0,198,255,0.08), transparent 45%),
+    linear-gradient(180deg,#f7f9fc,#eef2f8);
 }
 
 /* HEADER */
@@ -34,7 +27,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 40px;          /* ⬅ MÁS COMPACTO */
+  padding:12px 40px;
   background:rgba(255,255,255,.95);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #e5e9f2;
@@ -62,13 +55,13 @@ nav a:hover::after{width:100%}
 
 /* HERO */
 .hero{
-  padding:55px 20px 40px;   /* ⬅ CLAVE: mucho menos espacio arriba */
+  padding:55px 20px 40px;
   text-align:center;
 }
 .hero h1{
   font-size:3.2em;
   font-weight:800;
-  margin:0 0 6px;           /* ⬅ elimina espacio extra */
+  margin:0 0 6px;
   background:linear-gradient(90deg,#007bff,#00c6ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -76,7 +69,7 @@ nav a:hover::after{width:100%}
 .hero p{
   font-size:1.15em;
   color:#4a4a4a;
-  margin:0 0 18px;          /* ⬅ más compacto */
+  margin:0 0 18px;
 }
 
 /* BUSCADOR */
@@ -91,22 +84,23 @@ nav a:hover::after{width:100%}
   border:1px solid #dde3ee;
   outline:none;
   font-size:15px;
+  background:white;
 }
 
 /* CONTENEDORES */
 .container{
   max-width:1400px;
   margin:auto;
-  padding:25px 30px;        /* ⬅ reduce MUCHO separación */
+  padding:25px 30px;
 }
 
-/* PROMOS / NOTICIAS */
+/* PROMOS */
 .news{
   max-width:1000px;
-  margin:0 auto 25px;       /* ⬅ menos espacio abajo */
+  margin:0 auto 25px;
   background:#ffffff;
   border-radius:20px;
-  padding:22px;             /* ⬅ más compacto */
+  padding:22px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
 
@@ -115,7 +109,7 @@ nav a:hover::after{width:100%}
   text-align:center;
   font-size:2em;
   font-weight:700;
-  margin-bottom:18px;       /* ⬅ menos espacio */
+  margin-bottom:18px;
   color:#2c3e70;
 }
 
@@ -123,7 +117,7 @@ nav a:hover::after{width:100%}
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:28px;                 /* ⬅ menos separación entre cards */
+  gap:28px;
 }
 
 .card{
@@ -283,3 +277,4 @@ fetch('productos.csv')
 
 </body>
 </html>
+
