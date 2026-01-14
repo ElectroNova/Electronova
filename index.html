@@ -26,44 +26,27 @@ header{
   align-items:center;
   border-bottom:1px solid #ddd;
 }
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-header img.logo{height:42px}
-
-.header-right{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
+.header-left img{height:42px}
+.header-right{display:flex;gap:14px;align-items:center}
 .header-icon{
   position:relative;
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   background:#f0f2f7;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:20px;
+  font-size:22px;
   cursor:pointer;
 }
-.header-icon img{
-  width:22px;
-  height:22px;
-}
+.header-icon img{width:22px}
 
 /* HERO */
-.hero{
-  text-align:center;
-  padding:40px 16px 30px;
-}
+.hero{text-align:center;padding:38px 16px}
 .hero h1{
   font-size:clamp(2.4rem,6vw,3.2em);
   font-weight:800;
-  letter-spacing:1px;
   background:linear-gradient(90deg,#007bff,#00c6ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -74,14 +57,10 @@ header img.logo{height:42px}
   font-size:1.05em;
   letter-spacing:2px;
   color:#555;
-  font-weight:500;
 }
 
 /* SEARCH */
-.search-box{
-  max-width:500px;
-  margin:18px auto 0;
-}
+.search-box{max-width:500px;margin:18px auto 0}
 .search-box input{
   width:100%;
   padding:14px 22px;
@@ -91,11 +70,7 @@ header img.logo{height:42px}
 }
 
 /* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px 16px;
-}
+.container{max-width:1200px;margin:auto;padding:20px 16px}
 
 /* FLYER */
 .flyer{
@@ -106,10 +81,7 @@ header img.logo{height:42px}
   cursor:pointer;
   margin-bottom:24px;
 }
-.flyer img{
-  width:100%;
-  border-radius:16px;
-}
+.flyer img{width:100%;border-radius:16px}
 
 /* PRODUCTS */
 .products{
@@ -125,11 +97,7 @@ header img.logo{height:42px}
   display:flex;
   flex-direction:column;
 }
-.card img{
-  width:100%;
-  height:150px;
-  object-fit:contain;
-}
+.card img{width:100%;height:150px;object-fit:contain}
 .card h4{margin:10px 0}
 .card p{font-size:.9em;color:#555}
 .price{font-weight:800;color:#007bff}
@@ -139,8 +107,8 @@ header img.logo{height:42px}
   border-radius:30px;
   background:#007bff;
   color:white;
-  text-align:center;
   font-weight:700;
+  text-align:center;
   cursor:pointer;
 }
 
@@ -171,9 +139,27 @@ header img.logo{height:42px}
 .cart-item{
   display:flex;
   justify-content:space-between;
-  margin-bottom:8px;
+  align-items:center;
+  margin-bottom:10px;
 }
-.cart-controls button{margin-left:4px}
+.cart-controls{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.cart-controls button{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+  background:#eaeaea;
+}
+.cart-controls .delete{
+  background:#ffdddd;
+  font-size:18px;
+}
 .cart-total{
   font-weight:800;
   margin-top:10px;
@@ -216,12 +202,10 @@ header img.logo{height:42px}
 
 <header>
   <div class="header-left">
-    <img src="logo.png" alt="Electronova" class="logo">
+    <img src="logo.png" alt="Electronova">
   </div>
-
   <div class="header-right">
-    <div class="header-icon" onclick="openCart()">
-      🛒
+    <div class="header-icon" onclick="openCart()">🛒
       <div class="cart-count" id="cartCount">0</div>
     </div>
     <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
@@ -233,7 +217,6 @@ header img.logo{height:42px}
 <section class="hero">
   <h1>Electronova</h1>
   <span>Tecnología e Innovación</span>
-
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Buscar productos...">
   </div>
@@ -241,48 +224,22 @@ header img.logo{height:42px}
 
 <section class="container" id="anuncios">
   <div class="flyer" onclick="openInfo()">
-    <img src="img/Entrega.png" alt="Entrega a domicilio">
+    <img src="img/Entrega.png" alt="Entrega">
   </div>
 </section>
 
-<section class="container" id="productos">
+<section class="container">
   <div class="products" id="productList"></div>
 </section>
-
-<footer style="text-align:center;padding:30px;background:#fff">
-  © 2026 Electronova · Tecnología e Innovación
-</footer>
 
 <!-- INFO MODAL -->
 <div class="cart-modal" id="infoModal">
   <div class="cart-box info-text">
     <h3>📦 Información de entregas</h3>
-
-    <p>Servicio de entrega local con horarios definidos.</p>
-
-    <hr>
-
-    <p><strong>📍 OXXO UVM</strong></p>
-    <ul>
-      <li>09:00 am</li>
-      <li>12:00 pm</li>
-    </ul>
-    <p>Sin costo.</p>
-
-    <hr>
-
-    <p><strong>📍 OXXO Av. Universidad</strong></p>
-    <ul>
-      <li>11:00 am</li>
-      <li>02:00 pm</li>
-    </ul>
-    <p>Sin costo.</p>
-
-    <hr>
-
-    <p>⏱️ 30 min de anticipación.</p>
-    <p>🚚 Fuera de horario: $40 MXN.</p>
-
+    <p><strong>OXXO UVM:</strong> 09:00 · 12:00 (sin costo)</p>
+    <p><strong>OXXO Av. Universidad:</strong> 11:00 · 14:00 (sin costo)</p>
+    <p>30 min de anticipación</p>
+    <p>Fuera de horario: $40 MXN</p>
     <div class="cart-actions">
       <div class="back-btn" onclick="closeInfo()">Cerrar</div>
     </div>
@@ -295,11 +252,12 @@ header img.logo{height:42px}
     <h3>🛒 Tu pedido</h3>
     <div id="cartItems"></div>
 
-    <label>Tipo de entrega</label>
-    <select id="deliveryType" style="width:100%;padding:8px;margin-top:6px"
-            onchange="renderCart()">
-      <option value="OXXO UVM">OXXO UVM (sin costo)</option>
-      <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
+    <label>Horario de entrega</label>
+    <select id="deliveryType" onchange="renderCart()" style="width:100%;padding:8px;margin-top:6px">
+      <option value="OXXO UVM 09:00">OXXO UVM – 09:00 (sin costo)</option>
+      <option value="OXXO UVM 12:00">OXXO UVM – 12:00 (sin costo)</option>
+      <option value="OXXO Av Universidad 11:00">OXXO Av Universidad – 11:00 (sin costo)</option>
+      <option value="OXXO Av Universidad 14:00">OXXO Av Universidad – 14:00 (sin costo)</option>
       <option value="Fuera de horario">Fuera de horario (+$40)</option>
     </select>
 
@@ -327,35 +285,31 @@ function addToCart(name,price){
   saveCart(); updateCartCount();
 }
 
-function openCart(){renderCart();document.getElementById('cartModal').style.display='flex'}
-function closeCart(){document.getElementById('cartModal').style.display='none'}
+function openCart(){renderCart();cartModal.style.display='flex'}
+function closeCart(){cartModal.style.display='none'}
 
 function renderCart(){
-  const box=document.getElementById('cartItems');
-  box.innerHTML='';
+  cartItems.innerHTML='';
   let total=0;
   cart.forEach((p,i)=>{
     total+=p.price*p.qty;
-    box.innerHTML+=`
+    cartItems.innerHTML+=`
     <div class="cart-item">
       ${p.qty} × ${p.name}
       <div class="cart-controls">
         <button onclick="changeQty(${i},1)">+</button>
         <button onclick="changeQty(${i},-1)">−</button>
-        <button onclick="removeItem(${i})">✕</button>
+        <button class="delete" onclick="removeItem(${i})">🗑️</button>
       </div>
     </div>`;
   });
 
-  if(document.getElementById('deliveryType').value==='Fuera de horario'){
-    total+=40;
-  }
-
-  document.getElementById('cartTotal').innerText='Total: $'+total+' MXN';
+  if(deliveryType.value==='Fuera de horario') total+=40;
+  cartTotal.innerText='Total: $'+total+' MXN';
 }
 
-function changeQty(i,val){
-  cart[i].qty+=val;
+function changeQty(i,v){
+  cart[i].qty+=v;
   if(cart[i].qty<=0) cart.splice(i,1);
   saveCart(); renderCart(); updateCartCount();
 }
@@ -369,29 +323,24 @@ function sendWhatsApp(){
   let total=0;
   cart.forEach(p=>{
     total+=p.price*p.qty;
-    msg+=`• ${p.qty} x ${p.name} ($${p.price})%0A`;
+    msg+=`• ${p.qty} x ${p.name}%0A`;
   });
-  const d=document.getElementById('deliveryType').value;
-  msg+=`%0AEntrega: ${d}`;
-  if(d==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
+  msg+=`%0AHorario de entrega: ${deliveryType.value}`;
+  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
   msg+=`%0ATotal: $${total} MXN`;
   window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
 }
 
-function openInfo(){document.getElementById('infoModal').style.display='flex'}
-function closeInfo(){document.getElementById('infoModal').style.display='none'}
+function openInfo(){infoModal.style.display='flex'}
+function closeInfo(){infoModal.style.display='none'}
 
 fetch('productos.csv')
 .then(r=>r.text())
 .then(data=>{
   const rows=data.trim().split('\n').slice(1);
-  const list=document.getElementById('productList');
-  const search=document.getElementById('searchInput');
-  const anuncios=document.getElementById('anuncios');
-
   rows.forEach(row=>{
     const [id,nombre,desc,precio,img]=row.split(',');
-    list.innerHTML+=`
+    productList.innerHTML+=`
       <div class="card">
         <img src="${img}">
         <h4>${nombre}</h4>
@@ -402,18 +351,10 @@ fetch('productos.csv')
         </div>
       </div>`;
   });
-
   updateCartCount();
-
-  search.addEventListener('input',()=>{
-    const v=search.value.toLowerCase();
-    anuncios.style.display=v?'none':'block';
-    document.querySelectorAll('.card').forEach(c=>{
-      c.style.display=c.innerText.toLowerCase().includes(v)?'flex':'none';
-    });
-  });
 });
 </script>
 
 </body>
 </html>
+
