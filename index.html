@@ -9,13 +9,9 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,123,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(0,198,255,0.08), transparent 45%),
-    linear-gradient(180deg,#f7f9fc,#eef2f8);
+  background:#f7f9fc;
 }
 
 /* HEADER */
@@ -27,181 +23,130 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:12px 40px;
-  background:rgba(255,255,255,.95);
+  background:white;
   border-bottom:1px solid #e5e9f2;
 }
 header img{height:48px}
 
-.nav-box{
-  display:flex;
-  gap:10px;
-}
-.nav-box a{
-  padding:8px 16px;
-  border-radius:12px;
-  border:1px solid #dde3ee;
-  text-decoration:none;
-  font-weight:600;
-  color:#2c3e70;
-}
-
 /* HERO */
-.hero{
-  padding:40px 16px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(2rem,6vw,3em);
-  background:linear-gradient(90deg,#007bff,#00c6ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{color:#555;margin-top:8px}
-
-/* SEARCH */
-.search-box{
-  max-width:520px;
-  margin:16px auto 0;
-}
+.hero{text-align:center;padding:30px}
 .search-box input{
-  width:100%;
-  padding:14px 22px;
+  padding:12px 20px;
   border-radius:50px;
-  border:1px solid #dde3ee;
-  font-size:16px;
-}
-
-/* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px 16px;
-}
-
-/* FLYER */
-.flyer{
-  background:white;
-  border-radius:22px;
-  padding:16px;
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
-  cursor:pointer;
-  margin-bottom:25px;
-}
-.flyer img{
-  width:100%;
-  border-radius:16px;
+  width:300px;
+  border:1px solid #ddd;
 }
 
 /* PRODUCTS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  padding:20px;
 }
 .card{
   background:white;
-  border-radius:20px;
-  padding:18px;
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
-  display:flex;
-  flex-direction:column;
+  padding:16px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 .card img{
   width:100%;
-  height:170px;
+  height:140px;
   object-fit:contain;
-  margin-bottom:10px;
-}
-.category{
-  font-size:.7em;
-  color:#007bff;
-  text-transform:uppercase;
-}
-.card h3{margin:6px 0}
-.card p{font-size:.9em;color:#555;flex-grow:1}
-.price{
-  font-size:1.2em;
-  font-weight:800;
-  color:#007bff;
 }
 .btn{
-  margin-top:12px;
-  padding:12px;
-  border-radius:50px;
+  margin-top:8px;
+  padding:10px;
+  border-radius:30px;
   text-align:center;
-  background:linear-gradient(90deg,#007bff,#00c6ff);
+  background:#007bff;
   color:white;
+  cursor:pointer;
   font-weight:700;
-  text-decoration:none;
 }
 
-/* FOOTER */
-footer{
-  padding:30px;
-  text-align:center;
-  background:white;
-  border-top:1px solid #e5e9f2;
+/* CARRITO */
+.cart-btn{
+  position:fixed;
+  bottom:100px;
+  right:20px;
+  background:#ff9800;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+  z-index:300;
+}
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:white;
+  font-size:12px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* MODAL */
-.modal{
+/* CART MODAL */
+.cart-modal{
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  z-index:100;
-  align-items:center;
+  z-index:400;
   justify-content:center;
+  align-items:center;
 }
-.modal-content{
+.cart-box{
   background:white;
-  max-width:520px;
   width:90%;
+  max-width:420px;
+  padding:20px;
   border-radius:20px;
-  padding:24px;
 }
-.close-btn{
-  margin-top:14px;
-  padding:10px;
-  border-radius:50px;
-  background:linear-gradient(90deg,#007bff,#00c6ff);
+.cart-box h3{margin-bottom:10px}
+.cart-item{
+  font-size:.9em;
+  margin-bottom:6px;
+}
+.cart-total{
+  font-weight:800;
+  margin-top:10px;
+}
+.cart-send{
+  margin-top:12px;
+  padding:12px;
+  background:#25D366;
   color:white;
+  border-radius:40px;
   text-align:center;
   font-weight:700;
   cursor:pointer;
 }
 
-/* WHATSAPP FLOAT (PNG REAL) */
+/* WHATSAPP FLOAT */
 .whatsapp-float{
   position:fixed;
   bottom:20px;
   right:20px;
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
-  z-index:200;
-  transition:.2s;
+  width:60px;
+  height:60px;
 }
 .whatsapp-float img{
   width:100%;
   height:100%;
   border-radius:50%;
-  object-fit:cover;
-}
-.whatsapp-float:hover{
-  transform:scale(1.08);
-}
-
-@media(max-width:600px){
-  header{padding:10px 12px}
-  header img{height:38px}
-  .whatsapp-float{
-    width:56px;
-    height:56px;
-    bottom:16px;
-    right:16px;
-  }
 }
 </style>
 </head>
@@ -209,63 +154,83 @@ footer{
 <body>
 
 <header>
-  <img src="logo.png" alt="Electronova">
-  <nav class="nav-box">
-    <a href="#productos">Productos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+  <img src="logo.png">
 </header>
 
 <section class="hero">
   <h1>Electronova</h1>
-  <p>Tecnología • Innovación • Componentes Electrónicos</p>
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Buscar productos...">
+    <input id="searchInput" placeholder="Buscar productos">
   </div>
 </section>
 
-<section class="container" id="anuncios">
-  <div class="flyer" onclick="openModal()">
-    <img src="img/Entrega.png" alt="Entrega sin costo">
-  </div>
-</section>
+<section class="products" id="productList"></section>
 
-<section class="container" id="productos">
-  <div class="products" id="productList"></div>
-</section>
+<!-- BOTÓN CARRITO -->
+<div class="cart-btn" onclick="openCart()">
+  🛒
+  <div class="cart-count" id="cartCount">0</div>
+</div>
 
-<footer id="contacto">
-  © 2026 Electronova · Tecnología e Innovación
-</footer>
-
-<!-- MODAL -->
-<div class="modal" id="infoModal">
-  <div class="modal-content">
-    <h2>📦 Entregas sin costo</h2>
-    <p><strong>OXXO UVM</strong><br>10:00 · 13:00 · 16:00</p>
-    <p><strong>OXXO Av. Universidad</strong><br>11:00 · 17:00</p>
-    <p>Solicitar con 20 min de anticipación</p>
-    <p>Fuera de horario: <strong>$40 MXN</strong></p>
-    <div class="close-btn" onclick="closeModal()">Cerrar</div>
+<!-- MODAL CARRITO -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-box">
+    <h3>🛒 Tu pedido</h3>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal"></div>
+    <div class="cart-send" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</div>
   </div>
 </div>
 
-<!-- WHATSAPP BOTÓN REAL -->
-<a
-  href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20gustaría%20información%20sobre%20sus%20productos"
-  class="whatsapp-float"
-  target="_blank"
-  aria-label="WhatsApp"
->
-  <img src="img/whatsapp.png" alt="WhatsApp">
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/521XXXXXXXXXX" class="whatsapp-float" target="_blank">
+  <img src="img/whatsapp.png">
 </a>
 
 <script>
-function openModal(){
-  document.getElementById('infoModal').style.display='flex';
+const cart = [];
+
+function addToCart(name, price){
+  const item = cart.find(p => p.name === name);
+  if(item){
+    item.qty++;
+  }else{
+    cart.push({name, price, qty:1});
+  }
+  updateCart();
 }
-function closeModal(){
-  document.getElementById('infoModal').style.display='none';
+
+function updateCart(){
+  document.getElementById('cartCount').innerText =
+    cart.reduce((a,b)=>a+b.qty,0);
+}
+
+function openCart(){
+  const box = document.getElementById('cartItems');
+  box.innerHTML='';
+  let total = 0;
+  cart.forEach(p=>{
+    total += p.price*p.qty;
+    box.innerHTML += `<div class="cart-item">
+      ${p.qty} × ${p.name} ($${p.price})
+    </div>`;
+  });
+  document.getElementById('cartTotal').innerText =
+    'Total: $'+total+' MXN';
+  document.getElementById('cartModal').style.display='flex';
+}
+
+function sendWhatsApp(){
+  let msg = 'Hola, quiero pedir:%0A';
+  cart.forEach(p=>{
+    msg += `• ${p.qty} x ${p.name} ($${p.price})%0A`;
+  });
+  const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  msg += `%0ATotal: $${total} MXN`;
+  window.open(
+    `https://wa.me/521XXXXXXXXXX?text=${msg}`,
+    '_blank'
+  );
 }
 
 fetch('productos.csv')
@@ -273,37 +238,20 @@ fetch('productos.csv')
 .then(data=>{
   const rows=data.trim().split('\n').slice(1);
   const list=document.getElementById('productList');
-  const search=document.getElementById('searchInput');
-  const anuncios=document.getElementById('anuncios');
-
   rows.forEach(row=>{
-    const [id,nombre,descripcion,precio,imagen,categoria]=row.split(',');
-    const card=document.createElement('div');
-    card.className='card';
-    card.innerHTML=`
-      <img src="${imagen}">
-      <div class="category">${categoria}</div>
-      <h3>${nombre}</h3>
-      <p>${descripcion}</p>
-      <div class="price">$${precio} MXN</div>
-      <a class="btn"
-         href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20${encodeURIComponent(nombre)}"
-         target="_blank">
-         Comprar por WhatsApp
-      </a>`;
-    list.appendChild(card);
-  });
-
-  search.addEventListener('input',()=>{
-    const v=search.value.toLowerCase();
-    anuncios.style.display = v ? 'none' : 'block';
-    document.querySelectorAll('.card').forEach(c=>{
-      c.style.display = c.innerText.toLowerCase().includes(v) ? 'flex' : 'none';
-    });
+    const [id,nombre,desc,precio,img]=row.split(',');
+    list.innerHTML+=`
+      <div class="card">
+        <img src="${img}">
+        <h4>${nombre}</h4>
+        <p>$${precio} MXN</p>
+        <div class="btn" onclick="addToCart('${nombre}',${precio})">
+          Agregar al carrito
+        </div>
+      </div>`;
   });
 });
 </script>
 
 </body>
 </html>
-
