@@ -11,7 +11,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Inter, sans-serif;
-  background:linear-gradient(135deg,#0f2027,#203a43,#f4f7fb);
+  background:linear-gradient(180deg,#f2f6fb 0%,#ffffff 100%);
   min-height:100vh;
 }
 
@@ -20,8 +20,8 @@ header{
   position:sticky;
   top:0;
   z-index:500;
-  background:#ffffffdd;
-  backdrop-filter:blur(10px);
+  background:#ffffffee;
+  backdrop-filter:blur(8px);
   padding:12px 20px;
   display:flex;
   justify-content:space-between;
@@ -34,7 +34,7 @@ header{
   width:42px;
   height:42px;
   border-radius:50%;
-  background:#eef1f6;
+  background:#eef2f7;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -44,11 +44,11 @@ header{
 .header-icon img{width:22px}
 
 /* HERO */
-.hero{text-align:center;padding:36px 16px}
+.hero{text-align:center;padding:34px 16px}
 .hero h1{
   font-size:clamp(2.4rem,6vw,3.2em);
   font-weight:800;
-  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  background:linear-gradient(90deg,#007bff,#00b4ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -57,7 +57,7 @@ header{
   margin-top:6px;
   font-size:1.05em;
   letter-spacing:2px;
-  color:#dbe6f1;
+  color:#5a677a;
 }
 
 /* SEARCH */
@@ -78,7 +78,7 @@ header{
   background:white;
   border-radius:20px;
   padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
   cursor:pointer;
   margin-bottom:24px;
 }
@@ -94,7 +94,7 @@ header{
   background:white;
   border-radius:18px;
   padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 .card img{width:100%;height:150px;object-fit:contain}
 .card h4{margin:10px 0}
@@ -210,8 +210,8 @@ header{
     <h3>📦 Información de entregas</h3>
 
     <p>
-      Electronova ofrece un servicio de entrega local programada en puntos
-      específicos para garantizar rapidez y organización.
+      Electronova ofrece un servicio de entrega local programada para facilitar
+      la recolección de tus productos.
     </p>
 
     <hr>
@@ -235,13 +235,12 @@ header{
     <hr>
 
     <p>
-      ⏱️ Todos los pedidos deben solicitarse con al menos
+      ⏱️ Los pedidos deben realizarse con al menos
       <strong>30 minutos de anticipación</strong>.
     </p>
 
     <p>
-      🚚 Si el pedido se solicita fuera de los horarios establecidos,
-      se podrá realizar la entrega con un
+      🚚 Fuera de los horarios establecidos, la entrega puede realizarse con un
       <strong>cargo adicional de $40 MXN</strong>.
     </p>
 
@@ -270,6 +269,7 @@ header{
 
     <div class="cart-actions">
       <div class="clear-btn" onclick="clearCart()">Vaciar carrito</div>
+      <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
       <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
     </div>
   </div>
@@ -353,6 +353,9 @@ function sendWhatsApp(){
   msg+=`%0ATotal: $${total} MXN`;
   window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
 }
+
+function openInfo(){infoModal.style.display='flex'}
+function closeInfo(){infoModal.style.display='none'}
 
 fetch('productos.csv')
 .then(r=>r.text())
