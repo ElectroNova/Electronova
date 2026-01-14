@@ -45,12 +45,12 @@ nav a{
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.hero p{color:#555;margin-top:6px}
+.hero p{color:#555;margin-top:10px}
 
 /* SEARCH */
 .search-box{
   max-width:500px;
-  margin:16px auto 0;
+  margin:20px auto 0;
 }
 .search-box input{
   width:100%;
@@ -64,7 +64,7 @@ nav a{
 .container{
   max-width:1200px;
   margin:auto;
-  padding:20px 16px;
+  padding:24px 16px;
 }
 
 /* FLYER */
@@ -74,7 +74,7 @@ nav a{
   padding:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
   cursor:pointer;
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 .flyer img{
   width:100%;
@@ -100,11 +100,11 @@ nav a{
   height:150px;
   object-fit:contain;
 }
-.card h4{margin:8px 0}
-.card p{font-size:.9em;color:#555}
+.card h4{margin:12px 0}
+.card p{font-size:.9em;color:#555;line-height:1.5}
 .price{font-weight:800;color:#007bff}
 .btn{
-  margin-top:10px;
+  margin-top:12px;
   padding:10px;
   border-radius:30px;
   background:#007bff;
@@ -157,30 +157,35 @@ nav a{
 .cart-box{
   background:white;
   width:95%;
-  max-width:450px;
-  padding:20px;
+  max-width:460px;
+  padding:24px;
   border-radius:20px;
+  line-height:1.6;
 }
+.cart-box p{margin-bottom:12px}
+.cart-box ul{margin:10px 0 16px 22px}
+.cart-box hr{margin:18px 0}
+
 .cart-item{
   display:flex;
   justify-content:space-between;
-  margin-bottom:6px;
+  margin-bottom:10px;
 }
 .cart-controls button{margin-left:4px}
 .cart-total{
   font-weight:800;
-  margin-top:10px;
+  margin-top:14px;
 }
 
 /* CART BUTTONS */
 .cart-actions{
   display:flex;
-  gap:10px;
-  margin-top:12px;
+  gap:12px;
+  margin-top:16px;
 }
 .cart-actions div{
   flex:1;
-  padding:10px;
+  padding:12px;
   border-radius:30px;
   text-align:center;
   font-weight:700;
@@ -247,28 +252,28 @@ nav a{
 
     <p>
       Electronova ofrece un servicio de entrega local con horarios y puntos
-      establecidos para brindar un servicio rápido, organizado y confiable.
+      específicos para garantizar un servicio ordenado y confiable.
     </p>
 
     <hr>
 
     <p><strong>📍 OXXO UVM</strong></p>
     <p>Entregas todos los días en los siguientes horarios:</p>
-    <ul style="margin-left:18px">
+    <ul>
       <li>09:00 am</li>
       <li>12:00 pm</li>
     </ul>
-    <p>La entrega en estos horarios es <strong>sin costo</strong>.</p>
+    <p>Entrega <strong>sin costo</strong> dentro de estos horarios.</p>
 
     <hr>
 
     <p><strong>📍 OXXO Av. Universidad</strong></p>
     <p>Entregas todos los días en los siguientes horarios:</p>
-    <ul style="margin-left:18px">
+    <ul>
       <li>11:00 am</li>
       <li>02:00 pm</li>
     </ul>
-    <p>La entrega en estos horarios es <strong>sin costo</strong>.</p>
+    <p>Entrega <strong>sin costo</strong> dentro de estos horarios.</p>
 
     <hr>
 
@@ -278,8 +283,7 @@ nav a{
     </p>
 
     <p>
-      🚚 Si el pedido se solicita fuera de estos horarios,
-      se podrá realizar la entrega con un
+      🚚 Fuera de estos horarios, la entrega se puede realizar con un
       <strong>cargo adicional de $40 MXN</strong>.
     </p>
 
@@ -301,7 +305,8 @@ nav a{
     <div id="cartItems"></div>
 
     <label>Tipo de entrega</label>
-    <select id="deliveryType" style="width:100%;padding:8px;margin-top:6px">
+    <select id="deliveryType" style="width:100%;padding:8px;margin-top:6px"
+            onchange="renderCart()">
       <option value="OXXO UVM">OXXO UVM (sin costo)</option>
       <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
       <option value="Fuera de horario">Fuera de horario (+$40)</option>
@@ -355,7 +360,11 @@ function renderCart(){
       </div>
     </div>`;
   });
-  if(document.getElementById('deliveryType').value==='Fuera de horario') total+=40;
+
+  if(document.getElementById('deliveryType').value==='Fuera de horario'){
+    total+=40;
+  }
+
   document.getElementById('cartTotal').innerText='Total: $'+total+' MXN';
 }
 
@@ -422,3 +431,4 @@ fetch('productos.csv')
 
 </body>
 </html>
+
