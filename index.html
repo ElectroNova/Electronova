@@ -73,17 +73,6 @@ header{
 /* CONTAINER */
 .container{max-width:1200px;margin:auto;padding:20px 16px}
 
-/* FLYER */
-.flyer{
-  background:white;
-  border-radius:20px;
-  padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  cursor:pointer;
-  margin-bottom:24px;
-}
-.flyer img{width:100%;border-radius:16px}
-
 /* PRODUCTS */
 .products{
   display:grid;
@@ -129,11 +118,6 @@ header{
   border-radius:20px;
 }
 
-/* INFO TEXT */
-.info-text p{margin-bottom:6px;line-height:1.35}
-.info-text ul{margin:4px 0 8px 18px}
-.info-text hr{margin:8px 0}
-
 /* CART */
 .cart-item{
   display:flex;
@@ -174,29 +158,19 @@ header{
 <body>
 
 <header>
-  <img src="logo.png" alt="Electronova" height="42">
+  <img src="logo.png" height="42">
   <div class="header-right">
     <div class="header-icon" onclick="openCart()">🛒
       <div class="cart-count" id="cartCount">0</div>
     </div>
-    <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
-      <img src="img/whatsapp.png" alt="WhatsApp">
-    </a>
   </div>
 </header>
 
 <section class="hero">
   <h1>Electronova</h1>
   <span>Tecnología e Innovación</span>
-
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Buscar productos...">
-  </div>
-</section>
-
-<section class="container" id="anuncios">
-  <div class="flyer" onclick="openInfo()">
-    <img src="img/Entrega.png" alt="Entregas">
   </div>
 </section>
 
@@ -204,48 +178,22 @@ header{
   <div class="products" id="productList"></div>
 </section>
 
-<!-- INFO MODAL -->
-<div class="cart-modal" id="infoModal">
-  <div class="cart-box info-text">
-    <h3>📦 Información de entregas</h3>
+<!-- MODAL SELECCIÓN DE VALORES -->
+<div class="cart-modal" id="valueModal">
+  <div class="cart-box">
+    <h3 id="valueTitle"></h3>
 
-    <p>
-      Electronova ofrece un servicio de entrega local programada para facilitar
-      la recolección de tus productos.
-    </p>
+    <label>Valor</label>
+    <select id="valueSelect" style="width:100%;padding:8px;margin-top:6px"></select>
 
-    <hr>
-
-    <p><strong>📍 OXXO UVM</strong></p>
-    <ul>
-      <li>09:00 am</li>
-      <li>12:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p><strong>📍 OXXO Av. Universidad</strong></p>
-    <ul>
-      <li>11:00 am</li>
-      <li>02:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p>
-      ⏱️ Los pedidos deben realizarse con al menos
-      <strong>30 minutos de anticipación</strong>.
-    </p>
-
-    <p>
-      🚚 Fuera de los horarios establecidos, la entrega puede realizarse con un
-      <strong>cargo adicional de $40 MXN</strong>.
-    </p>
+    <div id="voltageBox" style="margin-top:10px;display:none">
+      <label>Voltaje</label>
+      <select id="voltageSelect" style="width:100%;padding:8px;margin-top:6px"></select>
+    </div>
 
     <div class="cart-actions">
-      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+      <div class="back-btn" onclick="closeValueModal()">Cancelar</div>
+      <div class="send-btn" onclick="confirmAdd()">Agregar</div>
     </div>
   </div>
 </div>
@@ -255,16 +203,6 @@ header{
   <div class="cart-box">
     <h3>🛒 Tu pedido</h3>
     <div id="cartItems"></div>
-
-    <label>Horario de entrega</label>
-    <select id="deliveryType" onchange="renderCart()" style="width:100%;padding:8px;margin-top:6px">
-      <option value="OXXO UVM 09:00">OXXO UVM – 09:00</option>
-      <option value="OXXO UVM 12:00">OXXO UVM – 12:00</option>
-      <option value="OXXO Av Universidad 11:00">OXXO Av Universidad – 11:00</option>
-      <option value="OXXO Av Universidad 14:00">OXXO Av Universidad – 14:00</option>
-      <option value="Fuera de horario">Fuera de horario (+$40)</option>
-    </select>
-
     <div class="cart-total" id="cartTotal"></div>
 
     <div class="cart-actions">
@@ -276,30 +214,64 @@ header{
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const valoresResistencia=[
+"1Ω","1.2Ω","1.5Ω","1.8Ω","2.2Ω","2.7Ω","3.3Ω","3.9Ω","4.7Ω","5.6Ω","6.8Ω","8.2Ω",
+"10Ω","12Ω","15Ω","18Ω","22Ω","27Ω","33Ω","39Ω","47Ω","56Ω","68Ω","82Ω",
+"100Ω","120Ω","150Ω","180Ω","220Ω","270Ω","330Ω","390Ω","470Ω","560Ω","680Ω","820Ω",
+"1kΩ","1.2kΩ","1.5kΩ","1.8kΩ","2.2kΩ","2.7kΩ","3.3kΩ","3.9kΩ","4.7kΩ","5.6kΩ","6.8kΩ","8.2kΩ",
+"10kΩ","12kΩ","15kΩ","18kΩ","22kΩ","27kΩ","33kΩ","39kΩ","47kΩ","56kΩ","68kΩ","82kΩ",
+"100kΩ","220kΩ","470kΩ","560kΩ","680kΩ","820kΩ","1MΩ","2.2MΩ","4.7MΩ","10MΩ"
+];
 
-function saveCart(){localStorage.setItem('cart',JSON.stringify(cart))}
-function updateCartCount(){
-  cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
+const valoresCapacitor=[
+"1pF","10pF","100pF","1nF","10nF","100nF",
+"1µF","2.2µF","4.7µF","10µF","22µF","47µF","100µF","220µF","470µF","1000µF"
+];
+
+const voltajesCapacitor=["10V","16V","25V","35V","50V","63V","100V","160V","250V"];
+
+let cart=[];
+let selectedProduct=null;
+
+function openValueModal(prod){
+  selectedProduct=prod;
+  valueSelect.innerHTML='';
+  voltageBox.style.display='none';
+
+  let valores=[];
+  if(prod.tipo==='resistencia') valores=valoresResistencia;
+  if(prod.tipo==='capacitor'){ valores=valoresCapacitor; voltageBox.style.display='block'; }
+
+  valores.forEach(v=>{
+    valueSelect.innerHTML+=`<option>${v}</option>`;
+  });
+
+  voltageSelect.innerHTML='';
+  voltajesCapacitor.forEach(v=>{
+    voltageSelect.innerHTML+=`<option>${v}</option>`;
+  });
+
+  valueTitle.innerText=prod.nombre;
+  valueModal.style.display='flex';
+}
+
+function closeValueModal(){valueModal.style.display='none'}
+
+function confirmAdd(){
+  let name=selectedProduct.nombre+" ("+valueSelect.value;
+  if(selectedProduct.tipo==='capacitor') name+=" "+voltageSelect.value;
+  name+=")";
+  addToCart(name,selectedProduct.precio);
+  closeValueModal();
 }
 
 function addToCart(name,price){
-  const item = cart.find(p=>p.name===name);
-  item ? item.qty++ : cart.push({name,price,qty:1});
-  saveCart(); updateCartCount();
+  const i=cart.find(p=>p.name===name);
+  i?i.qty++:cart.push({name,price,qty:1});
+  updateCart();
 }
 
-function clearCart(){
-  cart=[];
-  saveCart();
-  renderCart();
-  updateCartCount();
-}
-
-function openCart(){renderCart();cartModal.style.display='flex'}
-function closeCart(){cartModal.style.display='none'}
-
-function renderCart(){
+function updateCart(){
   cartItems.innerHTML='';
   let total=0;
   cart.forEach((p,i)=>{
@@ -308,75 +280,48 @@ function renderCart(){
     <div class="cart-item">
       ${p.qty} × ${p.name}
       <div class="cart-controls">
-        <button onclick="changeQty(${i},1)">+</button>
-        <button onclick="changeQty(${i},-1)">−</button>
-        <button class="delete" onclick="removeItem(${i})">🗑️</button>
+        <button onclick="p.qty++;updateCart()">+</button>
+        <button onclick="p.qty--;if(p.qty<=0)cart.splice(${i},1);updateCart()">−</button>
+        <button class="delete" onclick="cart.splice(${i},1);updateCart()">🗑️</button>
       </div>
     </div>`;
   });
-  if(deliveryType.value==='Fuera de horario') total+=40;
-  cartTotal.innerText='Total: $'+total+' MXN';
+  cartTotal.innerText="Total: $"+total+" MXN";
+  cartCount.innerText=cart.reduce((a,b)=>a+b.qty,0);
 }
 
-function changeQty(i,v){
-  cart[i].qty+=v;
-  if(cart[i].qty<=0) cart.splice(i,1);
-  saveCart(); renderCart(); updateCartCount();
-}
-function removeItem(i){
-  cart.splice(i,1);
-  saveCart(); renderCart(); updateCartCount();
-}
-
-searchInput.addEventListener('input',()=>{
-  const v=searchInput.value.toLowerCase();
-  anuncios.style.display = v ? 'none' : 'block';
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block':'none';
-  });
-});
-
-function generateOrderCode(){
-  return 'EN-' + Math.floor(100000 + Math.random()*900000);
-}
+function clearCart(){cart=[];updateCart()}
+function openCart(){updateCart();cartModal.style.display='flex'}
+function closeCart(){cartModal.style.display='none'}
 
 function sendWhatsApp(){
-  const code = generateOrderCode();
-  let msg=`Pedido ${code}%0A%0A`;
-  let total=0;
-  cart.forEach(p=>{
-    total+=p.price*p.qty;
-    msg+=`• ${p.qty} x ${p.name}%0A`;
-  });
-  msg+=`%0AHorario: ${deliveryType.value}`;
-  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
-  msg+=`%0ATotal: $${total} MXN`;
+  let code='EN-'+Math.floor(100000+Math.random()*900000);
+  let msg=`Pedido ${code}%0A`;
+  cart.forEach(p=>msg+=`• ${p.qty} x ${p.name}%0A`);
   window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
 }
-
-function openInfo(){infoModal.style.display='flex'}
-function closeInfo(){infoModal.style.display='none'}
 
 fetch('productos.csv')
 .then(r=>r.text())
 .then(data=>{
-  const rows=data.trim().split('\n').slice(1);
-  rows.forEach(row=>{
-    const [id,nombre,desc,precio,img]=row.split(',');
+  data.trim().split('\n').slice(1).forEach(row=>{
+    const [id,nombre,desc,precio,img,tipo]=row.split(',');
     productList.innerHTML+=`
-      <div class="card">
-        <img src="${img}">
-        <h4>${nombre}</h4>
-        <p>${desc}</p>
-        <div class="price">$${precio} MXN</div>
-        <div class="btn" onclick="addToCart('${nombre}',${precio})">
-          Agregar al carrito
-        </div>
-      </div>`;
+    <div class="card">
+      <img src="${img}">
+      <h4>${nombre}</h4>
+      <p>${desc}</p>
+      <div class="price">$${precio} MXN</div>
+      <div class="btn" onclick='${tipo==="normal"?
+        `addToCart("${nombre}",${precio})`:
+        `openValueModal({nombre:"${nombre}",precio:${precio},tipo:"${tipo}"})`}'>
+        Agregar al carrito
+      </div>
+    </div>`;
   });
-  updateCartCount();
 });
 </script>
 
 </body>
 </html>
+
