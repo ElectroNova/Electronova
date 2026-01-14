@@ -144,7 +144,7 @@ nav a{
   justify-content:center;
 }
 
-/* CART MODAL */
+/* MODALS */
 .cart-modal{
   display:none;
   position:fixed;
@@ -166,9 +166,7 @@ nav a{
   justify-content:space-between;
   margin-bottom:6px;
 }
-.cart-controls button{
-  margin-left:4px;
-}
+.cart-controls button{margin-left:4px}
 .cart-total{
   font-weight:800;
   margin-top:10px;
@@ -188,9 +186,7 @@ nav a{
   font-weight:700;
   cursor:pointer;
 }
-.back-btn{
-  background:#ddd;
-}
+.back-btn{background:#ddd}
 .send-btn{
   background:#25D366;
   color:white;
@@ -232,7 +228,7 @@ nav a{
 
 <section class="container" id="anuncios">
   <div class="flyer" onclick="openInfo()">
-    <img src="img/Entrega.png" alt="Entrega sin costo">
+    <img src="img/Entrega.png" alt="Entrega a domicilio">
   </div>
 </section>
 
@@ -246,16 +242,51 @@ nav a{
 
 <!-- INFO MODAL -->
 <div class="cart-modal" id="infoModal">
-<div class="cart-box">
-<h3>📦 Entregas sin costo</h3>
-<p><strong>OXXO UVM</strong>: 10:00 · 13:00 · 16:00</p>
-<p><strong>OXXO Av. Universidad</strong>: 11:00 · 17:00</p>
-<p>Solicitar con 20 min de anticipación</p>
-<p>Fuera de horario: $40 MXN</p>
-<div class="cart-actions">
-  <div class="back-btn" onclick="closeInfo()">Cerrar</div>
-</div>
-</div>
+  <div class="cart-box">
+    <h3>📦 Información de entregas</h3>
+
+    <p>
+      Electronova ofrece un servicio de entrega local con horarios y puntos
+      establecidos para brindar un servicio rápido, organizado y confiable.
+    </p>
+
+    <hr>
+
+    <p><strong>📍 OXXO UVM</strong></p>
+    <p>Entregas todos los días en los siguientes horarios:</p>
+    <ul style="margin-left:18px">
+      <li>09:00 am</li>
+      <li>12:00 pm</li>
+    </ul>
+    <p>La entrega en estos horarios es <strong>sin costo</strong>.</p>
+
+    <hr>
+
+    <p><strong>📍 OXXO Av. Universidad</strong></p>
+    <p>Entregas todos los días en los siguientes horarios:</p>
+    <ul style="margin-left:18px">
+      <li>11:00 am</li>
+      <li>02:00 pm</li>
+    </ul>
+    <p>La entrega en estos horarios es <strong>sin costo</strong>.</p>
+
+    <hr>
+
+    <p>
+      ⏱️ Todos los pedidos deben solicitarse con un mínimo de
+      <strong>30 minutos de anticipación</strong>.
+    </p>
+
+    <p>
+      🚚 Si el pedido se solicita fuera de estos horarios,
+      se podrá realizar la entrega con un
+      <strong>cargo adicional de $40 MXN</strong>.
+    </p>
+
+    <div class="cart-actions">
+      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+    </div>
+  </div>
 </div>
 
 <!-- CART BUTTON -->
@@ -265,28 +296,28 @@ nav a{
 
 <!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
-<div class="cart-box">
-<h3>🛒 Tu pedido</h3>
-<div id="cartItems"></div>
+  <div class="cart-box">
+    <h3>🛒 Tu pedido</h3>
+    <div id="cartItems"></div>
 
-<label>Tipo de entrega</label>
-<select id="deliveryType" style="width:100%;padding:8px;margin-top:6px">
-  <option value="OXXO UVM">OXXO UVM (sin costo)</option>
-  <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
-  <option value="Fuera de horario">Fuera de horario (+$40)</option>
-</select>
+    <label>Tipo de entrega</label>
+    <select id="deliveryType" style="width:100%;padding:8px;margin-top:6px">
+      <option value="OXXO UVM">OXXO UVM (sin costo)</option>
+      <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
+      <option value="Fuera de horario">Fuera de horario (+$40)</option>
+    </select>
 
-<div class="cart-total" id="cartTotal"></div>
+    <div class="cart-total" id="cartTotal"></div>
 
-<div class="cart-actions">
-  <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
-  <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
-</div>
-</div>
+    <div class="cart-actions">
+      <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
+      <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
+    </div>
+  </div>
 </div>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/521XXXXXXXXXX" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/525574763703" class="whatsapp-float" target="_blank">
   <img src="img/whatsapp.png" alt="WhatsApp">
 </a>
 
@@ -391,4 +422,3 @@ fetch('productos.csv')
 
 </body>
 </html>
-
