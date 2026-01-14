@@ -250,6 +250,31 @@ header{
   </div>
 </div>
 
+
+  
+  <!-- MODAL SELECCIÓN DE VALOR -->
+<div class="cart-modal" id="valueModal">
+  <div class="cart-box">
+    <h3 id="valueTitle"></h3>
+
+    <label>Valor</label>
+    <select id="valueSelect" style="width:100%;padding:8px;margin-top:6px"></select>
+
+    <div id="voltageBox" style="display:none;margin-top:10px">
+      <label>Voltaje</label>
+      <select id="voltageSelect" style="width:100%;padding:8px;margin-top:6px"></select>
+    </div>
+
+    <div class="cart-actions">
+      <div class="back-btn" onclick="closeValueModal()">Cancelar</div>
+      <div class="send-btn" onclick="confirmAdd()">Agregar</div>
+    </div>
+  </div>
+</div>
+
+
+
+  
 <!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-box">
@@ -369,7 +394,7 @@ fetch('productos.csv')
         <h4>${nombre}</h4>
         <p>${desc}</p>
         <div class="price">$${precio} MXN</div>
-        <div class="btn" onclick="addToCart('${nombre}',${precio})">
+        <div class="btn" onclick="handleAdd('${nombre}',${precio})">
           Agregar al carrito
         </div>
       </div>`;
@@ -378,6 +403,83 @@ fetch('productos.csv')
 });
 </script>
 
+
+
+/* ===== VALORES COMERCIALES ===== */
+const valoresResistencia = [
+ "1Ω","1.2Ω","1.5Ω","1.8Ω","2.2Ω","2.7Ω","3.3Ω","3.9Ω","4.7Ω","5.6Ω","6.8Ω","8.2Ω",
+ "10Ω","12Ω","15Ω","18Ω","22Ω","27Ω","33Ω","39Ω","47Ω","56Ω","68Ω","82Ω",
+ "100Ω","120Ω","150Ω","180Ω","220Ω","270Ω","330Ω","390Ω","470Ω","560Ω","680Ω","820Ω",
+ "1kΩ","1.2kΩ","1.5kΩ","1.8kΩ","2.2kΩ","2.7kΩ","3.3kΩ","3.9kΩ","4.7kΩ","5.6kΩ","6.8kΩ","8.2kΩ",
+ "10kΩ","22kΩ","47kΩ","100kΩ","220kΩ","470kΩ","1MΩ","2.2MΩ","4.7MΩ","10MΩ"
+];
+
+const valoresCapacitor = [
+ "1pF","10pF","100pF","1nF","10nF","100nF",
+ "1µF","2.2µF","4.7µF","10µF","22µF","47µF","100µF","220µF","470µF","1000µF"
+];
+
+const voltajesCapacitor = ["10V","16V","25V","35V","50V","63V","100V","160V","250V"];
+
+let selectedProduct = null;
+
+/* ===== DECISIÓN POR NOMBRE ===== */
+function handleAdd(nombre, precio){
+  const n = nombre.toLowerCase();
+
+  if(n.includes("resistencia")){
+    openValueModal(nombre, precio, "resistencia");
+    return;
+  }
+
+  if(n.includes("capacitor")){
+    openValueModal(nombre, precio, "capacitor");
+    return;
+  }
+
+  // producto normal
+  addToCart(nombre, precio);
+}
+
+/* ===== MODAL ===== */
+function openValueModal(nombre, precio, tipo){
+  selectedProduct = { nombre, precio, tipo };
+
+  valueSelect.innerHTML = "";
+  voltageSelect.innerHTML = "";
+  voltageBox.style.display = tipo === "capacitor" ? "block" : "none";
+
+  const valores = tipo === "resistencia" ? valoresResistencia : valoresCapacitor;
+  valores.forEach(v => valueSelect.innerHTML += `<option>${v}</option>`);
+
+  if(tipo === "capacitor"){
+    voltajesCapacitor.forEach(v => voltageSelect.innerHTML += `<option>${v}</option>`);
+  }
+
+  valueTitle.innerText = nombre;
+  valueModal.style.display = "flex";
+}
+
+function closeValueModal(){
+  valueModal.style.display = "none";
+}
+
+function confirmAdd(){
+  let nombreFinal = selectedProduct.nombre + " (" + valueSelect.value;
+  if(selectedProduct.tipo === "capacitor"){
+    nombreFinal += " " + voltageSelect.value;
+  }
+  nombreFinal += ")";
+
+  addToCart(nombreFinal, selectedProduct.precio);
+  closeValueModal();
+}
+
+
+
+
+
+  
 </body>
 </html>
 
