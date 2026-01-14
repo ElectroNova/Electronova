@@ -9,10 +9,9 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:Inter, sans-serif;
-  background:linear-gradient(180deg,#e9eff5 0%, #f6f9fc 100%);
+  background:linear-gradient(180deg,#f2f6fb 0%,#ffffff 100%);
   min-height:100vh;
 }
 
@@ -29,10 +28,7 @@ header{
   align-items:center;
   border-bottom:1px solid #ddd;
 }
-.header-right{
-  display:flex;
-  gap:14px;
-}
+.header-right{display:flex;gap:14px}
 .header-icon{
   position:relative;
   width:42px;
@@ -48,10 +44,7 @@ header{
 .header-icon img{width:22px}
 
 /* HERO */
-.hero{
-  text-align:center;
-  padding:34px 16px;
-}
+.hero{text-align:center;padding:34px 16px}
 .hero h1{
   font-size:clamp(2.4rem,6vw,3.2em);
   font-weight:800;
@@ -68,10 +61,7 @@ header{
 }
 
 /* SEARCH */
-.search-box{
-  max-width:500px;
-  margin:18px auto 0;
-}
+.search-box{max-width:500px;margin:18px auto 0}
 .search-box input{
   width:100%;
   padding:14px 22px;
@@ -81,11 +71,7 @@ header{
 }
 
 /* CONTAINER */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px 16px;
-}
+.container{max-width:1200px;margin:auto;padding:20px 16px}
 
 /* FLYER */
 .flyer{
@@ -96,10 +82,7 @@ header{
   cursor:pointer;
   margin-bottom:24px;
 }
-.flyer img{
-  width:100%;
-  border-radius:16px;
-}
+.flyer img{width:100%;border-radius:16px}
 
 /* PRODUCTS */
 .products{
@@ -113,20 +96,10 @@ header{
   padding:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
-.card img{
-  width:100%;
-  height:150px;
-  object-fit:contain;
-}
+.card img{width:100%;height:150px;object-fit:contain}
 .card h4{margin:10px 0}
-.card p{
-  font-size:.9em;
-  color:#555;
-}
-.price{
-  font-weight:800;
-  color:#007bff;
-}
+.card p{font-size:.9em;color:#555}
+.price{font-weight:800;color:#007bff}
 .btn{
   margin-top:10px;
   padding:10px;
@@ -157,16 +130,9 @@ header{
 }
 
 /* INFO TEXT */
-.info-text p{
-  margin-bottom:6px;
-  line-height:1.35;
-}
-.info-text ul{
-  margin:4px 0 8px 18px;
-}
-.info-text hr{
-  margin:8px 0;
-}
+.info-text p{margin-bottom:6px;line-height:1.35}
+.info-text ul{margin:4px 0 8px 18px}
+.info-text hr{margin:8px 0}
 
 /* CART */
 .cart-item{
@@ -175,56 +141,32 @@ header{
   align-items:center;
   margin-bottom:10px;
 }
-.cart-controls{
-  display:flex;
-  gap:6px;
-}
+.cart-controls{display:flex;gap:6px}
 .cart-controls button{
-  width:34px;
-  height:34px;
-  border:none;
-  border-radius:50%;
-  font-size:20px;
-  background:#eaeaea;
-  cursor:pointer;
+  width:34px;height:34px;border:none;border-radius:50%;
+  font-size:20px;background:#eaeaea;cursor:pointer
 }
-.cart-controls .delete{
-  background:#ffdddd;
-}
-.cart-total{
-  font-weight:800;
-  margin-top:10px;
-}
+.cart-controls .delete{background:#ffdddd}
+.cart-total{font-weight:800;margin-top:10px}
+
 .cart-actions{
   display:flex;
   gap:10px;
   margin-top:12px;
 }
 .cart-actions div{
-  flex:1;
-  padding:10px;
-  border-radius:30px;
-  font-weight:700;
-  text-align:center;
-  cursor:pointer;
+  flex:1;padding:10px;border-radius:30px;
+  font-weight:700;text-align:center;cursor:pointer
 }
 .back-btn{background:#ddd}
 .send-btn{background:#25D366;color:white}
 .clear-btn{background:#ff6b6b;color:white}
 
 .cart-count{
-  position:absolute;
-  top:-5px;
-  right:-5px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:red;
-  color:white;
-  font-size:11px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  position:absolute;top:-5px;right:-5px;
+  width:18px;height:18px;border-radius:50%;
+  background:red;color:white;font-size:11px;
+  display:flex;align-items:center;justify-content:center
 }
 </style>
 </head>
@@ -267,7 +209,10 @@ header{
   <div class="cart-box info-text">
     <h3>📦 Información de entregas</h3>
 
-    <p>Electronova ofrece un servicio de entrega local programada.</p>
+    <p>
+      Electronova ofrece un servicio de entrega local programada para facilitar
+      la recolección de tus productos.
+    </p>
 
     <hr>
 
@@ -276,6 +221,7 @@ header{
       <li>09:00 am</li>
       <li>12:00 pm</li>
     </ul>
+    <p>Entrega sin costo dentro de estos horarios.</p>
 
     <hr>
 
@@ -284,8 +230,19 @@ header{
       <li>11:00 am</li>
       <li>02:00 pm</li>
     </ul>
+    <p>Entrega sin costo dentro de estos horarios.</p>
 
-    <p>30 min de anticipación · Fuera de horario: $40</p>
+    <hr>
+
+    <p>
+      ⏱️ Los pedidos deben realizarse con al menos
+      <strong>30 minutos de anticipación</strong>.
+    </p>
+
+    <p>
+      🚚 Fuera de los horarios establecidos, la entrega puede realizarse con un
+      <strong>cargo adicional de $40 MXN</strong>.
+    </p>
 
     <div class="cart-actions">
       <div class="back-btn" onclick="closeInfo()">Cerrar</div>
@@ -298,6 +255,15 @@ header{
   <div class="cart-box">
     <h3>🛒 Tu pedido</h3>
     <div id="cartItems"></div>
+
+    <label>Horario de entrega</label>
+    <select id="deliveryType" onchange="renderCart()" style="width:100%;padding:8px;margin-top:6px">
+      <option value="OXXO UVM 09:00">OXXO UVM – 09:00</option>
+      <option value="OXXO UVM 12:00">OXXO UVM – 12:00</option>
+      <option value="OXXO Av Universidad 11:00">OXXO Av Universidad – 11:00</option>
+      <option value="OXXO Av Universidad 14:00">OXXO Av Universidad – 14:00</option>
+      <option value="Fuera de horario">Fuera de horario (+$40)</option>
+    </select>
 
     <div class="cart-total" id="cartTotal"></div>
 
@@ -312,10 +278,7 @@ header{
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function saveCart(){
-  localStorage.setItem('cart',JSON.stringify(cart));
-}
-
+function saveCart(){localStorage.setItem('cart',JSON.stringify(cart))}
 function updateCartCount(){
   cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
 }
@@ -323,17 +286,7 @@ function updateCartCount(){
 function addToCart(name,price){
   const item = cart.find(p=>p.name===name);
   item ? item.qty++ : cart.push({name,price,qty:1});
-  saveCart();
-  updateCartCount();
-}
-
-function openCart(){
-  renderCart();
-  cartModal.style.display='flex';
-}
-
-function closeCart(){
-  cartModal.style.display='none';
+  saveCart(); updateCartCount();
 }
 
 function clearCart(){
@@ -343,69 +296,73 @@ function clearCart(){
   updateCartCount();
 }
 
+function openCart(){renderCart();cartModal.style.display='flex'}
+function closeCart(){cartModal.style.display='none'}
+
 function renderCart(){
   cartItems.innerHTML='';
   let total=0;
-
   cart.forEach((p,i)=>{
     total+=p.price*p.qty;
     cartItems.innerHTML+=`
-      <div class="cart-item">
-        ${p.qty} × ${p.name}
-        <div class="cart-controls">
-          <button onclick="changeQty(${i},1)">+</button>
-          <button onclick="changeQty(${i},-1)">−</button>
-          <button class="delete" onclick="removeItem(${i})">🗑️</button>
-        </div>
-      </div>`;
+    <div class="cart-item">
+      ${p.qty} × ${p.name}
+      <div class="cart-controls">
+        <button onclick="changeQty(${i},1)">+</button>
+        <button onclick="changeQty(${i},-1)">−</button>
+        <button class="delete" onclick="removeItem(${i})">🗑️</button>
+      </div>
+    </div>`;
   });
-
+  if(deliveryType.value==='Fuera de horario') total+=40;
   cartTotal.innerText='Total: $'+total+' MXN';
 }
 
 function changeQty(i,v){
   cart[i].qty+=v;
   if(cart[i].qty<=0) cart.splice(i,1);
-  saveCart();
-  renderCart();
-  updateCartCount();
+  saveCart(); renderCart(); updateCartCount();
 }
-
 function removeItem(i){
   cart.splice(i,1);
-  saveCart();
-  renderCart();
-  updateCartCount();
+  saveCart(); renderCart(); updateCartCount();
+}
+
+searchInput.addEventListener('input',()=>{
+  const v=searchInput.value.toLowerCase();
+  anuncios.style.display = v ? 'none' : 'block';
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block':'none';
+  });
+});
+
+function generateOrderCode(){
+  return 'EN-' + Math.floor(100000 + Math.random()*900000);
 }
 
 function sendWhatsApp(){
-  const code = 'EN-'+Math.floor(100000+Math.random()*900000);
-  let msg = `Pedido ${code}%0A`;
-
+  const code = generateOrderCode();
+  let msg=`Pedido ${code}%0A%0A`;
+  let total=0;
   cart.forEach(p=>{
+    total+=p.price*p.qty;
     msg+=`• ${p.qty} x ${p.name}%0A`;
   });
-
+  msg+=`%0AHorario: ${deliveryType.value}`;
+  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
+  msg+=`%0ATotal: $${total} MXN`;
   window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
 }
 
 function openInfo(){infoModal.style.display='flex'}
 function closeInfo(){infoModal.style.display='none'}
 
-searchInput.addEventListener('input',()=>{
-  const v = searchInput.value.toLowerCase();
-  anuncios.style.display = v ? 'none' : 'block';
-
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block' : 'none';
-  });
-});
-
 fetch('productos.csv')
 .then(r=>r.text())
 .then(data=>{
-  data.trim().split('\n').slice(1).forEach(row=>{
-    const [id,nombre,desc,precio,img] = row.split(',');
+  const rows=data.trim().split('\n').slice(1);
+  rows.forEach(row=>{
+    const [id,nombre,desc,precio,img]=row.split(',');
     productList.innerHTML+=`
       <div class="card">
         <img src="${img}">
