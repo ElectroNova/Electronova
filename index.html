@@ -171,30 +171,37 @@ footer{
   cursor:pointer;
 }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP FLOAT (PNG REAL) */
 .whatsapp-float{
   position:fixed;
   bottom:20px;
   right:20px;
-  width:60px;
-  height:60px;
-  background:#25D366;
+  width:64px;
+  height:64px;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   box-shadow:0 10px 25px rgba(0,0,0,.3);
   z-index:200;
+  transition:.2s;
 }
-.whatsapp-float svg{
-  width:34px;
-  height:34px;
-  fill:white;
+.whatsapp-float img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+.whatsapp-float:hover{
+  transform:scale(1.08);
 }
 
 @media(max-width:600px){
   header{padding:10px 12px}
   header img{height:38px}
+  .whatsapp-float{
+    width:56px;
+    height:56px;
+    bottom:16px;
+    right:16px;
+  }
 }
 </style>
 </head>
@@ -235,23 +242,31 @@ footer{
 <div class="modal" id="infoModal">
   <div class="modal-content">
     <h2>📦 Entregas sin costo</h2>
-    <p>OXXO UVM: 10:00 · 13:00 · 16:00</p>
-    <p>OXXO Av. Universidad: 11:00 · 17:00</p>
-    <p>20 min de anticipación · Fuera de horario $40</p>
+    <p><strong>OXXO UVM</strong><br>10:00 · 13:00 · 16:00</p>
+    <p><strong>OXXO Av. Universidad</strong><br>11:00 · 17:00</p>
+    <p>Solicitar con 20 min de anticipación</p>
+    <p>Fuera de horario: <strong>$40 MXN</strong></p>
     <div class="close-btn" onclick="closeModal()">Cerrar</div>
   </div>
 </div>
 
-<!-- WHATSAPP ICON REAL -->
-<a href="https://wa.me/521XXXXXXXXXX" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-<svg viewBox="0 0 448 512">
-<path d="M380.9 97.1C339-3.5 216.2-23.7 126.6 33.5 46.3 85.1 18.1 189.6 56.8 270.3L4.4 512l246.8-64.6c73.4 38.1 163.9 10.5 207.7-61.7 41.4-68.3 35.3-156.9-10-226.6z"/>
-</svg>
+<!-- WHATSAPP BOTÓN REAL -->
+<a
+  href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20gustaría%20información%20sobre%20sus%20productos"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="WhatsApp"
+>
+  <img src="img/whatsapp.png" alt="WhatsApp">
 </a>
 
 <script>
-function openModal(){document.getElementById('infoModal').style.display='flex'}
-function closeModal(){document.getElementById('infoModal').style.display='none'}
+function openModal(){
+  document.getElementById('infoModal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('infoModal').style.display='none';
+}
 
 fetch('productos.csv')
 .then(r=>r.text())
@@ -270,15 +285,20 @@ fetch('productos.csv')
       <div class="category">${categoria}</div>
       <h3>${nombre}</h3>
       <p>${descripcion}</p>
-      <div class="price">$${precio} MXN</div>`;
+      <div class="price">$${precio} MXN</div>
+      <a class="btn"
+         href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20${encodeURIComponent(nombre)}"
+         target="_blank">
+         Comprar por WhatsApp
+      </a>`;
     list.appendChild(card);
   });
 
   search.addEventListener('input',()=>{
     const v=search.value.toLowerCase();
-    anuncios.style.display=v?'none':'block';
+    anuncios.style.display = v ? 'none' : 'block';
     document.querySelectorAll('.card').forEach(c=>{
-      c.style.display=c.innerText.toLowerCase().includes(v)?'flex':'none';
+      c.style.display = c.innerText.toLowerCase().includes(v) ? 'flex' : 'none';
     });
   });
 });
@@ -286,3 +306,4 @@ fetch('productos.csv')
 
 </body>
 </html>
+
