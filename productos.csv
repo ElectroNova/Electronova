@@ -4,7 +4,7 @@
 3,Arduino UNO,Placa Arduino UNO R3 con cable USB tipo C,146,img/arduino_uno.png,Microcontroladores
 4,Sensor ultrasónico HC-SR04,Sensor de distancia ultrasónico,42,img/hcsr04.png,Sensores
 5,Electrodo ECG,1 pza Electrodo desechables para ECG ,6,img/ecg.png,Biomédicos
-6,Motorreductor DC,Motorreductor DC metálico,190,img/motor.png,Motores
+6,Motorreductor DC,Motorreductor DC 2 ejes 48:1 6v-8v,29,img/motor.png,Motores
 7,Regulador 5V 7805,Regulador de voltaje lineal 5V,85,img/7805.png,Control
 8,LED RGB 5mm,LED RGB de 5mm,15,img/ledrgb.png,Iluminación
 9,Fotoresistencia LDR,Sensor de luz LDR,12,img/ldr.png,Sensores
@@ -37,3 +37,4 @@
 36,Compuerta AND 74HC08,CI lógica Compuerta AND 74HC08,25,img/74hc08.png,Lógica Digital
 37,Compuerta OR 74HC32,CI lógica Compuerta OR 74HC32,25,img/74hc32.png,Lógica Digital
 38,Compuerta XOR 74HC86,CI lógica Compuerta XOR 74HC86,25,img/74hc86.png,Lógica Digital
+
