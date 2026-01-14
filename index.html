@@ -3,39 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electronova | Tecnología e Innovación</title>
+<title>Electronova</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Inter',sans-serif;
-  background:#f7f9fc;
-}
+body{font-family:Inter;background:#f6f8fc}
 
 /* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:10;
+  background:#fff;
+  padding:12px 30px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:12px 40px;
-  background:white;
-  border-bottom:1px solid #e5e9f2;
+  justify-content:space-between;
+  border-bottom:1px solid #ddd;
 }
-header img{height:48px}
-
-/* HERO */
-.hero{text-align:center;padding:30px}
-.search-box input{
-  padding:12px 20px;
-  border-radius:50px;
-  width:300px;
-  border:1px solid #ddd;
-}
+header img{height:44px}
 
 /* PRODUCTS */
 .products{
@@ -45,54 +30,48 @@ header img{height:48px}
   padding:20px;
 }
 .card{
-  background:white;
+  background:#fff;
   padding:16px;
-  border-radius:18px;
+  border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
-.card img{
-  width:100%;
-  height:140px;
-  object-fit:contain;
-}
+.card img{width:100%;height:140px;object-fit:contain}
+.card h4{margin:6px 0}
 .btn{
-  margin-top:8px;
+  background:#007bff;
+  color:#fff;
   padding:10px;
   border-radius:30px;
   text-align:center;
-  background:#007bff;
-  color:white;
-  cursor:pointer;
   font-weight:700;
+  cursor:pointer;
 }
 
-/* CARRITO */
+/* CART BUTTON */
 .cart-btn{
   position:fixed;
   bottom:100px;
   right:20px;
-  background:#ff9800;
   width:60px;
   height:60px;
+  background:#ff9800;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:26px;
   color:white;
-  cursor:pointer;
-  z-index:300;
+  z-index:200;
 }
 .cart-count{
   position:absolute;
   top:-5px;
   right:-5px;
   background:red;
-  color:white;
-  font-size:12px;
   width:22px;
   height:22px;
   border-radius:50%;
+  font-size:12px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -104,34 +83,42 @@ header img{height:48px}
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  z-index:400;
-  justify-content:center;
+  z-index:300;
   align-items:center;
+  justify-content:center;
 }
 .cart-box{
-  background:white;
-  width:90%;
+  background:#fff;
+  width:95%;
   max-width:420px;
   padding:20px;
   border-radius:20px;
 }
-.cart-box h3{margin-bottom:10px}
 .cart-item{
-  font-size:.9em;
+  display:flex;
+  justify-content:space-between;
   margin-bottom:6px;
 }
-.cart-total{
-  font-weight:800;
-  margin-top:10px;
+.cart-controls button{
+  padding:4px 8px;
+  margin:0 3px;
 }
-.cart-send{
-  margin-top:12px;
-  padding:12px;
+.cart-total{font-weight:800;margin-top:10px}
+
+/* FORM */
+select{
+  width:100%;
+  padding:8px;
+  margin-top:8px;
+}
+.send-btn{
   background:#25D366;
   color:white;
-  border-radius:40px;
+  padding:12px;
+  border-radius:30px;
+  margin-top:12px;
   text-align:center;
-  font-weight:700;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -157,50 +144,53 @@ header img{height:48px}
   <img src="logo.png">
 </header>
 
-<section class="hero">
-  <h1>Electronova</h1>
-  <div class="search-box">
-    <input id="searchInput" placeholder="Buscar productos">
-  </div>
-</section>
-
 <section class="products" id="productList"></section>
 
-<!-- BOTÓN CARRITO -->
+<!-- CART BUTTON -->
 <div class="cart-btn" onclick="openCart()">
-  🛒
-  <div class="cart-count" id="cartCount">0</div>
+🛒<div class="cart-count" id="cartCount">0</div>
 </div>
 
-<!-- MODAL CARRITO -->
+<!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
-  <div class="cart-box">
-    <h3>🛒 Tu pedido</h3>
-    <div id="cartItems"></div>
-    <div class="cart-total" id="cartTotal"></div>
-    <div class="cart-send" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</div>
-  </div>
+<div class="cart-box">
+<h3>🛒 Tu pedido</h3>
+<div id="cartItems"></div>
+
+<label>Tipo de entrega</label>
+<select id="deliveryType">
+  <option value="OXXO UVM">OXXO UVM (sin costo)</option>
+  <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
+  <option value="Fuera de horario">Fuera de horario (+$40)</option>
+</select>
+
+<div class="cart-total" id="cartTotal"></div>
+
+<div class="send-btn" onclick="sendWhatsApp()">
+Enviar pedido por WhatsApp
+</div>
+</div>
 </div>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/521XXXXXXXXXX" class="whatsapp-float" target="_blank">
-  <img src="img/whatsapp.png">
+<img src="img/whatsapp.png">
 </a>
 
 <script>
-const cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function addToCart(name, price){
-  const item = cart.find(p => p.name === name);
-  if(item){
-    item.qty++;
-  }else{
-    cart.push({name, price, qty:1});
-  }
-  updateCart();
+function saveCart(){
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function updateCart(){
+function addToCart(name, price){
+  const item = cart.find(p=>p.name===name);
+  item ? item.qty++ : cart.push({name,price,qty:1});
+  saveCart(); updateCartCount();
+}
+
+function updateCartCount(){
   document.getElementById('cartCount').innerText =
     cart.reduce((a,b)=>a+b.qty,0);
 }
@@ -209,28 +199,60 @@ function openCart(){
   const box = document.getElementById('cartItems');
   box.innerHTML='';
   let total = 0;
-  cart.forEach(p=>{
+
+  cart.forEach((p,i)=>{
     total += p.price*p.qty;
-    box.innerHTML += `<div class="cart-item">
-      ${p.qty} × ${p.name} ($${p.price})
-    </div>`;
+    box.innerHTML+=`
+      <div class="cart-item">
+        ${p.qty} × ${p.name}
+        <div class="cart-controls">
+          <button onclick="changeQty(${i},1)">+</button>
+          <button onclick="changeQty(${i},-1)">−</button>
+          <button onclick="removeItem(${i})">✕</button>
+        </div>
+      </div>`;
   });
+
+  const delivery = document.getElementById('deliveryType').value;
+  if(delivery === 'Fuera de horario') total += 40;
+
   document.getElementById('cartTotal').innerText =
     'Total: $'+total+' MXN';
+
   document.getElementById('cartModal').style.display='flex';
 }
 
+function changeQty(i,val){
+  cart[i].qty += val;
+  if(cart[i].qty<=0) cart.splice(i,1);
+  saveCart(); openCart(); updateCartCount();
+}
+
+function removeItem(i){
+  cart.splice(i,1);
+  saveCart(); openCart(); updateCartCount();
+}
+
 function sendWhatsApp(){
-  let msg = 'Hola, quiero pedir:%0A';
+  let msg = 'Hola, quiero hacer el siguiente pedido:%0A';
+  let total = 0;
+
   cart.forEach(p=>{
+    total += p.price*p.qty;
     msg += `• ${p.qty} x ${p.name} ($${p.price})%0A`;
   });
-  const total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+
+  const delivery = document.getElementById('deliveryType').value;
+  msg += `%0AEntrega: ${delivery}`;
+
+  if(delivery === 'Fuera de horario'){
+    total += 40;
+    msg += '%0ACargo extra: $40';
+  }
+
   msg += `%0ATotal: $${total} MXN`;
-  window.open(
-    `https://wa.me/521XXXXXXXXXX?text=${msg}`,
-    '_blank'
-  );
+
+  window.open(`https://wa.me/521XXXXXXXXXX?text=${msg}`,'_blank');
 }
 
 fetch('productos.csv')
@@ -250,8 +272,10 @@ fetch('productos.csv')
         </div>
       </div>`;
   });
+  updateCartCount();
 });
 </script>
 
 </body>
 </html>
+
