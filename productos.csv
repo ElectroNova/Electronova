@@ -7,7 +7,7 @@
 6,Motorreductor DC,1 pza Motorreductor DC 2 ejes 48:1 6v-8v,29,img/motor.png,Motores
 7,Regulador 5V 7805,1 pza Regulador de voltaje lineal 5V,85,img/7805.png,Control
 8,LED RGB 5mm,1 pza LED RGB de 5mm,4,img/ledrgb.png,Iluminación
-9,Fotoresistencia LDR 5528,Sensor de luz LDR,6,img/ldr.png,Sensores
+9,Fotoresistencia LDR 5528,1 pza Sensor de luz LDR,6,img/ldr.png,Sensores
 10,LED 5mm,LED estándar 5mm,5,img/led5.png,Iluminación
 11,Potenciómetro,Potenciómetro lineal,18,img/pot.png,Pasivos
 12,Regulador 12V,Regulador de voltaje 7812,120,img/7812.png,Control
@@ -37,5 +37,6 @@
 36,Compuerta AND 74HC08,CI lógica Compuerta AND 74HC08,25,img/74hc08.png,Lógica Digital
 37,Compuerta OR 74HC32,CI lógica Compuerta OR 74HC32,25,img/74hc32.png,Lógica Digital
 38,Compuerta XOR 74HC86,CI lógica Compuerta XOR 74HC86,25,img/74hc86.png,Lógica Digital
+
 
 
