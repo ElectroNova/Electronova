@@ -25,18 +25,19 @@
 24,Display 7 segmentos ánodo común,Display LED 7 segmentos AC,9,img/7seg_ac.png,Displays
 25,Amplificador de Instrumentación AD620,Amplificador AD620,120,img/ad620.png,Analógicos
 26,Amplificador de Instrumentación INA128,Amplificador INA128,140,img/ina128.png,Analógicos
-27,Compuerta lógica OR,CI lógica OR 74HC32,13,img/74hc32.png,Lógica Digital
+27,Compuerta lógica OR,CI lógica OR 74HC32,14,img/74hc32.png,Lógica Digital
 28,Sensor de línea QTR,Sensor infrarrojo QTR,65,img/qtr.png,Sensores
 29,Motorreductor DC doble eje,Motorreductor DC doble eje,220,img/motor_doble.png,Motores
 30,Sensor de efecto Hall 3144,Sensor Hall A3144,8,img/hall.png,Sensores
 31,Interruptor,Interruptor SPST,10,img/interruptor.png,Control
 32,Miniinterruptor,Mini switch SPDT,12,img/miniswitch.png,Control
-33,Compuerta NAND 74HC00,CI lógica Compuerta NAND 74HC00,13,img/74hc00.png,Lógica Digital
-34,Compuerta NOR 74HC02,CI lógica Compuerta NOR 74HC02,13,img/74hc02.png,Lógica Digital
-35,Compuerta NOT 74HC04,CI lógica Compuerta NOT 74HC04,13,img/74hc04.png,Lógica Digital
-36,Compuerta AND 74HC08,CI lógica Compuerta AND 74HC08,13,img/74hc08.png,Lógica Digital
-37,Compuerta OR 74HC32,CI lógica Compuerta OR 74HC32,13,img/74hc32.png,Lógica Digital
-38,Compuerta XOR 74HC86,CI lógica Compuerta XOR 74HC86,13,img/74hc86.png,Lógica Digital
+33,Compuerta NAND 74HC00,CI lógica Compuerta NAND 74HC00,14,img/74hc00.png,Lógica Digital
+34,Compuerta NOR 74HC02,CI lógica Compuerta NOR 74HC02,14,img/74hc02.png,Lógica Digital
+35,Compuerta NOT 74HC04,CI lógica Compuerta NOT 74HC04,14,img/74hc04.png,Lógica Digital
+36,Compuerta AND 74HC08,CI lógica Compuerta AND 74HC08,14,img/74hc08.png,Lógica Digital
+37,Compuerta OR 74HC32,CI lógica Compuerta OR 74HC32,14,img/74hc32.png,Lógica Digital
+38,Compuerta XOR 74HC86,CI lógica Compuerta XOR 74HC86,14,img/74hc86.png,Lógica Digital
+
 
 
 
