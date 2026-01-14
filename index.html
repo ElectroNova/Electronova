@@ -3,45 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electronova</title>
+<title>Electronova | Tecnología e Innovación</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter;background:#f6f8fc}
+body{
+  font-family:Inter, sans-serif;
+  background:#f6f8fc;
+}
 
 /* HEADER */
 header{
+  position:sticky;
+  top:0;
+  z-index:10;
   background:#fff;
   padding:12px 30px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   border-bottom:1px solid #ddd;
 }
 header img{height:44px}
+nav a{
+  margin-left:10px;
+  text-decoration:none;
+  font-weight:600;
+  color:#2c3e70;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:30px 16px;
+}
+.hero h1{
+  font-size:clamp(2rem,6vw,3em);
+  background:linear-gradient(90deg,#007bff,#00c6ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{color:#555;margin-top:6px}
+
+/* SEARCH */
+.search-box{
+  max-width:500px;
+  margin:16px auto 0;
+}
+.search-box input{
+  width:100%;
+  padding:14px 22px;
+  border-radius:50px;
+  border:1px solid #ddd;
+  font-size:16px;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 16px;
+}
+
+/* FLYER */
+.flyer{
+  background:white;
+  border-radius:20px;
+  padding:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  cursor:pointer;
+  margin-bottom:25px;
+}
+.flyer img{
+  width:100%;
+  border-radius:16px;
+}
 
 /* PRODUCTS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:20px;
-  padding:20px;
 }
 .card{
-  background:#fff;
+  background:white;
+  border-radius:18px;
   padding:16px;
-  border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
 }
-.card img{width:100%;height:140px;object-fit:contain}
-.card h4{margin:6px 0}
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:contain;
+}
+.card h4{margin:8px 0}
+.card p{font-size:.9em;color:#555}
+.price{font-weight:800;color:#007bff}
 .btn{
-  background:#007bff;
-  color:#fff;
+  margin-top:10px;
   padding:10px;
   border-radius:30px;
+  background:#007bff;
+  color:white;
   text-align:center;
   font-weight:700;
   cursor:pointer;
@@ -61,15 +128,15 @@ header img{height:44px}
   justify-content:center;
   font-size:26px;
   color:white;
-  z-index:200;
+  z-index:300;
 }
 .cart-count{
   position:absolute;
   top:-5px;
   right:-5px;
-  background:red;
   width:22px;
   height:22px;
+  background:red;
   border-radius:50%;
   font-size:12px;
   display:flex;
@@ -83,14 +150,14 @@ header img{height:44px}
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  z-index:300;
+  z-index:400;
   align-items:center;
   justify-content:center;
 }
 .cart-box{
-  background:#fff;
+  background:white;
   width:95%;
-  max-width:420px;
+  max-width:450px;
   padding:20px;
   border-radius:20px;
 }
@@ -100,26 +167,33 @@ header img{height:44px}
   margin-bottom:6px;
 }
 .cart-controls button{
-  padding:4px 8px;
-  margin:0 3px;
+  margin-left:4px;
 }
-.cart-total{font-weight:800;margin-top:10px}
+.cart-total{
+  font-weight:800;
+  margin-top:10px;
+}
 
-/* FORM */
-select{
-  width:100%;
-  padding:8px;
-  margin-top:8px;
+/* CART BUTTONS */
+.cart-actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+.cart-actions div{
+  flex:1;
+  padding:10px;
+  border-radius:30px;
+  text-align:center;
+  font-weight:700;
+  cursor:pointer;
+}
+.back-btn{
+  background:#ddd;
 }
 .send-btn{
   background:#25D366;
   color:white;
-  padding:12px;
-  border-radius:30px;
-  margin-top:12px;
-  text-align:center;
-  font-weight:800;
-  cursor:pointer;
 }
 
 /* WHATSAPP FLOAT */
@@ -141,10 +215,48 @@ select{
 <body>
 
 <header>
-  <img src="logo.png">
+  <img src="logo.png" alt="Electronova">
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
-<section class="products" id="productList"></section>
+<section class="hero">
+  <h1>Electronova</h1>
+  <p>Tecnología • Innovación • Componentes Electrónicos</p>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Buscar productos...">
+  </div>
+</section>
+
+<section class="container" id="anuncios">
+  <div class="flyer" onclick="openInfo()">
+    <img src="img/Entrega.png" alt="Entrega sin costo">
+  </div>
+</section>
+
+<section class="container" id="productos">
+  <div class="products" id="productList"></div>
+</section>
+
+<footer id="contacto" style="text-align:center;padding:30px;background:#fff">
+  © 2026 Electronova · Tecnología e Innovación
+</footer>
+
+<!-- INFO MODAL -->
+<div class="cart-modal" id="infoModal">
+<div class="cart-box">
+<h3>📦 Entregas sin costo</h3>
+<p><strong>OXXO UVM</strong>: 10:00 · 13:00 · 16:00</p>
+<p><strong>OXXO Av. Universidad</strong>: 11:00 · 17:00</p>
+<p>Solicitar con 20 min de anticipación</p>
+<p>Fuera de horario: $40 MXN</p>
+<div class="cart-actions">
+  <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+</div>
+</div>
+</div>
 
 <!-- CART BUTTON -->
 <div class="cart-btn" onclick="openCart()">
@@ -158,7 +270,7 @@ select{
 <div id="cartItems"></div>
 
 <label>Tipo de entrega</label>
-<select id="deliveryType">
+<select id="deliveryType" style="width:100%;padding:8px;margin-top:6px">
   <option value="OXXO UVM">OXXO UVM (sin costo)</option>
   <option value="OXXO Av Universidad">OXXO Av Universidad (sin costo)</option>
   <option value="Fuera de horario">Fuera de horario (+$40)</option>
@@ -166,113 +278,114 @@ select{
 
 <div class="cart-total" id="cartTotal"></div>
 
-<div class="send-btn" onclick="sendWhatsApp()">
-Enviar pedido por WhatsApp
+<div class="cart-actions">
+  <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
+  <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
 </div>
 </div>
 </div>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/521XXXXXXXXXX" class="whatsapp-float" target="_blank">
-<img src="img/whatsapp.png">
+  <img src="img/whatsapp.png" alt="WhatsApp">
 </a>
 
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function saveCart(){
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function addToCart(name, price){
-  const item = cart.find(p=>p.name===name);
-  item ? item.qty++ : cart.push({name,price,qty:1});
-  saveCart(); updateCartCount();
-}
-
+function saveCart(){localStorage.setItem('cart',JSON.stringify(cart))}
 function updateCartCount(){
   document.getElementById('cartCount').innerText =
     cart.reduce((a,b)=>a+b.qty,0);
 }
 
-function openCart(){
-  const box = document.getElementById('cartItems');
+function addToCart(name,price){
+  const item = cart.find(p=>p.name===name);
+  item ? item.qty++ : cart.push({name,price,qty:1});
+  saveCart(); updateCartCount();
+}
+
+function openCart(){renderCart();document.getElementById('cartModal').style.display='flex'}
+function closeCart(){document.getElementById('cartModal').style.display='none'}
+
+function renderCart(){
+  const box=document.getElementById('cartItems');
   box.innerHTML='';
-  let total = 0;
-
+  let total=0;
   cart.forEach((p,i)=>{
-    total += p.price*p.qty;
+    total+=p.price*p.qty;
     box.innerHTML+=`
-      <div class="cart-item">
-        ${p.qty} × ${p.name}
-        <div class="cart-controls">
-          <button onclick="changeQty(${i},1)">+</button>
-          <button onclick="changeQty(${i},-1)">−</button>
-          <button onclick="removeItem(${i})">✕</button>
-        </div>
-      </div>`;
+    <div class="cart-item">
+      ${p.qty} × ${p.name}
+      <div class="cart-controls">
+        <button onclick="changeQty(${i},1)">+</button>
+        <button onclick="changeQty(${i},-1)">−</button>
+        <button onclick="removeItem(${i})">✕</button>
+      </div>
+    </div>`;
   });
-
-  const delivery = document.getElementById('deliveryType').value;
-  if(delivery === 'Fuera de horario') total += 40;
-
-  document.getElementById('cartTotal').innerText =
-    'Total: $'+total+' MXN';
-
-  document.getElementById('cartModal').style.display='flex';
+  if(document.getElementById('deliveryType').value==='Fuera de horario') total+=40;
+  document.getElementById('cartTotal').innerText='Total: $'+total+' MXN';
 }
 
 function changeQty(i,val){
-  cart[i].qty += val;
+  cart[i].qty+=val;
   if(cart[i].qty<=0) cart.splice(i,1);
-  saveCart(); openCart(); updateCartCount();
+  saveCart(); renderCart(); updateCartCount();
 }
-
 function removeItem(i){
   cart.splice(i,1);
-  saveCart(); openCart(); updateCartCount();
+  saveCart(); renderCart(); updateCartCount();
 }
 
 function sendWhatsApp(){
-  let msg = 'Hola, quiero hacer el siguiente pedido:%0A';
-  let total = 0;
-
+  let msg='Hola, quiero pedir:%0A';
+  let total=0;
   cart.forEach(p=>{
-    total += p.price*p.qty;
-    msg += `• ${p.qty} x ${p.name} ($${p.price})%0A`;
+    total+=p.price*p.qty;
+    msg+=`• ${p.qty} x ${p.name} ($${p.price})%0A`;
   });
-
-  const delivery = document.getElementById('deliveryType').value;
-  msg += `%0AEntrega: ${delivery}`;
-
-  if(delivery === 'Fuera de horario'){
-    total += 40;
-    msg += '%0ACargo extra: $40';
-  }
-
-  msg += `%0ATotal: $${total} MXN`;
-
+  const d=document.getElementById('deliveryType').value;
+  msg+=`%0AEntrega: ${d}`;
+  if(d==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
+  msg+=`%0ATotal: $${total} MXN`;
   window.open(`https://wa.me/521XXXXXXXXXX?text=${msg}`,'_blank');
 }
+
+function openInfo(){document.getElementById('infoModal').style.display='flex'}
+function closeInfo(){document.getElementById('infoModal').style.display='none'}
 
 fetch('productos.csv')
 .then(r=>r.text())
 .then(data=>{
   const rows=data.trim().split('\n').slice(1);
   const list=document.getElementById('productList');
+  const search=document.getElementById('searchInput');
+  const anuncios=document.getElementById('anuncios');
+
   rows.forEach(row=>{
     const [id,nombre,desc,precio,img]=row.split(',');
     list.innerHTML+=`
       <div class="card">
         <img src="${img}">
         <h4>${nombre}</h4>
-        <p>$${precio} MXN</p>
+        <p>${desc}</p>
+        <div class="price">$${precio} MXN</div>
         <div class="btn" onclick="addToCart('${nombre}',${precio})">
           Agregar al carrito
         </div>
       </div>`;
   });
+
   updateCartCount();
+
+  search.addEventListener('input',()=>{
+    const v=search.value.toLowerCase();
+    anuncios.style.display=v?'none':'block';
+    document.querySelectorAll('.card').forEach(c=>{
+      c.style.display=c.innerText.toLowerCase().includes(v)?'flex':'none';
+    });
+  });
 });
 </script>
 
