@@ -204,6 +204,33 @@ header{
   <div class="products" id="productList"></div>
 </section>
 
+  <!-- MODAL SELECCIÓN DE VALOR -->
+<div class="cart-modal" id="valueModal">
+  <div class="cart-box">
+    <h3 id="valueTitle"></h3>
+
+    <label>Valor</label>
+    <select id="valueSelect" style="width:100%;padding:8px;margin-top:6px"></select>
+
+    <div id="voltageBox" style="display:none;margin-top:10px">
+      <label>Voltaje</label>
+      <select id="voltageSelect" style="width:100%;padding:8px;margin-top:6px"></select>
+    </div>
+
+    <div class="cart-actions">
+      <div class="back-btn" onclick="closeValueModal()">Cancelar</div>
+      <div class="send-btn" onclick="confirmAdd()">Agregar</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
 <!-- INFO MODAL -->
 <div class="cart-modal" id="infoModal">
   <div class="cart-box info-text">
@@ -249,30 +276,6 @@ header{
     </div>
   </div>
 </div>
-
-
-  
-  <!-- MODAL SELECCIÓN DE VALOR -->
-<div class="cart-modal" id="valueModal">
-  <div class="cart-box">
-    <h3 id="valueTitle"></h3>
-
-    <label>Valor</label>
-    <select id="valueSelect" style="width:100%;padding:8px;margin-top:6px"></select>
-
-    <div id="voltageBox" style="display:none;margin-top:10px">
-      <label>Voltaje</label>
-      <select id="voltageSelect" style="width:100%;padding:8px;margin-top:6px"></select>
-    </div>
-
-    <div class="cart-actions">
-      <div class="back-btn" onclick="closeValueModal()">Cancelar</div>
-      <div class="send-btn" onclick="confirmAdd()">Agregar</div>
-    </div>
-  </div>
-</div>
-
-
 
   
 <!-- CART MODAL -->
@@ -353,58 +356,8 @@ function removeItem(i){
   saveCart(); renderCart(); updateCartCount();
 }
 
-searchInput.addEventListener('input',()=>{
-  const v=searchInput.value.toLowerCase();
-  anuncios.style.display = v ? 'none' : 'block';
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block':'none';
-  });
-});
 
-function generateOrderCode(){
-  return 'EN-' + Math.floor(100000 + Math.random()*900000);
-}
-
-function sendWhatsApp(){
-  const code = generateOrderCode();
-  let msg=`Pedido ${code}%0A%0A`;
-  let total=0;
-  cart.forEach(p=>{
-    total+=p.price*p.qty;
-    msg+=`• ${p.qty} x ${p.name}%0A`;
-  });
-  msg+=`%0AHorario: ${deliveryType.value}`;
-  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
-  msg+=`%0ATotal: $${total} MXN`;
-  window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
-}
-
-function openInfo(){infoModal.style.display='flex'}
-function closeInfo(){infoModal.style.display='none'}
-
-fetch('productos.csv')
-.then(r=>r.text())
-.then(data=>{
-  const rows=data.trim().split('\n').slice(1);
-  rows.forEach(row=>{
-    const [id,nombre,desc,precio,img]=row.split(',');
-    productList.innerHTML+=`
-      <div class="card">
-        <img src="${img}">
-        <h4>${nombre}</h4>
-        <p>${desc}</p>
-        <div class="price">$${precio} MXN</div>
-        <div class="btn" onclick="handleAdd('${nombre}',${precio})">
-          Agregar al carrito
-        </div>
-      </div>`;
-  });
-  updateCartCount();
-});
-</script>
-
-
-
+  
 /* ===== VALORES COMERCIALES ===== */
 const valoresResistencia = [
  "1Ω","1.2Ω","1.5Ω","1.8Ω","2.2Ω","2.7Ω","3.3Ω","3.9Ω","4.7Ω","5.6Ω","6.8Ω","8.2Ω",
@@ -478,6 +431,59 @@ function confirmAdd(){
 
 
 
+
+
+
+  
+searchInput.addEventListener('input',()=>{
+  const v=searchInput.value.toLowerCase();
+  anuncios.style.display = v ? 'none' : 'block';
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block':'none';
+  });
+});
+
+function generateOrderCode(){
+  return 'EN-' + Math.floor(100000 + Math.random()*900000);
+}
+
+function sendWhatsApp(){
+  const code = generateOrderCode();
+  let msg=`Pedido ${code}%0A%0A`;
+  let total=0;
+  cart.forEach(p=>{
+    total+=p.price*p.qty;
+    msg+=`• ${p.qty} x ${p.name}%0A`;
+  });
+  msg+=`%0AHorario: ${deliveryType.value}`;
+  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
+  msg+=`%0ATotal: $${total} MXN`;
+  window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
+}
+
+function openInfo(){infoModal.style.display='flex'}
+function closeInfo(){infoModal.style.display='none'}
+
+fetch('productos.csv')
+.then(r=>r.text())
+.then(data=>{
+  const rows=data.trim().split('\n').slice(1);
+  rows.forEach(row=>{
+    const [id,nombre,desc,precio,img]=row.split(',');
+    productList.innerHTML+=`
+      <div class="card">
+        <img src="${img}">
+        <h4>${nombre}</h4>
+        <p>${desc}</p>
+        <div class="price">$${precio} MXN</div>
+        <div class="btn" onclick="handleAdd('${nombre}',${precio})">
+          Agregar al carrito
+        </div>
+      </div>`;
+  });
+  updateCartCount();
+});
+</script>
 
   
 </body>
