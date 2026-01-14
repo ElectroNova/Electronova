@@ -11,7 +11,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Inter, sans-serif;
-  background:linear-gradient(180deg,#eef2f7 0%,#f9fbfd 100%);
+  background:linear-gradient(135deg,#0f2027,#203a43,#f4f7fb);
+  min-height:100vh;
 }
 
 /* HEADER */
@@ -19,8 +20,8 @@ header{
   position:sticky;
   top:0;
   z-index:500;
-  background:#ffffffcc;
-  backdrop-filter:blur(8px);
+  background:#ffffffdd;
+  backdrop-filter:blur(10px);
   padding:12px 20px;
   display:flex;
   justify-content:space-between;
@@ -33,7 +34,7 @@ header{
   width:42px;
   height:42px;
   border-radius:50%;
-  background:#f0f2f7;
+  background:#eef1f6;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -43,11 +44,11 @@ header{
 .header-icon img{width:22px}
 
 /* HERO */
-.hero{text-align:center;padding:34px 16px}
+.hero{text-align:center;padding:36px 16px}
 .hero h1{
   font-size:clamp(2.4rem,6vw,3.2em);
   font-weight:800;
-  background:linear-gradient(90deg,#007bff,#00c6ff);
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -56,7 +57,7 @@ header{
   margin-top:6px;
   font-size:1.05em;
   letter-spacing:2px;
-  color:#5a677a;
+  color:#dbe6f1;
 }
 
 /* SEARCH */
@@ -77,7 +78,7 @@ header{
   background:white;
   border-radius:20px;
   padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
   cursor:pointer;
   margin-bottom:24px;
 }
@@ -93,7 +94,7 @@ header{
   background:white;
   border-radius:18px;
   padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 .card img{width:100%;height:150px;object-fit:contain}
 .card h4{margin:10px 0}
@@ -123,12 +124,12 @@ header{
 .cart-box{
   background:white;
   width:95%;
-  max-width:440px;
+  max-width:460px;
   padding:18px;
   border-radius:20px;
 }
 
-/* INFO TEXT (compacto) */
+/* INFO TEXT */
 .info-text p{margin-bottom:6px;line-height:1.35}
 .info-text ul{margin:4px 0 8px 18px}
 .info-text hr{margin:8px 0}
@@ -147,13 +148,19 @@ header{
 }
 .cart-controls .delete{background:#ffdddd}
 .cart-total{font-weight:800;margin-top:10px}
-.cart-actions{display:flex;gap:10px;margin-top:12px}
+
+.cart-actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
 .cart-actions div{
   flex:1;padding:10px;border-radius:30px;
   font-weight:700;text-align:center;cursor:pointer
 }
 .back-btn{background:#ddd}
 .send-btn{background:#25D366;color:white}
+.clear-btn{background:#ff6b6b;color:white}
 
 .cart-count{
   position:absolute;top:-5px;right:-5px;
@@ -200,28 +207,43 @@ header{
 <!-- INFO MODAL -->
 <div class="cart-modal" id="infoModal">
   <div class="cart-box info-text">
-    <h3>📦 Entregas</h3>
+    <h3>📦 Información de entregas</h3>
 
-    <p><strong>OXXO UVM</strong></p>
+    <p>
+      Electronova ofrece un servicio de entrega local programada en puntos
+      específicos para garantizar rapidez y organización.
+    </p>
+
+    <hr>
+
+    <p><strong>📍 OXXO UVM</strong></p>
     <ul>
       <li>09:00 am</li>
       <li>12:00 pm</li>
     </ul>
-    <p>Sin costo</p>
+    <p>Entrega sin costo dentro de estos horarios.</p>
 
     <hr>
 
-    <p><strong>OXXO Av. Universidad</strong></p>
+    <p><strong>📍 OXXO Av. Universidad</strong></p>
     <ul>
       <li>11:00 am</li>
       <li>02:00 pm</li>
     </ul>
-    <p>Sin costo</p>
+    <p>Entrega sin costo dentro de estos horarios.</p>
 
     <hr>
 
-    <p>⏱️ Solicitar con 30 min de anticipación</p>
-    <p>🚚 Fuera de horario: $40 MXN</p>
+    <p>
+      ⏱️ Todos los pedidos deben solicitarse con al menos
+      <strong>30 minutos de anticipación</strong>.
+    </p>
+
+    <p>
+      🚚 Si el pedido se solicita fuera de los horarios establecidos,
+      se podrá realizar la entrega con un
+      <strong>cargo adicional de $40 MXN</strong>.
+    </p>
 
     <div class="cart-actions">
       <div class="back-btn" onclick="closeInfo()">Cerrar</div>
@@ -247,7 +269,7 @@ header{
     <div class="cart-total" id="cartTotal"></div>
 
     <div class="cart-actions">
-      <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
+      <div class="clear-btn" onclick="clearCart()">Vaciar carrito</div>
       <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
     </div>
   </div>
@@ -265,6 +287,13 @@ function addToCart(name,price){
   const item = cart.find(p=>p.name===name);
   item ? item.qty++ : cart.push({name,price,qty:1});
   saveCart(); updateCartCount();
+}
+
+function clearCart(){
+  cart=[];
+  saveCart();
+  renderCart();
+  updateCartCount();
 }
 
 function openCart(){renderCart();cartModal.style.display='flex'}
@@ -298,9 +327,6 @@ function removeItem(i){
   cart.splice(i,1);
   saveCart(); renderCart(); updateCartCount();
 }
-
-function openInfo(){infoModal.style.display='flex'}
-function closeInfo(){infoModal.style.display='none'}
 
 searchInput.addEventListener('input',()=>{
   const v=searchInput.value.toLowerCase();
