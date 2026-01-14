@@ -30,14 +30,12 @@ header{
   background:rgba(255,255,255,.95);
   border-bottom:1px solid #e5e9f2;
 }
-
 header img{height:48px}
 
 .nav-box{
   display:flex;
   gap:10px;
 }
-
 .nav-box a{
   padding:8px 16px;
   border-radius:12px;
@@ -52,22 +50,19 @@ header img{height:48px}
   padding:40px 16px;
   text-align:center;
 }
-
 .hero h1{
   font-size:clamp(2rem,6vw,3em);
   background:linear-gradient(90deg,#007bff,#00c6ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
 .hero p{color:#555;margin-top:8px}
 
 /* SEARCH */
 .search-box{
-  max-width:500px;
+  max-width:520px;
   margin:16px auto 0;
 }
-
 .search-box input{
   width:100%;
   padding:14px 22px;
@@ -90,8 +85,8 @@ header img{height:48px}
   padding:16px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
   cursor:pointer;
+  margin-bottom:25px;
 }
-
 .flyer img{
   width:100%;
   border-radius:16px;
@@ -103,23 +98,41 @@ header img{height:48px}
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:24px;
 }
-
 .card{
   background:white;
   border-radius:20px;
   padding:18px;
   box-shadow:0 15px 35px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
 }
-
 .card img{
   width:100%;
   height:170px;
   object-fit:contain;
+  margin-bottom:10px;
 }
-
+.category{
+  font-size:.7em;
+  color:#007bff;
+  text-transform:uppercase;
+}
+.card h3{margin:6px 0}
+.card p{font-size:.9em;color:#555;flex-grow:1}
 .price{
+  font-size:1.2em;
   font-weight:800;
   color:#007bff;
+}
+.btn{
+  margin-top:12px;
+  padding:12px;
+  border-radius:50px;
+  text-align:center;
+  background:linear-gradient(90deg,#007bff,#00c6ff);
+  color:white;
+  font-weight:700;
+  text-decoration:none;
 }
 
 /* FOOTER */
@@ -140,7 +153,6 @@ footer{
   align-items:center;
   justify-content:center;
 }
-
 .modal-content{
   background:white;
   max-width:520px;
@@ -148,26 +160,21 @@ footer{
   border-radius:20px;
   padding:24px;
 }
-
 .modal-content h2{
   color:#007bff;
   margin-bottom:12px;
 }
-
 .modal-content p{
-  font-size:.95em;
   margin-bottom:10px;
-  color:#333;
+  font-size:.95em;
 }
-
 .close-btn{
   margin-top:14px;
-  display:block;
-  text-align:center;
   padding:10px;
   border-radius:50px;
   background:linear-gradient(90deg,#007bff,#00c6ff);
   color:white;
+  text-align:center;
   font-weight:700;
   cursor:pointer;
 }
@@ -212,22 +219,22 @@ footer{
   © 2026 Electronova · Tecnología e Innovación
 </footer>
 
-<!-- MODAL -->
+<!-- MODAL INFO -->
 <div class="modal" id="infoModal">
   <div class="modal-content">
     <h2>📦 Entregas sin costo</h2>
 
-    <p><strong>📍 OXXO UVM</strong></p>
-    <p>• 10:00 am<br>• 13:00 pm<br>• 16:00 pm</p>
+    <p><strong>📍 OXXO UVM</strong><br>
+    10:00 am · 13:00 pm · 16:00 pm</p>
 
-    <p><strong>📍 OXXO Avenida Universidad</strong></p>
-    <p>• 11:00 am<br>• 17:00 pm</p>
+    <p><strong>📍 OXXO Av. Universidad</strong><br>
+    11:00 am · 17:00 pm</p>
 
-    <p><strong>⏱ Importante:</strong><br>
-    Solicitar la entrega con <strong>20 minutos de anticipación</strong> antes de cada horario.</p>
+    <p><strong>⏱ Anticipación:</strong><br>
+    Solicitar con <strong>20 minutos</strong> antes de cada horario.</p>
 
-    <p><strong>💲 Entregas fuera de horario:</strong><br>
-    Tienen un costo adicional de <strong>$40 MXN</strong>.</p>
+    <p><strong>💲 Fuera de horario:</strong><br>
+    Costo adicional de <strong>$40 MXN</strong>.</p>
 
     <div class="close-btn" onclick="closeModal()">Cerrar</div>
   </div>
@@ -242,26 +249,50 @@ function closeModal(){
 }
 
 fetch('productos.csv')
-.then(r=>r.text())
-.then(t=>{
-  const rows=t.trim().split('\n').slice(1);
-  const list=document.getElementById('productList');
+.then(response => response.text())
+.then(data => {
 
-  rows.forEach(row=>{
-    const [id,nombre,descripcion,precio,imagen,categoria]=row.split(',');
-    const card=document.createElement('div');
-    card.className='card';
-    card.innerHTML=`
-      <img src="${imagen}">
+  const rows = data.trim().split('\n').slice(1);
+  const productList = document.getElementById('productList');
+  const searchInput = document.getElementById('searchInput');
+  const anuncios = document.getElementById('anuncios');
+
+  productList.innerHTML = '';
+
+  rows.forEach(row => {
+    const [id,nombre,descripcion,precio,imagen,categoria] = row.split(',');
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${imagen}" alt="${nombre}">
+      <div class="category">${categoria}</div>
       <h3>${nombre}</h3>
       <p>${descripcion}</p>
       <div class="price">$${precio} MXN</div>
+      <a class="btn" href="https://wa.me/52TU_NUMERO?text=Hola,%20me%20interesa%20${encodeURIComponent(nombre)}" target="_blank">
+        Comprar por WhatsApp
+      </a>
     `;
-    list.appendChild(card);
+    productList.appendChild(card);
   });
-});
+
+  /* BUSCADOR FUNCIONAL */
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+
+    anuncios.style.display = value ? 'none' : 'block';
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? 'flex' : 'none';
+    });
+  });
+
+})
+.catch(err => console.error('Error cargando productos:', err));
 </script>
 
 </body>
 </html>
-
