@@ -234,10 +234,52 @@
 </section>
 
 <section class="container" id="anuncios">
-  <div class="flyer" onclick="openInfo()">
+  <div class="flyer" onclick="openInfo()" style="position:relative">
+
+    <!-- BOTÓN ANTERIOR -->
+    <button
+      onclick="prevAnuncio(); event.stopPropagation()"
+      style="
+        position:absolute;
+        left:10px;
+        top:50%;
+        transform:translateY(-50%);
+        background:rgba(0,0,0,.45);
+        color:white;
+        border:none;
+        width:36px;
+        height:36px;
+        border-radius:50%;
+        cursor:pointer;
+        font-size:18px;
+      "
+    >‹</button>
+
+    <!-- IMAGEN DEL ANUNCIO -->
     <img src="img/Entrega.png" alt="Entregas">
+
+    <!-- BOTÓN SIGUIENTE -->
+    <button
+      onclick="nextAnuncio(); event.stopPropagation()"
+      style="
+        position:absolute;
+        right:10px;
+        top:50%;
+        transform:translateY(-50%);
+        background:rgba(0,0,0,.45);
+        color:white;
+        border:none;
+        width:36px;
+        height:36px;
+        border-radius:50%;
+        cursor:pointer;
+        font-size:18px;
+      "
+    >›</button>
+
   </div>
 </section>
+
 
 <section class="container">
   <div class="products" id="productList"></div>
@@ -596,11 +638,30 @@ const anunciosRotativos = [
 let anuncioIndex = 0;
 
 /* Rotación automática */
-setInterval(() => {
-  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+function showAnuncio(){
   document.querySelector('#anuncios img').src =
     anunciosRotativos[anuncioIndex].img;
+}
+
+setInterval(() => {
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  showAnuncio();
 }, 4000);
+
+  /* ===== CONTROLES MANUALES DE ANUNCIOS ===== */
+
+function nextAnuncio(){
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  showAnuncio();
+}
+
+function prevAnuncio(){
+  anuncioIndex =
+    (anuncioIndex - 1 + anunciosRotativos.length) %
+    anunciosRotativos.length;
+  showAnuncio();
+}
+
 
 /* Click en anuncio */
 function openInfo(){
