@@ -234,51 +234,21 @@
 </section>
 
 <section class="container" id="anuncios">
-  <div class="flyer" onclick="openInfo()" style="position:relative">
+  <div class="flyer" onclick="openInfo()">
+    <img src="img/Entrega.png" alt="Anuncio" id="anuncioImg">
+  </div>
 
-    <!-- BOTÓN ANTERIOR -->
-    <button
-      onclick="prevAnuncio(); event.stopPropagation()"
-      style="
-        position:absolute;
-        left:10px;
-        top:50%;
-        transform:translateY(-50%);
-        background:rgba(0,0,0,.45);
-        color:white;
-        border:none;
-        width:36px;
-        height:36px;
-        border-radius:50%;
-        cursor:pointer;
-        font-size:18px;
-      "
-    >‹</button>
-
-    <!-- IMAGEN DEL ANUNCIO -->
-    <img src="img/Entrega.png" alt="Entregas">
-
-    <!-- BOTÓN SIGUIENTE -->
-    <button
-      onclick="nextAnuncio(); event.stopPropagation()"
-      style="
-        position:absolute;
-        right:10px;
-        top:50%;
-        transform:translateY(-50%);
-        background:rgba(0,0,0,.45);
-        color:white;
-        border:none;
-        width:36px;
-        height:36px;
-        border-radius:50%;
-        cursor:pointer;
-        font-size:18px;
-      "
-    >›</button>
-
+  <!-- INDICADORES -->
+  <div id="anuncioDots"
+       style="
+         display:flex;
+         justify-content:center;
+         gap:8px;
+         margin-top:10px;
+       ">
   </div>
 </section>
+
 
 
 <section class="container">
@@ -637,16 +607,47 @@ const anunciosRotativos = [
 
 let anuncioIndex = 0;
 
+function renderDots(){
+  const dots = document.getElementById('anuncioDots');
+  dots.innerHTML = '';
+
+  anunciosRotativos.forEach((_, i) => {
+    const dot = document.createElement('span');
+
+    dot.style.width = '10px';
+    dot.style.height = '10px';
+    dot.style.borderRadius = '50%';
+    dot.style.cursor = 'pointer';
+    dot.style.background =
+      i === anuncioIndex ? '#007bff' : '#ccc';
+
+    dot.onclick = () => {
+      anuncioIndex = i;
+      showAnuncio();
+    };
+
+    dots.appendChild(dot);
+  });
+}
+
+
+
+  
+
 /* Rotación automática */
 function showAnuncio(){
-  document.querySelector('#anuncios img').src =
+  document.getElementById('anuncioImg').src =
     anunciosRotativos[anuncioIndex].img;
+
+  renderDots();
 }
+
 
 setInterval(() => {
   anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
   showAnuncio();
 }, 4000);
+
 
   /* ===== CONTROLES MANUALES DE ANUNCIOS ===== */
 
@@ -684,6 +685,7 @@ function openInfo(){
   `;
   document.getElementById('infoModal').style.display = 'flex';
 }
+showAnuncio();
 
 </script>
 
