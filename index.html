@@ -195,9 +195,45 @@ header{
 </section>
 
 <section class="container" id="anuncios">
-  <div class="flyer" onclick="openInfo()">
-    <img src="img/Entrega.png" alt="Entregas">
-  </div>
+
+<div class="flyer" onclick="openInfo()" style="position:relative">
+
+  <!-- BOTÓN ATRÁS -->
+  <button onclick="prevAnuncio(); event.stopPropagation()"
+    style="
+      position:absolute;left:10px;top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,.45);
+      color:white;border:none;
+      width:36px;height:36px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:18px;
+    ">‹</button>
+
+  <!-- IMAGEN DEL ANUNCIO -->
+  <img src="img/Entrega.png" alt="Anuncio">
+
+  <!-- BOTÓN ADELANTE -->
+  <button onclick="nextAnuncio(); event.stopPropagation()"
+    style="
+      position:absolute;right:10px;top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,.45);
+      color:white;border:none;
+      width:36px;height:36px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:18px;
+    ">›</button>
+
+</div>
+
+
+
+
+
+    
 </section>
 
 <section class="container">
@@ -445,7 +481,44 @@ function sendWhatsApp(){
   window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
 }
 
-function openInfo(){infoModal.style.display='flex'}
+function openInfo(){
+  
+  
+  
+  function openInfo(){
+
+  const img = document.querySelector('#anuncios img').src;
+
+  /* FLYER IMPRESIÓN 3D */
+  if(img.includes('Impresiones3D')){
+    const box = document.querySelector('#infoModal .info-text');
+    box.innerHTML = `
+      <h3>🖨️ Impresiones 3D en Filamento y Resina</h3>
+
+      <p>Realizamos impresiones 3D personalizadas.</p>
+
+      <ul>
+        <li>Filamento (PLA, PETG, ABS)</li>
+        <li>Resina de alta precisión</li>
+      </ul>
+
+      <hr>
+
+      <p>📁 Enviar archivos en formato <strong>.STL</strong></p>
+      <p>💰 Cotización <strong>100% GRATIS</strong></p>
+
+      <div class="cart-actions">
+        <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+      </div>
+    `;
+    infoModal.style.display='flex';
+    return;
+  }
+
+  /* SI NO → INFO ORIGINAL */
+  infoModal.style.display='flex';
+}
+
 function closeInfo(){infoModal.style.display='none'}
 
 fetch('productos.csv')
@@ -468,6 +541,50 @@ fetch('productos.csv')
   updateCartCount();
 });
 
+/* ================================================= */
+/* ========== ANUNCIOS ROTATIVOS =================== */
+/* ================================================= */
+
+const anunciosRotativos = [
+  { img: "img/Entrega.png" },
+  { img: "img/Impresiones3D.png" }
+];
+
+let anuncioIndex = 0;
+
+function showAnuncio(){
+  document.querySelector('#anuncios img').src =
+    anunciosRotativos[anuncioIndex].img;
+}
+
+/* ROTACIÓN AUTOMÁTICA */
+setInterval(() => {
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  showAnuncio();
+}, 4000);
+
+/* CONTROLES MANUALES */
+function nextAnuncio(){
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  showAnuncio();
+}
+
+function prevAnuncio(){
+  anuncioIndex =
+    (anuncioIndex - 1 + anunciosRotativos.length) %
+    anunciosRotativos.length;
+  showAnuncio();
+}
+
+
+
+
+
+
+
+
+
+  
 /* ===== ANUNCIOS ROTATIVOS (NO TOCA PRODUCTOS) ===== */
 
 const anunciosRotativos = [
