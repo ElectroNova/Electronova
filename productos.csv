@@ -8,11 +8,11 @@
 7,Regulador 5V 7805,1 pza Regulador de voltaje lineal 5V,9,img/7805.png,Control
 8,LED RGB 5mm,1 pza LED RGB de 5mm,4,img/ledrgb.png,Iluminación
 9,Fotoresistencia LDR ,1 pza Sensor de luz LDR,7,img/ldr.png,Sensores
-10,LED 5mm,LED estándar 5mm,5,img/led5.png,Iluminación
+10,LED 5mm,LED estándar 5mm,3,img/led5.png,Iluminación
 11,Potenciómetro,Potenciómetro lineal,9,img/pot.png,Pasivos
-12,Regulador 12V,Regulador de voltaje 7812,120,img/7812.png,Control
+12,Regulador 12V,Regulador de voltaje 7812,9,img/7812.png,Control
 13,Resistencias 1W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos
-14,Amplificador Operacional OP07,Amplificador operacional OP07,16,img/op07.png,Analógicos
+14,Amplificador Operacional OP07,Amplificador operacional OP07,17,img/op07.png,Analógicos
 15,Arduino Nano,Placa Arduino Nano,99,img/arduino_nano.png,Microcontroladores
 16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,149,img/esp32.png,Microcontroladores
 17,Teclado alfanumérico 4x4,1 pza Keypad matricial 4x4,29,img/keypad.png,Entradas
@@ -27,7 +27,7 @@
 26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,140,img/ina128.png,Analógicos
 27,Compuerta lógica OR,CI lógica OR 74HC32,14,img/74hc32.png,Lógica Digital
 28,Sensor de línea QTR,1 pza Sensor infrarrojo QTR,65,img/qtr.png,Sensores
-29,Motorreductor DC doble eje,Motorreductor DC doble eje,220,img/motor_doble.png,Motores
+29,Led Ultrabrillante 5mm,"1 pza Led ultrarbillante rosa, azul, rojo",3,img/lultra.png,Motores
 30,Sensor de efecto Hall 3144,1 pza Sensor Hall A3144,8,img/hall.png,Sensores
 31,Interruptor,Interruptor SPST,10,img/interruptor.png,Control
 32,Miniinterruptor,Mini switch SPDT,12,img/miniswitch.png,Control
