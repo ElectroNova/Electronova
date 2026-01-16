@@ -483,6 +483,68 @@ fetch('productos.csv')
   });
   updateCartCount();
 });
+
+
+/* ===== ANUNCIOS ROTATIVOS (NO TOCA PRODUCTOS) ===== */
+
+const anunciosRotativos = [
+  { tipo: "original", img: "img/Entrega.png" },
+  {
+    tipo: "custom",
+    img: "img/Promo.png",
+    titulo: "🔥 Promoción del día",
+    contenido: `
+      <p>Descuentos especiales en componentes electrónicos.</p>
+      <p><strong>Solo hoy</strong></p>
+    `
+  },
+  {
+    tipo: "custom",
+    img: "img/Nuevo.png",
+    titulo: "🆕 Nuevos productos",
+    contenido: `
+      <p>Sensores, módulos y kits recién llegados.</p>
+    `
+  }
+];
+
+let anuncioIndex = 0;
+
+/* Rotación automática */
+setInterval(() => {
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  document.querySelector('#anuncios img').src =
+    anunciosRotativos[anuncioIndex].img;
+}, 4000);
+
+/* Click en anuncio */
+function openInfo(){
+  const a = anunciosRotativos[anuncioIndex];
+
+  /* Anuncio original → usa tu info existente */
+  if(a.tipo === "original"){
+    document.getElementById('infoModal').style.display = 'flex';
+    return;
+  }
+
+  /* Anuncios nuevos → cambian contenido */
+  const box = document.querySelector('#infoModal .info-text');
+  box.innerHTML = `
+    <h3>${a.titulo}</h3>
+    ${a.contenido}
+    <div class="cart-actions">
+      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+    </div>
+  `;
+  document.getElementById('infoModal').style.display = 'flex';
+}
+
+
+
+
+
+
+  
 </script>
 
   
