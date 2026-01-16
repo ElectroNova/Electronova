@@ -43,14 +43,14 @@
 42,Capacitor electrolítico 1 uF 50 v,1 pza de capacitor electrolítico de 1 uF a 50 v ,3,img/cap150.png,Pasivos
 43,Buzzer pasivo ,1 pza de buzzer pasivo 3v-12v 12 mm ,10,img/buz.png,Pasivos
 44,Display LCD 16x2 I2C,1 Pza Display LCD pantalla azul 16x2 con I2C,78,img/lcd162.png,
-45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,25,img/componente.png,Electrónica
-46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,25,img/componente.png,Electrónica
-47,Sensor de Humedad DHT11,1 pza Sensor de Humedad DHT11,25,img/componente.png,Sensores
-48,Qmplificador Operacional LM358,1 pza Qmplificador Operacional LM358,25,img/componente.png,Circuitos Integrados
-49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,25,img/componente.png,Electrónica
-50,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,25,img/componente.png,Electrónica
-51,Controlador de motor TB6612,1 pza Controlador de motor TB6612,25,img/componente.png,Motores
-52,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,25,img/componente.png,Sensores
-53,Modulo de ECG ,1 pza Modulo de ECG ,25,img/modulodeecg.png,Electrónica
-54,Modulo de EMG,1 pza Modulo de EMG,25,img/modulodeemg.png,Electrónica
-55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,25,img/componente.png,Electrónica
+45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,25,img/pcbper.png,Electrónica
+46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,25,img/1n4007.png,Electrónica
+47,Sensor de Humedad DHT11,1 pza Sensor de Humedad DHT11,25,img/dht11.png,Sensores
+48,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,25,img/lm358.png,Circuitos Integrados
+49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,25,img/dip8.png,Electrónica
+50,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,25,img/dip4.png,Electrónica
+51,Controlador de motor TB6612,1 pza Controlador de motor TB6612,25,img/tb6612.png,Motores
+52,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,25,img/vl53.png,Sensores
+53,Modulo de ECG ,1 pza Modulo de ECG ,25,img/modeecg.png,Electrónica
+54,Modulo de EMG,1 pza Modulo de EMG,25,img/modeemg.png,Electrónica
+55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,25,img/trans1206.png,Electrónica
