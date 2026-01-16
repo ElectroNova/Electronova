@@ -49,7 +49,7 @@
       cursor:pointer;
     }
 
-    .header-icon img{width:22px}
+    .header-icon img{width:50px}
 
     /* HERO */
     .hero{text-align:center;padding:34px 16px}
@@ -221,7 +221,9 @@
     </div>
     <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
       <img src="img/whatsapp.png" alt="WhatsApp">
-    </a>
+      <a href="#" class="header-icon" onclick="sendQuoteWhatsApp()" title="Cotizar impresión 3D">
+  <img src="img/print3d-circle-extruder.svg" alt="Impresión 3D">
+</a>
   </div>
 </header>
 
@@ -235,9 +237,21 @@
 
 <section class="container" id="anuncios">
   <div class="flyer" onclick="openInfo()">
-    <img src="img/Entrega.png" alt="Entregas">
+    <img src="img/Entrega.png" alt="Anuncio" id="anuncioImg">
+  </div>
+
+  <!-- INDICADORES -->
+  <div id="anuncioDots"
+       style="
+         display:flex;
+         justify-content:center;
+         gap:8px;
+         margin-top:10px;
+       ">
   </div>
 </section>
+
+
 
 <section class="container">
   <div class="products" id="productList"></div>
@@ -552,32 +566,40 @@
 const anunciosRotativos = [
   { tipo: "original", img: "img/Entrega.png" },
   {
-    tipo: "custom",
-    img: "img/Promo.png",
-    titulo: "🔥 Promoción del día",
-    contenido: `
-      <p>Descuentos especiales en componentes electrónicos.</p>
-      <p><strong>Solo hoy</strong></p>
-    `
-      <h2>Diseño y fabricación de circuitos impresos (PCB)</h2>
-    <h4>Fabricación con CNC de alta precisión</h4>
-
+  tipo: "custom",
+  img: "img/banner-pcb-cnc.png",
+  titulo: "🧩 Diseño y fabricación de Circuitos Impresos (PCB)",
+  contenido: `
     <p>
-      En <strong>Electronova</strong> ofrecemos el servicio profesional de
-      diseño y fabricación de circuitos impresos mediante tecnología CNC,
-      ideal para prototipos y producción a pequeña escala.
+      Ofrecemos el servicio profesional de
+      <strong>diseño y fabricación de circuitos impresos (PCB)</strong>
+      mediante <strong>tecnología CNC de alta precisión</strong>.
     </p>
 
     <ul>
-      <li>✔ Diseño esquemático y PCB</li>
-      <li>✔ Fabricación CNC una y doble cara</li>
-      <li>✔ Perforado y ruteado preciso</li>
-      <li>✔ Alta calidad en pistas</li>
-      <li>✔ Prototipado rápido</li>
+      <li>🔹 Diseño esquemático y de PCB</li>
+      <li>🔹 Fabricación CNC una y doble cara</li>
+      <li>🔹 Perforado y ruteado preciso</li>
+      <li>🔹 Prototipado rápido</li>
     </ul>
 
-  </div>
-</div>
+    <hr>
+
+    <p>
+      📁 Puedes enviarnos tus archivos en formato:
+      <strong>Gerber, PDF o Eagle</strong>
+    </p>
+
+    <p>
+      💰 La <strong>cotización es totalmente GRATIS</strong>,
+      sin compromiso.
+    </p>
+
+    <p>
+      🛠️ Te apoyamos con revisión del diseño antes de fabricar
+      tu PCB.
+    </p>
+  `
   },
   {
     tipo: "custom",
@@ -587,24 +609,20 @@ const anunciosRotativos = [
     <p>
       Realizamos <strong>impresiones 3D personalizadas</strong> en:
     </p>
-
     <ul>
       <li>🔹 Filamento (PLA, PETG y TPU)</li>
       <li>🔹 Resina (Flexible, Extra dura y estandar)</li>
     </ul>
-
     <hr>
 
     <p>
       📁 Envíanos tus archivos en formato:
       <strong>.STL</strong>
     </p>
-
     <p>
       💰 La <strong>cotización es totalmente GRATIS</strong>,
       sin compromiso.
     </p>
-
     <p>
       📲 Te apoyamos con revisión del modelo antes de imprimir.
     </p>
