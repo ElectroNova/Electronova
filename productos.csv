@@ -14,13 +14,13 @@
 13,Resistencias 1W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos
 14,Amplificador Operacional OP07,Amplificador operacional OP07,16,img/op07.png,Analógicos
 15,Arduino Nano,Placa Arduino Nano,99,img/arduino_nano.png,Microcontroladores
-16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,150,img/esp32.png,Microcontroladores
+16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,149,img/esp32.png,Microcontroladores
 17,Teclado alfanumérico 4x4,1 pza Keypad matricial 4x4,29,img/keypad.png,Entradas
-18,Protoboard 830 puntos,1 pza Protoboard 830 puntos blanca ,55,img/proto.png,General
+18,Protoboard 830 puntos,1 pza Protoboard 830 puntos blanca ,49,img/proto.png,General
 19,Módulo puente H L298,1 pza Driver de motores L298,85,img/l298.png,Control
 20,Display 7 segmentos cátodo común,1 pza Display LED 7 segmentos CC,9,img/7seg_cc.png,Displays
-21,Sensor de movimiento PIR,1 pza Sensor de movimiento PIR,48,img/pir.png,Sensores
-22,Servomotor Sg90,1 pza Servomotor Sg90 180° 1.6 Kg,50,img/servo.png,Microcontroladores
+21,Sensor de movimiento PIR,1 pza Sensor de movimiento PIR,49,img/pir.png,Sensores
+22,Servomotor Sg90,1 pza Servomotor Sg90 180° 1.6 Kg,55,img/servo.png,Microcontroladores
 23,Arduino Mega,1 pza Placa Arduino Mega 2560,520,img/arduino_mega.png,Microcontroladores
 24,Display 7 segmentos ánodo común,1 pza Display LED 7 segmentos AC,9,img/7seg_ac.png,Displays
 25,Amplificador de Instrumentación AD620,1 pza Amplificador AD620,120,img/ad620.png,Analógicos
@@ -45,12 +45,14 @@
 44,Display LCD 16x2 I2C,1 Pza Display LCD pantalla azul 16x2 con I2C,78,img/lcd162.png,
 45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,25,img/pcbper.png,Electrónica
 46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,25,img/1n4007.png,Electrónica
-47,Sensor de Humedad DHT11,1 pza Sensor de Humedad DHT11,25,img/dht11.png,Sensores
-48,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,25,img/lm358.png,Circuitos Integrados
-49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,25,img/dip8.png,Electrónica
-50,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,25,img/dip4.png,Electrónica
-51,Controlador de motor TB6612,1 pza Controlador de motor TB6612,25,img/tb6612.png,Motores
-52,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,25,img/vl53.png,Sensores
-53,Modulo de ECG ,1 pza Modulo de ECG ,25,img/modeecg.png,Electrónica
-54,Modulo de EMG,1 pza Modulo de EMG,25,img/modeemg.png,Electrónica
-55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,25,img/trans1206.png,Electrónica
+47,Modulo sensor de Humedad y temperatura DHT11,1 pza Sensor de Humedad y temperatura DHT11,49,img/dht11.png,Sensores
+48,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,8,img/lm358.png,Circuitos Integrados
+49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,18,img/dip8.png,Electrónica
+50,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,11,img/dip4.png,Electrónica
+51,Controlador de motor TB6612,1 pza Controlador de motor TB6612,70,img/tb6612.png,Motores
+52,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,64,img/vl53.png,Sensores
+53,Modulo de ECG ,1 pza Modulo de ECG con plug y 3 electrodos,198,img/modeecg.png,Electrónica
+54,Modulo de EMG,1 pza Modulo de EMG con plug y 3 electrodos,260,img/modeemg.png,Electrónica
+55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,249,img/trans1206.png,Electrónica
+56,Push botton,1 pza push botton,2,img/push.png,Interrupor
+57,Motoreductor JGA25-370 ,1 pza Motorreductor de alto torque 6v  100 RPM 13:1,160,img/jga25.png,Motores
