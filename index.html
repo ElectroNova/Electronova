@@ -216,6 +216,47 @@
 section{
   margin-top:0;
 } 
+
+    /* INSTRUCTIONS */
+.instructions{
+  max-width:720px;
+  margin:10px auto 0;
+  padding:12px 16px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(6px);
+  border-radius:16px;
+  display:flex;
+  gap:14px;
+  justify-content:space-between;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.instructions .step{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  flex:1;
+}
+
+.instructions .step span{
+  min-width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#007bff;
+  color:white;
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.instructions .step p{
+  font-size:.9em;
+  line-height:1.3;
+  color:#333;
+}
+
   </style>
 </head>
 
@@ -241,6 +282,34 @@ section{
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Buscar productos...">
   </div>
+<div class="instructions" id="instructions">
+  <div class="step">
+    <span>1</span>
+    <p>
+      Busca los <strong>componentes electrónicos</strong> o servicios que necesitas
+      y <strong>agrégalos al carrito</strong>.
+    </p>
+  </div>
+
+  <div class="step">
+    <span>2</span>
+    <p>
+      Cuando termines, haz clic en el <strong>ícono del carrito 🛒</strong>
+      en la parte superior.
+    </p>
+  </div>
+
+  <div class="step">
+    <span>3</span>
+    <p>
+      Envía tu pedido <strong>directamente por WhatsApp</strong>
+      para coordinar tu <strong>entrega</strong>.
+    </p>
+  </div>
+</div>
+
+
+  
 </section>
 
 <section class="container" id="anuncios">
@@ -464,13 +533,17 @@ section{
 
   /* ===== BUSCADOR ===== */
 
-  searchInput.addEventListener('input',()=>{
-    const v = searchInput.value.toLowerCase();
-    anuncios.style.display = v ? 'none' : 'block';
-    document.querySelectorAll('.card').forEach(c=>{
-      c.style.display = c.innerText.toLowerCase().includes(v) ? 'block' : 'none';
-    });
+searchInput.addEventListener('input',()=>{
+  const v = searchInput.value.toLowerCase();
+
+  anuncios.style.display = v ? 'none' : 'block';
+  instructions.style.display = v ? 'none' : 'flex';
+
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block' : 'none';
   });
+});
+
 
   /* ===== WHATSAPP ===== */
 
