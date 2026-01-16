@@ -1,560 +1,263 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electronova | Tecnología e Innovación</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronova | Tecnología e Innovación</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Inter, sans-serif;
-  background:linear-gradient(180deg,#dde7f0 0%, #f2f6fb 100%);
-  min-height:100vh;
-}
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:500;
-  background:#ffffffee;
-  backdrop-filter:blur(8px);
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #ddd;
-}
-.header-right{display:flex;gap:14px}
-.header-icon{
-  position:relative;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#eef2f7;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  cursor:pointer;
-}
-.header-icon img{width:22px}
+    body{
+      font-family:Inter, sans-serif;
+      background:linear-gradient(180deg,#dde7f0 0%, #f2f6fb 100%);
+      min-height:100vh;
+    }
 
-/* HERO */
-.hero{text-align:center;padding:34px 16px}
-.hero h1{
-  font-size:clamp(2.4rem,6vw,3.2em);
-  font-weight:800;
-  background:linear-gradient(90deg,#007bff,#00b4ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero span{
-  display:block;
-  margin-top:6px;
-  font-size:1.05em;
-  letter-spacing:2px;
-  color:#5a677a;
-}
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:500;
+      background:#ffffffee;
+      backdrop-filter:blur(8px);
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #ddd;
+    }
 
-/* SEARCH */
-.search-box{max-width:500px;margin:18px auto 0}
-.search-box input{
-  width:100%;
-  padding:14px 22px;
-  border-radius:50px;
-  border:1px solid #ddd;
-  font-size:16px;
-}
+    .header-right{display:flex;gap:14px}
 
-/* CONTAINER */
-.container{max-width:1200px;margin:auto;padding:20px 16px}
+    .header-icon{
+      position:relative;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#eef2f7;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      cursor:pointer;
+    }
 
-/* FLYER */
-.flyer{
-  background:white;
-  border-radius:20px;
-  padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  cursor:pointer;
-  margin-bottom:24px;
-}
-.flyer img{width:100%;border-radius:16px}
+    .header-icon img{width:22px}
 
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-.card{
-  background:white;
-  border-radius:18px;
-  padding:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-.card img{width:100%;height:150px;object-fit:contain}
-.card h4{margin:10px 0}
-.card p{font-size:.9em;color:#555}
-.price{font-weight:800;color:#007bff}
-.btn{
-  margin-top:10px;
-  padding:10px;
-  border-radius:30px;
-  background:#007bff;
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-  text-align:center;
-}
+    /* HERO */
+    .hero{text-align:center;padding:34px 16px}
 
-/* MODALS */
-.cart-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:600;
-  align-items:center;
-  justify-content:center;
-}
-.cart-box{
-  background:white;
-  width:95%;
-  max-width:460px;
-  padding:18px;
-  border-radius:20px;
-}
+    .hero h1{
+      font-size:clamp(2.4rem,6vw,3.2em);
+      font-weight:800;
+      background:linear-gradient(90deg,#007bff,#00b4ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
 
-/* INFO TEXT */
-.info-text p{margin-bottom:6px;line-height:1.35}
-.info-text ul{margin:4px 0 8px 18px}
-.info-text hr{margin:8px 0}
+    .hero span{
+      display:block;
+      margin-top:6px;
+      font-size:1.05em;
+      letter-spacing:2px;
+      color:#5a677a;
+    }
 
-/* CART */
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-.cart-controls{display:flex;gap:6px}
-.cart-controls button{
-  width:34px;height:34px;border:none;border-radius:50%;
-  font-size:20px;background:#eaeaea;cursor:pointer
-}
-.cart-controls .delete{background:#ffdddd}
-.cart-total{font-weight:800;margin-top:10px}
+    /* SEARCH */
+    .search-box{max-width:500px;margin:18px auto 0}
 
-.cart-actions{
-  display:flex;
-  gap:10px;
-  margin-top:12px;
-}
-.cart-actions div{
-  flex:1;padding:10px;border-radius:30px;
-  font-weight:700;text-align:center;cursor:pointer
-}
-.back-btn{background:#ddd}
-.send-btn{background:#25D366;color:white}
-.clear-btn{background:#ff6b6b;color:white}
+    .search-box input{
+      width:100%;
+      padding:14px 22px;
+      border-radius:50px;
+      border:1px solid #ddd;
+      font-size:16px;
+    }
 
-.cart-count{
-  position:absolute;top:-5px;right:-5px;
-  width:18px;height:18px;border-radius:50%;
-  background:red;color:white;font-size:11px;
-  display:flex;align-items:center;justify-content:center
-}
-</style>
+    /* CONTAINER */
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:20px 16px;
+    }
+
+    /* FLYER */
+    .flyer{
+      background:white;
+      border-radius:20px;
+      padding:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      cursor:pointer;
+      margin-bottom:24px;
+    }
+
+    .flyer img{width:100%;border-radius:16px}
+
+    /* PRODUCTS */
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .card img{
+      width:100%;
+      height:150px;
+      object-fit:contain;
+    }
+
+    .card h4{margin:10px 0}
+    .card p{font-size:.9em;color:#555}
+
+    .price{
+      font-weight:800;
+      color:#007bff;
+    }
+
+    .btn{
+      margin-top:10px;
+      padding:10px;
+      border-radius:30px;
+      background:#007bff;
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      text-align:center;
+    }
+
+    /* MODALS */
+    .cart-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      z-index:600;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .cart-box{
+      background:white;
+      width:95%;
+      max-width:460px;
+      padding:18px;
+      border-radius:20px;
+    }
+
+    /* INFO TEXT */
+    .info-text p{margin-bottom:6px;line-height:1.35}
+    .info-text ul{margin:4px 0 8px 18px}
+    .info-text hr{margin:8px 0}
+
+    /* CART */
+    .cart-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .cart-controls{display:flex;gap:6px}
+
+    .cart-controls button{
+      width:34px;
+      height:34px;
+      border:none;
+      border-radius:50%;
+      font-size:20px;
+      background:#eaeaea;
+      cursor:pointer;
+    }
+
+    .cart-controls .delete{background:#ffdddd}
+    .cart-total{font-weight:800;margin-top:10px}
+
+    .cart-actions{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .cart-actions div{
+      flex:1;
+      padding:10px;
+      border-radius:30px;
+      font-weight:700;
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .back-btn{background:#ddd}
+    .send-btn{background:#25D366;color:white}
+    .clear-btn{background:#ff6b6b;color:white}
+
+    .cart-count{
+      position:absolute;
+      top:-5px;
+      right:-5px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:red;
+      color:white;
+      font-size:11px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <img src="logo.png" alt="Electronova" height="42">
-  <div class="header-right">
-    <div class="header-icon" onclick="openCart()">🛒
-      <div class="cart-count" id="cartCount">0</div>
-    </div>
-    <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
-      <img src="img/whatsapp.png" alt="WhatsApp">
-    </a>
-  </div>
-</header>
-
-<section class="hero">
-  <h1>Electronova</h1>
-  <span>Tecnología e Innovación</span>
-
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Buscar productos...">
-  </div>
-</section>
-
-<section class="container" id="anuncios">
-<div class="flyer" onclick="openInfo()">
- <img src="img/Entrega.png" alt="Entregas">
-</div>
-  
-</section>
-
-<section class="container">
-  <div class="products" id="productList"></div>
-</section>
-
-  <!-- MODAL SELECCIÓN DE VALOR -->
-<div class="cart-modal" id="valueModal">
-  <div class="cart-box">
-    <h3 id="valueTitle"></h3>
-
-    <label>Valor</label>
-    <select id="valueSelect" style="width:100%;padding:8px;margin-top:6px"></select>
-
-    <div id="voltageBox" style="display:none;margin-top:10px">
-      <label>Voltaje</label>
-      <select id="voltageSelect" style="width:100%;padding:8px;margin-top:6px"></select>
-    </div>
-
-    <div class="cart-actions">
-      <div class="back-btn" onclick="closeValueModal()">Cancelar</div>
-      <div class="send-btn" onclick="confirmAdd()">Agregar</div>
-    </div>
-  </div>
-</div>
-  
-<!-- INFO MODAL -->
-<div class="cart-modal" id="infoModal">
-  <div class="cart-box info-text">
-    <h3>📦 Información de entregas</h3>
-
-    <p>
-      Electronova ofrece un servicio de entrega local programada para facilitar
-      la recolección de tus productos.
-    </p>
-
-    <hr>
-
-    <p><strong>📍 OXXO UVM</strong></p>
-    <ul>
-      <li>09:00 am</li>
-      <li>12:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p><strong>📍 OXXO Av. Universidad</strong></p>
-    <ul>
-      <li>11:00 am</li>
-      <li>02:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p>
-      ⏱️ Los pedidos deben realizarse con al menos
-      <strong>30 minutos de anticipación</strong>.
-    </p>
-
-    <p>
-      🚚 Fuera de los horarios establecidos, la entrega puede realizarse con un
-      <strong>cargo adicional de $40 MXN</strong>.
-    </p>
-
-    <div class="cart-actions">
-      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
-    </div>
-  </div>
-</div>
-
-  
-<!-- CART MODAL -->
-<div class="cart-modal" id="cartModal">
-  <div class="cart-box">
-    <h3>🛒 Tu pedido</h3>
-    <div id="cartItems"></div>
-
-    <label>Horario de entrega</label>
-    <select id="deliveryType" onchange="renderCart()" style="width:100%;padding:8px;margin-top:6px">
-      <option value="OXXO UVM 09:00">OXXO UVM – 09:00</option>
-      <option value="OXXO UVM 12:00">OXXO UVM – 12:00</option>
-      <option value="OXXO Av Universidad 11:00">OXXO Av Universidad – 11:00</option>
-      <option value="OXXO Av Universidad 14:00">OXXO Av Universidad – 14:00</option>
-      <option value="Fuera de horario">Fuera de horario (+$40)</option>
-    </select>
-
-    <div class="cart-total" id="cartTotal"></div>
-
-    <div class="cart-actions">
-      <div class="clear-btn" onclick="clearCart()">Vaciar carrito</div>
-      <div class="back-btn" onclick="closeCart()">Seguir comprando</div>
-      <div class="send-btn" onclick="sendWhatsApp()">Enviar por WhatsApp</div>
-    </div>
-  </div>
-</div>
-
-<script>
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function saveCart(){localStorage.setItem('cart',JSON.stringify(cart))}
-function updateCartCount(){
-  cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
-}
-
-function addToCart(name,price){
-  const item = cart.find(p=>p.name===name);
-  item ? item.qty++ : cart.push({name,price,qty:1});
-  saveCart(); updateCartCount();
-}
-
-function clearCart(){
-  cart=[];
-  saveCart();
-  renderCart();
-  updateCartCount();
-}
-
-function openCart(){renderCart();cartModal.style.display='flex'}
-function closeCart(){cartModal.style.display='none'}
-
-function renderCart(){
-  cartItems.innerHTML='';
-  let total=0;
-  cart.forEach((p,i)=>{
-    total+=p.price*p.qty;
-    cartItems.innerHTML+=`
-    <div class="cart-item">
-      ${p.qty} × ${p.name}
-      <div class="cart-controls">
-        <button onclick="changeQty(${i},1)">+</button>
-        <button onclick="changeQty(${i},-1)">−</button>
-        <button class="delete" onclick="removeItem(${i})">🗑️</button>
+  <!-- HEADER -->
+  <header>
+    <img src="logo.png" alt="Electronova" height="42">
+    <div class="header-right">
+      <div class="header-icon" onclick="openCart()">🛒
+        <div class="cart-count" id="cartCount">0</div>
       </div>
-    </div>`;
-  });
-  if(deliveryType.value==='Fuera de horario') total+=40;
-  cartTotal.innerText='Total: $'+total+' MXN';
-}
-
-function changeQty(i,v){
-  cart[i].qty+=v;
-  if(cart[i].qty<=0) cart.splice(i,1);
-  saveCart(); renderCart(); updateCartCount();
-}
-function removeItem(i){
-  cart.splice(i,1);
-  saveCart(); renderCart(); updateCartCount();
-}
-  
-/* ===== VALORES COMERCIALES ===== */
-const valoresResistencia = [
- "1Ω","1.2Ω","1.5Ω","1.8Ω","2.2Ω","2.7Ω","3.3Ω","3.9Ω","4.7Ω","5.6Ω","6.8Ω","8.2Ω",
- "10Ω","12Ω","15Ω","18Ω","22Ω","27Ω","33Ω","39Ω","47Ω","56Ω","68Ω","82Ω",
- "100Ω","120Ω","150Ω","180Ω","220Ω","270Ω","330Ω","390Ω","470Ω","560Ω","680Ω","820Ω",
- "1kΩ","1.2kΩ","1.5kΩ","1.8kΩ","2.2kΩ","2.7kΩ","3.3kΩ","3.9kΩ","4.7kΩ","5.6kΩ","6.8kΩ","8.2kΩ",
- "10kΩ","22kΩ","47kΩ","100kΩ","220kΩ","470kΩ","1MΩ","2.2MΩ","4.7MΩ","10MΩ"
-];
-
-const valoresCapacitor = [
- "1pF","10pF","100pF","1nF","10nF","100nF",
- "1µF","2.2µF","4.7µF","10µF","22µF","47µF","100µF","220µF","470µF","1000µF"
-];
-
-const voltajesCapacitor = ["10V","16V","25V","35V","50V","63V","100V","160V","250V"];
-
-let selectedProduct = null;
-
-/* ===== DECISIÓN POR NOMBRE ===== */
-function handleAdd(nombre, precio){
-  const n = nombre.toLowerCase();
-
-  if(n.includes("resistencia")){
-    openValueModal(nombre, precio, "resistencia");
-    return;
-  }
-
-  if(n.includes("capacitor")){
-    openValueModal(nombre, precio, "capacitor");
-    return;
-  }
-
-  // producto normal
-  addToCart(nombre, precio);
-}
-
-/* ===== MODAL ===== */
-function openValueModal(nombre, precio, tipo){
-  selectedProduct = { nombre, precio, tipo };
-
-  valueSelect.innerHTML = "";
-  voltageSelect.innerHTML = "";
-  voltageBox.style.display = tipo === "capacitor" ? "block" : "none";
-
-  const valores = tipo === "resistencia" ? valoresResistencia : valoresCapacitor;
-  valores.forEach(v => valueSelect.innerHTML += `<option>${v}</option>`);
-
-  if(tipo === "capacitor"){
-    voltajesCapacitor.forEach(v => voltageSelect.innerHTML += `<option>${v}</option>`);
-  }
-
-  valueTitle.innerText = nombre;
-  valueModal.style.display = "flex";
-}
-
-function closeValueModal(){
-  valueModal.style.display = "none";
-}
-
-function confirmAdd(){
-  let nombreFinal = selectedProduct.nombre + " (" + valueSelect.value;
-  if(selectedProduct.tipo === "capacitor"){
-    nombreFinal += " " + voltageSelect.value;
-  }
-  nombreFinal += ")";
-
-  addToCart(nombreFinal, selectedProduct.precio);
-  closeValueModal();
-}
-  
-searchInput.addEventListener('input',()=>{
-  const v=searchInput.value.toLowerCase();
-  anuncios.style.display = v ? 'none' : 'block';
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display = c.innerText.toLowerCase().includes(v) ? 'block':'none';
-  });
-});
-
-function generateOrderCode(){
-  return 'EN-' + Math.floor(100000 + Math.random()*900000);
-}
-
-function sendWhatsApp(){
-  const code = generateOrderCode();
-  let msg=`Pedido ${code}%0A%0A`;
-  let total=0;
-  cart.forEach(p=>{
-    total+=p.price*p.qty;
-    msg+=`• ${p.qty} x ${p.name}%0A`;
-  });
-  msg+=`%0AHorario: ${deliveryType.value}`;
-  if(deliveryType.value==='Fuera de horario'){total+=40;msg+='%0ACargo extra: $40'}
-  msg+=`%0ATotal: $${total} MXN`;
-  window.open(`https://wa.me/525574763703?text=${msg}`,'_blank');
-}
-
-function openInfo(){
-  
-  
-  
-  function openInfo(){ infoModal.style.display='flex';
-}
-
-function closeInfo(){infoModal.style.display='none'}
-
-fetch('productos.csv')
-.then(r=>r.text())
-.then(data=>{
-  const rows=data.trim().split('\n').slice(1);
-  rows.forEach(row=>{
-    const [id,nombre,desc,precio,img]=row.split(',');
-    productList.innerHTML+=`
-      <div class="card">
-        <img src="${img}">
-        <h4>${nombre}</h4>
-        <p>${desc}</p>
-        <div class="price">$${precio} MXN</div>
-        <div class="btn" onclick="handleAdd('${nombre}',${precio})">
-          Agregar al carrito
-        </div>
-      </div>`;
-  });
-  updateCartCount();
-});
-
-/* ===== ANUNCIOS ROTATIVOS (NO TOCA PRODUCTOS) ===== */
-
-const anunciosRotativos = [
-  { tipo: "original", img: "img/Entrega.png" },
-  {
-    tipo: "custom",
-    img: "img/Promo.png",
-    titulo: "🔥 Promoción del día",
-    contenido: `
-      <p>Descuentos especiales en componentes electrónicos.</p>
-      <p><strong>Solo hoy</strong></p>
-    `
-  },
-  {
-    tipo: "custom",
-    img: "img/Nuevo.png",
-   
-  titulo: "🖨️ Impresiones 3D en Filamento y Resina",
-  contenido: `
-    <p>
-      Realizamos <strong>impresiones 3D personalizadas</strong> en:
-    </p>
-
-    <ul>
-      <li>🔹 Filamento (PLA, PETG y TPU)</li>
-      <li>🔹 Resina (Flexible, Extra dura y estándar)</li>
-    </ul>
-
-    <hr>
-
-    <p>
-      📁 Envíanos tus archivos en formato:
-      <strong>.STL</strong>
-    </p>
-
-    <p>
-      💰 La <strong>cotización es totalmente GRATIS</strong>,
-      sin compromiso.
-    </p>
-
-    <p>
-      📲 Te apoyamos con revisión del modelo antes de imprimir.
-    </p>
-  ` 
-  }
-];
-
-let anuncioIndex = 0;
-
-/* Rotación automática */
-setInterval(() => {
-  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
-  document.querySelector('#anuncios img').src =
-    anunciosRotativos[anuncioIndex].img;
-}, 2500);
-
-/* Click en anuncio */
-function openInfo(){
-  const a = anunciosRotativos[anuncioIndex];
-
-  /* Anuncio original → usa tu info existente */
-  if(a.tipo === "original"){
-    document.getElementById('infoModal').style.display = 'flex';
-    return;
-  }
-
-  /* Anuncios nuevos → cambian contenido */
-  const box = document.querySelector('#infoModal .info-text');
-  box.innerHTML = `
-    <h3>${a.titulo}</h3>
-    ${a.contenido}
-    <div class="cart-actions">
-      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
+      <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
+        <img src="img/whatsapp.png" alt="WhatsApp">
+      </a>
     </div>
-  `;
-  document.getElementById('infoModal').style.display = 'flex';
-}
- 
-</script>
-  
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Electronova</h1>
+    <span>Tecnología e Innovación</span>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Buscar productos...">
+    </div>
+  </section>
+
+  <!-- ANUNCIOS -->
+  <section class="container" id="anuncios">
+    <div class="flyer" onclick="openInfo()">
+      <img src="img/Entrega.png" alt="Entregas">
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="container">
+    <div class="products" id="productList"></div>
+  </section>
+
+
 </body>
 </html>
-
