@@ -559,6 +559,25 @@ const anunciosRotativos = [
       <p>Descuentos especiales en componentes electrónicos.</p>
       <p><strong>Solo hoy</strong></p>
     `
+      <h2>Diseño y fabricación de circuitos impresos (PCB)</h2>
+    <h4>Fabricación con CNC de alta precisión</h4>
+
+    <p>
+      En <strong>Electronova</strong> ofrecemos el servicio profesional de
+      diseño y fabricación de circuitos impresos mediante tecnología CNC,
+      ideal para prototipos y producción a pequeña escala.
+    </p>
+
+    <ul>
+      <li>✔ Diseño esquemático y PCB</li>
+      <li>✔ Fabricación CNC una y doble cara</li>
+      <li>✔ Perforado y ruteado preciso</li>
+      <li>✔ Alta calidad en pistas</li>
+      <li>✔ Prototipado rápido</li>
+    </ul>
+
+  </div>
+</div>
   },
   {
     tipo: "custom",
@@ -595,12 +614,57 @@ const anunciosRotativos = [
 
 let anuncioIndex = 0;
 
+function renderDots(){
+  const dots = document.getElementById('anuncioDots');
+  dots.innerHTML = '';
+
+  anunciosRotativos.forEach((_, i) => {
+    const dot = document.createElement('span');
+
+    dot.style.width = '10px';
+    dot.style.height = '10px';
+    dot.style.borderRadius = '50%';
+    dot.style.cursor = 'pointer';
+    dot.style.background =
+      i === anuncioIndex ? '#007bff' : '#ccc';
+
+    dot.onclick = () => {
+      anuncioIndex = i;
+      showAnuncio();
+    };
+
+    dots.appendChild(dot);
+  });
+}
+
 /* Rotación automática */
+function showAnuncio(){
+  document.getElementById('anuncioImg').src =
+    anunciosRotativos[anuncioIndex].img;
+
+  renderDots();
+}
+
+
 setInterval(() => {
   anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
-  document.querySelector('#anuncios img').src =
-    anunciosRotativos[anuncioIndex].img;
+  showAnuncio();
 }, 4000);
+
+
+  /* ===== CONTROLES MANUALES DE ANUNCIOS ===== */
+
+function nextAnuncio(){
+  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
+  showAnuncio();
+}
+
+function prevAnuncio(){
+  anuncioIndex =
+    (anuncioIndex - 1 + anunciosRotativos.length) %
+    anunciosRotativos.length;
+  showAnuncio();
+}
 
 /* Click en anuncio */
 function openInfo(){
@@ -623,9 +687,26 @@ function openInfo(){
   `;
   document.getElementById('infoModal').style.display = 'flex';
 }
+showAnuncio();
+
+  function sendQuoteWhatsApp(){
+  const msg = `
+Hola 👋
+Quiero solicitar una *cotización de impresión 3D*.
+
+📁 Enviaré mi archivo en formato *.STL*
+🧱 Material: (PLA / PETG / TPU / Resina)
+📏 Medidas aproximadas:
+📦 Cantidad de piezas:
+  `.trim();
+
+  window.open(
+    `https://wa.me/525574763703?text=${encodeURIComponent(msg)}`,
+    '_blank'
+  );
+}
 
 </script>
 
 </body>
 </html>
-
