@@ -27,7 +27,7 @@
 26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,140,img/ina128.png,Analógicos
 27,Compuerta lógica OR,CI lógica OR 74HC32,14,img/74hc32.png,Lógica Digital
 28,Sensor de línea QTR,1 pza Sensor infrarrojo QTR,65,img/qtr.png,Sensores
-29,Led Ultrabrillante 5mm,"1 pza Led ultrarbillante rosa, azul, rojo",3,img/lultra.png,Óptica
+29,Led Ultrabrillante 5mm,1 pza Led ultrabrillante rosa azul rojo,3,img/lultra.png,Óptica
 30,Sensor de efecto Hall 3144,1 pza Sensor Hall A3144,8,img/hall.png,Sensores
 31,Interruptor,Interruptor SPST,10,img/interruptor.png,Control
 32,Miniinterruptor,Mini switch SPDT,12,img/miniswitch.png,Control
