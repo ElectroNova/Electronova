@@ -221,7 +221,9 @@
     </div>
     <a href="https://wa.me/525574763703" target="_blank" class="header-icon">
       <img src="img/whatsapp.png" alt="WhatsApp">
-    </a>
+      <a href="#" class="header-icon" onclick="sendQuoteWhatsApp()" title="Cotizar impresión 3D">
+  <img src="img/print3d-circle-extruder.svg" alt="Impresión 3D">
+</a>
   </div>
 </header>
 
@@ -681,6 +683,23 @@ function openInfo(){
   document.getElementById('infoModal').style.display = 'flex';
 }
 showAnuncio();
+
+  function sendQuoteWhatsApp(){
+  const msg = `
+Hola 👋
+Quiero solicitar una *cotización de impresión 3D*.
+
+📁 Enviaré mi archivo en formato *.STL*
+🧱 Material: (PLA / PETG / TPU / Resina)
+📏 Medidas aproximadas:
+📦 Cantidad de piezas:
+  `.trim();
+
+  window.open(
+    `https://wa.me/525574763703?text=${encodeURIComponent(msg)}`,
+    '_blank'
+  );
+}
 
 </script>
 
