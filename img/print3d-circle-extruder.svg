@@ -2,42 +2,55 @@
   <defs>
     <!-- Fondo circular -->
     <radialGradient id="bgGrad" cx="30%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#f2f8ff"/>
-      <stop offset="100%" stop-color="#dbeeff"/>
+      <stop offset="0%" stop-color="#f4f9ff"/>
+      <stop offset="100%" stop-color="#d9ecff"/>
     </radialGradient>
 
-    <!-- Azul principal -->
+    <!-- Azul extrusor -->
     <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#00b4ff"/>
       <stop offset="100%" stop-color="#007bff"/>
     </linearGradient>
 
-    <!-- Gris oscuro -->
+    <!-- Metal oscuro -->
     <linearGradient id="darkGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#4a4a4a"/>
       <stop offset="100%" stop-color="#1f1f1f"/>
+    </linearGradient>
+
+    <!-- Metal boquilla -->
+    <linearGradient id="nozzleGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f7f7"/>
+      <stop offset="100%" stop-color="#9aa3ad"/>
     </linearGradient>
   </defs>
 
   <!-- Círculo de fondo -->
   <circle cx="32" cy="32" r="30" fill="url(#bgGrad)"/>
 
-  <!-- Barra superior -->
-  <rect x="10" y="18" width="44" height="6" rx="3" fill="url(#darkGrad)"/>
+  <!-- Barra transversal (más baja para dar espacio al extrusor) -->
+  <rect x="8" y="18" width="48" height="6" rx="3" fill="url(#darkGrad)"/>
 
-  <!-- Cabezal -->
-  <rect x="26" y="18" width="12" height="14" rx="3" fill="url(#blueGrad)"/>
+  <!-- Cuerpo del extrusor (MÁS GRANDE) -->
+  <rect x="22" y="16" width="20" height="18" rx="4" fill="url(#blueGrad)"/>
 
-  <!-- Boquilla -->
-  <polygon points="30,32 34,32 32,36" fill="#e6f6ff"/>
+  <!-- Bloque calentador -->
+  <rect x="24" y="34" width="16" height="8" rx="3" fill="#2f3e46"/>
 
-  <!-- Filamento -->
-  <path d="M32 10 C32 14, 28 16, 32 20 C36 24, 32 26, 32 30"
-        stroke="url(#blueGrad)" stroke-width="2.5" fill="none"/>
+  <!-- Boquilla (más grande y clara) -->
+  <polygon points="26,42 38,42 32,50" fill="url(#nozzleGrad)"/>
+
+  <!-- Filamento (más visible) -->
+  <path d="M32 6
+           C32 10, 26 14, 32 18
+           C38 22, 32 26, 32 30"
+        stroke="url(#blueGrad)"
+        stroke-width="3"
+        fill="none"/>
 
   <!-- Texto 3D sombra -->
-  <text x="32" y="50"
-        font-size="16"
+  <text x="32" y="58"
+        font-size="14"
         font-weight="900"
         text-anchor="middle"
         fill="#000"
@@ -46,8 +59,8 @@
   </text>
 
   <!-- Texto 3D frontal -->
-  <text x="32" y="48"
-        font-size="16"
+  <text x="32" y="56"
+        font-size="14"
         font-weight="900"
         text-anchor="middle"
         fill="url(#blueGrad)">
