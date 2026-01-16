@@ -196,44 +196,9 @@ header{
 
 <section class="container" id="anuncios">
 <div class="flyer" onclick="openInfo()">
-<div class="flyer" onclick="openInfo()" style="position:relative">
-
-  <!-- BOTÓN ATRÁS -->
-  <button onclick="prevAnuncio(); event.stopPropagation()"
-    style="
-      position:absolute;left:10px;top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,.45);
-      color:white;border:none;
-      width:36px;height:36px;
-      border-radius:50%;
-      cursor:pointer;
-      font-size:18px;
-    ">‹</button>
-
-  <!-- IMAGEN DEL ANUNCIO -->
-  <img src="img/Entrega.png" alt="Anuncio">
-
-  <!-- BOTÓN ADELANTE -->
-  <button onclick="nextAnuncio(); event.stopPropagation()"
-    style="
-      position:absolute;right:10px;top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,.45);
-      color:white;border:none;
-      width:36px;height:36px;
-      border-radius:50%;
-      cursor:pointer;
-      font-size:18px;
-    ">›</button>
-
+ <img src="img/Entrega.png" alt="Entregas">
 </div>
-
-</div>
-
-
-
-    
+  
 </section>
 
 <section class="container">
@@ -541,50 +506,6 @@ fetch('productos.csv')
   updateCartCount();
 });
 
-/* ================================================= */
-/* ========== ANUNCIOS ROTATIVOS =================== */
-/* ================================================= */
-
-const anunciosRotativos = [
-  { img: "img/Entrega.png" },
-  { img: "img/Impresiones3D.png" }
-];
-
-let anuncioIndex = 0;
-
-function showAnuncio(){
-  document.querySelector('#anuncios img').src =
-    anunciosRotativos[anuncioIndex].img;
-}
-
-/* ROTACIÓN AUTOMÁTICA */
-setInterval(() => {
-  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
-  showAnuncio();
-}, 4000);
-
-/* CONTROLES MANUALES */
-function nextAnuncio(){
-  anuncioIndex = (anuncioIndex + 1) % anunciosRotativos.length;
-  showAnuncio();
-}
-
-function prevAnuncio(){
-  anuncioIndex =
-    (anuncioIndex - 1 + anunciosRotativos.length) %
-    anunciosRotativos.length;
-  showAnuncio();
-}
-
-
-
-
-
-
-
-
-
-  
 /* ===== ANUNCIOS ROTATIVOS (NO TOCA PRODUCTOS) ===== */
 
 const anunciosRotativos = [
