@@ -277,51 +277,6 @@
   </div>
 </div>
 
-<!-- INFO MODAL -->
-<div class="cart-modal" id="infoModal">
-  <div class="cart-box info-text">
-    <h3>📦 Información de entregas</h3>
-
-    <p>
-      Electronova ofrece un servicio de entrega local programada para facilitar
-      la recolección de tus productos.
-    </p>
-
-    <hr>
-
-    <p><strong>📍 OXXO UVM</strong></p>
-    <ul>
-      <li>09:00 am</li>
-      <li>12:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p><strong>📍 OXXO Av. Universidad</strong></p>
-    <ul>
-      <li>11:00 am</li>
-      <li>02:00 pm</li>
-    </ul>
-    <p>Entrega sin costo dentro de estos horarios.</p>
-
-    <hr>
-
-    <p>
-      ⏱️ Los pedidos deben realizarse con al menos
-      <strong>30 minutos de anticipación</strong>.
-    </p>
-
-    <p>
-      🚚 Fuera de los horarios establecidos, la entrega puede realizarse con un
-      <strong>cargo adicional de $40 MXN</strong>.
-    </p>
-
-    <div class="cart-actions">
-      <div class="back-btn" onclick="closeInfo()">Cerrar</div>
-    </div>
-  </div>
-</div>
 
 <!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
@@ -531,13 +486,6 @@
     window.open(`https://wa.me/525574763703?text=${msg}`, '_blank');
   }
 
-  function openInfo(){
-    infoModal.style.display = 'flex';
-  }
-
-  function closeInfo(){
-    infoModal.style.display = 'none';
-  }
 
   /* ===== CARGA DE PRODUCTOS ===== */
 
