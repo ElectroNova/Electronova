@@ -223,13 +223,6 @@ header{
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
   
 <!-- INFO MODAL -->
 <div class="cart-modal" id="infoModal">
@@ -355,8 +348,6 @@ function removeItem(i){
   cart.splice(i,1);
   saveCart(); renderCart(); updateCartCount();
 }
-
-
   
 /* ===== VALORES COMERCIALES ===== */
 const valoresResistencia = [
@@ -427,13 +418,6 @@ function confirmAdd(){
   addToCart(nombreFinal, selectedProduct.precio);
   closeValueModal();
 }
-
-
-
-
-
-
-
   
 searchInput.addEventListener('input',()=>{
   const v=searchInput.value.toLowerCase();
@@ -484,7 +468,6 @@ fetch('productos.csv')
   updateCartCount();
 });
 
-
 /* ===== ANUNCIOS ROTATIVOS (NO TOCA PRODUCTOS) ===== */
 
 const anunciosRotativos = [
@@ -509,8 +492,8 @@ const anunciosRotativos = [
     </p>
 
     <ul>
-      <li>🔹 Filamento (PLA, PETG, ABS, etc.)</li>
-      <li>🔹 Resina (alta precisión)</li>
+      <li>🔹 Filamento (PLA, PETG y TPU)</li>
+      <li>🔹 Resina (Flexible, Extra dura y estándar)</li>
     </ul>
 
     <hr>
@@ -562,15 +545,8 @@ function openInfo(){
   `;
   document.getElementById('infoModal').style.display = 'flex';
 }
-
-
-
-
-
-
-  
+ 
 </script>
-
   
 </body>
 </html>
