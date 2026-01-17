@@ -220,64 +220,51 @@ section{
     /* INSTRUCTIONS */
 .instructions{
   max-width:520px;
-  margin:6px auto 0;
-  padding:4px 8px;
-  background:rgba(255,255,255,0.85);
-  border-radius:12px;
+  margin:6px auto 2px;
+  padding:6px 10px;
+  background:rgba(255,255,255,0.9);
+  border-radius:999px;
   display:flex;
-  flex-direction:column;
-  gap:4px;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
   box-shadow:0 2px 6px rgba(0,0,0,.08);
+  animation:fadeIn .4s ease;
 }
 
 .instructions .step{
   display:flex;
   align-items:center;
-  gap:8px;
-  font-size:.78em;
+  gap:6px;
+  font-size:.72em;
+  font-weight:600;
   color:#2f3a4a;
-  padding:4px 6px;
+  white-space:nowrap;
 }
 
 .instructions .step span{
-  min-width:18px;
+  width:18px;
   height:18px;
   border-radius:50%;
-  background:#007bff;
+  background:linear-gradient(135deg,#007bff,#00b4ff);
   color:white;
   font-size:11px;
-  font-weight:700;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-
-
-
-.instructions .step p{
-  font-size:.82em;
-  line-height:1.35;
-  color:#2f3a4a;
+.instructions .arrow{
+  font-size:16px;
+  color:#9aa7b6;
+  margin-top:-1px;
 }
 
-
-    @media(max-width:768px){
-  .instructions{
-    flex-direction:column;
-    gap:10px;
-  }
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:none}
 }
-    @media(max-width:480px){
-  .instructions{
-    padding:8px 12px;
-    gap:12px;
-  }
 
-  .instructions .step{
-    padding:8px;
-  }
-}
 
 
 
@@ -807,6 +794,14 @@ window.addEventListener('click', (e) => {
     modal.style.display = 'none';
   }
 });
+
+  let stepIndex = 0;
+setInterval(()=>{
+  document.querySelectorAll('.instructions .step').forEach(s=>s.style.opacity='.4');
+  document.querySelectorAll('.instructions .step')[stepIndex].style.opacity='1';
+  stepIndex = (stepIndex + 1) % 3;
+}, 2000);
+
 
 </script>
 
