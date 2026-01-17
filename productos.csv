@@ -23,8 +23,8 @@
 22,Servomotor Sg90,1 pza Servomotor Sg90 180° 1.6 Kg,55,img/servo.png,Microcontroladores
 23,Arduino Mega,1 pza Placa Arduino Mega 2560,520,img/arduino_mega.png,Microcontroladores
 24,Display 7 segmentos ánodo común,1 pza Display LED 7 segmentos AC,9,img/7seg_ac.png,Displays
-25,Amplificador de Instrumentación AD620,1 pza Amplificador AD620,120,img/ad620.png,Analógicos
-26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,140,img/ina128.png,Analógicos
+25,Amplificador de Instrumentación AD620,1 pza Amplificador AD620,130,img/ad620.png,Analógicos
+26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,150,img/ina128.png,Analógicos
 27,Compuerta lógica OR,CI lógica OR 74HC32,14,img/74hc32.png,Lógica Digital
 28,Sensor de línea QTR,1 pza Sensor infrarrojo QTR,65,img/qtr.png,Sensores
 29,Led Ultrabrillante 5mm,1 pza Led ultrabrillante rosa azul rojo,3,img/lultra.png,Óptica
@@ -43,8 +43,8 @@
 42,Capacitor electrolítico 1 uF 50 v,1 pza de capacitor electrolítico de 1 uF a 50 v ,3,img/cap150.png,Pasivos
 43,Buzzer pasivo ,1 pza de buzzer pasivo 3v-12v 12 mm ,10,img/buz.png,Pasivos
 44,Display LCD 16x2 I2C,1 Pza Display LCD pantalla azul 16x2 con I2C,78,img/lcd162.png,
-45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,25,img/pcbper.png,Electrónica
-46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,25,img/1n4007.png,Electrónica
+45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,46,img/pcbper.png,Electrónica
+46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,2,img/1n4007.png,Electrónica
 47,Modulo sensor de Humedad y temperatura DHT11,1 pza Sensor de Humedad y temperatura DHT11,49,img/dht11.png,Sensores
 48,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,8,img/lm358.png,Circuitos Integrados
 49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,18,img/dip8.png,Electrónica
@@ -59,3 +59,6 @@
 58,Resistencias 1/2 W,1 resistencia 1/2 W del valor a elegir,1,img/resistencias12w.png,Pasivos
 59,Modulo MPU6050,1 pza Modulo acelerometro con giroscopio MPU5060,60,img/mpu.png,Electrónica
 60,Modulo HC-05,1 pza de Modulo Bluethooth HC-05,98,img/hc05.png,Electrónica
+61,Jumper 10 cm,4 pzas Jumper M-H M-M H-H 10 cm,4,img/jump10.png,Electrónica
+62,Jumper 20 cm,4 pzas Jumper M-H M-M H-H 20 cm,6,img/jump20.png,Electrónica
+63,Jumper 30 cm,4 pzas Jumper M-H M-M H-H 30 cm,10,img/jump30.png,Electrónica
