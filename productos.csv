@@ -11,7 +11,7 @@
 10,LED 5mm difuso,LED estándar 5mm difuso,3,img/led5.png,Iluminación
 11,Potenciómetro,Potenciómetro lineal,9,img/pot.png,Pasivos
 12,Regulador 12V,Regulador de voltaje 7812,9,img/7812.png,Control
-13,Resistencias 1W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos
+13,Resistencias 1 W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos
 14,Amplificador Operacional OP07,Amplificador operacional OP07,17,img/op07.png,Analógicos
 15,Arduino Nano,Placa Arduino Nano,99,img/arduino_nano.png,Microcontroladores
 16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,149,img/esp32.png,Microcontroladores
@@ -56,6 +56,6 @@
 55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,249,img/trans1206.png,Electrónica
 56,Push botton,1 pza push botton,2,img/push.png,Interrupor
 57,Motoreductor JGA25-370 ,1 pza Motorreductor de alto torque 6v  100 RPM 13:1,160,img/jga25.png,Motores
-58,Resistencias 1/2 W,1 resistencia 1 W del valor a elegir,1,img/resistencias12w.png,Pasivos
+58,Resistencias 1/2 W,1 resistencia 1/2 W del valor a elegir,1,img/resistencias12w.png,Pasivos
 59,Modulo MPU6050,1 pza Modulo acelerometro con giroscopio MPU5060,60,img/mpu.png,Electrónica
 60,Modulo HC-05,1 pza de Modulo Bluethooth HC-05,98,img/hc05.png,Electrónica
