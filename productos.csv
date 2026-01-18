@@ -1,64 +1,70 @@
-﻿id,nombre,descripcion,precio,imagen,categoria
-1,Resistencias 1/4W,5 pzas resistencias 1/4W del valor a elegir,3,img/resistencias.png,Pasivos
-2,Capacitor electrolítico 100 uF 50v,1 pza de capacitor electrolítico de 100 uF a 50 v ,5,img/capacitores.png,Pasivos
-3,Arduino UNO,1 pza Placa Arduino UNO R3 con cable USB tipo C,146,img/arduino_uno.png,Microcontroladores
-4,Sensor ultrasónico HC-SR04,1 pza Sensor de distancia ultrasónico,42,img/hcsr04.png,Sensores
-5,Electrodo ECG,1 pza Electrodo desechables para ECG ,6,img/ecg.png,Biomédicos
-6,Motorreductor DC,1 pza Motorreductor DC 2 ejes 48:1 6v-8v,29,img/motor.png,Motores
-7,Regulador 5V 7805,1 pza Regulador de voltaje lineal 5V,9,img/7805.png,Control
-8,LED RGB 5mm,1 pza LED RGB de 5mm,4,img/ledrgb.png,Iluminación
-9,Fotoresistencia LDR ,1 pza Sensor de luz LDR,7,img/ldr.png,Sensores
-10,LED 5mm difuso,LED estándar 5mm difuso,3,img/led5.png,Iluminación
-11,Potenciómetro,Potenciómetro lineal,9,img/pot.png,Pasivos
-12,Regulador 12V,Regulador de voltaje 7812,9,img/7812.png,Control
-13,Resistencias 1 W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos
-14,Amplificador Operacional OP07,Amplificador operacional OP07,17,img/op07.png,Analógicos
-15,Arduino Nano,Placa Arduino Nano,99,img/arduino_nano.png,Microcontroladores
-16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,149,img/esp32.png,Microcontroladores
-17,Teclado alfanumérico 4x4,1 pza Keypad matricial 4x4,29,img/keypad.png,Entradas
-18,Protoboard 830 puntos,1 pza Protoboard 830 puntos blanca ,49,img/proto.png,General
-19,Módulo puente H L298,1 pza Driver de motores L298,85,img/l298.png,Control
-20,Display 7 segmentos cátodo común,1 pza Display LED 7 segmentos CC,9,img/7seg_cc.png,Displays
-21,Sensor de movimiento PIR,1 pza Sensor de movimiento PIR,49,img/pir.png,Sensores
-22,Servomotor Sg90,1 pza Servomotor Sg90 180° 1.6 Kg,55,img/servo.png,Microcontroladores
-23,Arduino Mega,1 pza Placa Arduino Mega 2560,520,img/arduino_mega.png,Microcontroladores
-24,Display 7 segmentos ánodo común,1 pza Display LED 7 segmentos AC,9,img/7seg_ac.png,Displays
-25,Amplificador de Instrumentación AD620,1 pza Amplificador AD620,130,img/ad620.png,Analógicos
-26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,150,img/ina128.png,Analógicos
-27,Compuerta lógica OR,CI lógica OR 74HC32,14,img/74hc32.png,Lógica Digital
-28,Sensor de línea QTR,1 pza Sensor infrarrojo QTR,65,img/qtr.png,Sensores
-29,Led Ultrabrillante 5mm,1 pza Led ultrabrillante rosa azul rojo,3,img/lultra.png,Óptica
-30,Sensor de efecto Hall 3144,1 pza Sensor Hall A3144,8,img/hall.png,Sensores
-31,Interruptor,Interruptor SPST,10,img/interruptor.png,Control
-32,Miniinterruptor,Mini switch SPDT,12,img/miniswitch.png,Control
-33,Compuerta NAND 74HC00,1 pza CI lógica Compuerta NAND 74HC00,14,img/74hc00.png,Lógica Digital
-34,Compuerta NOR 74HC02,1 pza CI lógica Compuerta NOR 74HC02,14,img/74hc02.png,Lógica Digital
-35,Compuerta NOT 74HC04,1 pza CI lógica Compuerta NOT 74HC04,14,img/74hc04.png,Lógica Digital
-36,Compuerta AND 74HC08,1 pza CI lógica Compuerta AND 74HC08,14,img/74hc08.png,Lógica Digital
-37,Compuerta OR 74HC32,1 pza CI lógica Compuerta OR 74HC32,14,img/74hc32.png,Lógica Digital
-38,Compuerta XOR 74HC86,1 pza CI lógica Compuerta XOR 74HC86,14,img/74hc86.png,Lógica Digital
-39,Modulo Relevador,1 pza Modulo relevador de 5 v ,47,img/Rele.png,Lógica Digital
-40,Capacitor electrolítico 10 uF 50 v,1 pza de capacitor electrolítico de 10 uF a 50 v ,3,img/cap1050.png,Pasivos
-41,Capacitor electrolítico 1000 uF 50 v,1 pza de capacitor electrolítico de 1000 uF a 50 v ,14,img/cap100050.png,Pasivos
-42,Capacitor electrolítico 1 uF 50 v,1 pza de capacitor electrolítico de 1 uF a 50 v ,3,img/cap150.png,Pasivos
-43,Buzzer pasivo ,1 pza de buzzer pasivo 3v-12v 12 mm ,10,img/buz.png,Pasivos
-44,Display LCD 16x2 I2C,1 Pza Display LCD pantalla azul 16x2 con I2C,78,img/lcd162.png,
-45,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,46,img/pcbper.png,Electrónica
-46,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,2,img/1n4007.png,Electrónica
-47,Modulo sensor de Humedad y temperatura DHT11,1 pza Sensor de Humedad y temperatura DHT11,49,img/dht11.png,Sensores
-48,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,8,img/lm358.png,Circuitos Integrados
-49,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,18,img/dip8.png,Electrónica
-50,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,11,img/dip4.png,Electrónica
-51,Controlador de motor TB6612,1 pza Controlador de motor TB6612,70,img/tb6612.png,Motores
-52,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,64,img/vl53.png,Sensores
-53,Modulo de ECG ,1 pza Modulo de ECG con plug y 3 electrodos,198,img/modeecg.png,Electrónica
-54,Modulo de EMG,1 pza Modulo de EMG con plug y 3 electrodos,260,img/modeemg.png,Electrónica
-55,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,249,img/trans1206.png,Electrónica
-56,Push botton,1 pza push botton,2,img/push.png,Interrupor
-57,Motoreductor JGA25-370 ,1 pza Motorreductor de alto torque 6v  100 RPM 13:1,160,img/jga25.png,Motores
-58,Resistencias 1/2 W,1 resistencia 1/2 W del valor a elegir,1,img/resistencias12w.png,Pasivos
-59,Modulo MPU6050,1 pza Modulo acelerometro con giroscopio MPU5060,60,img/mpu.png,Electrónica
-60,Modulo HC-05,1 pza de Modulo Bluethooth HC-05,98,img/hc05.png,Electrónica
-61,Jumper 10 cm,4 pzas Jumper M-H M-M H-H 10 cm,4,img/jump10.png,Electrónica
-62,Jumper 20 cm,4 pzas Jumper M-H M-M H-H 20 cm,6,img/jump20.png,Electrónica
-63,Jumper 30 cm,4 pzas Jumper M-H M-M H-H 30 cm,10,img/jump30.png,Electrónica
+﻿id,nombre,descripcion,precio,imagen,categoria,stock
+1,Resistencias 1/4W,5 pzas resistencias 1/4W del valor a elegir,3,img/resistencias.png,Pasivos,300
+2,Capacitor electrolítico 100 uF 50v,1 pza de capacitor electrolítico de 100 uF a 50 v ,5,img/capacitores.png,Pasivos,100
+3,Arduino UNO,1 pza Placa Arduino UNO R3 con cable USB tipo C,125,img/arduino_uno.png,Microcontroladores,50
+4,Sensor ultrasónico HC-SR04,1 pza Sensor de distancia ultrasónico,42,img/hcsr04.png,Sensores,10
+5,Electrodo ECG,1 pza Electrodo desechables para ECG ,6,img/ecg.png,Biomédicos,150
+6,Motorreductor DC,1 pza Motorreductor DC 2 ejes 48:1 6v-8v,35,img/motor.png,Motores,35
+7,Regulador 5V 7805,1 pza Regulador de voltaje lineal 5V,9,img/7805.png,Control,40
+8,LED RGB 5mm,1 pza LED RGB de 5mm,4,img/ledrgb.png,Iluminación,100
+9,Fotoresistencia LDR ,1 pza Sensor de luz LDR,8,img/ldr.png,Sensores,100
+10,LED 5mm difuso,LED estándar 5mm difuso,3,img/led5.png,Iluminación,300
+11,Potenciómetro 10k,1 pza Potenciómetro lineal 10k,9,img/pot.png,Pasivos,70
+12,Regulador 12V,Regulador de voltaje 7812,9,img/7812.png,Control,40
+13,Resistencias 1 W,1 resistencias 1 W del valor a elegir,1,img/resistencias1w.png,Pasivos,300
+14,Amplificador Operacional OP07,Amplificador operacional OP07,12,img/op07.png,Analógicos,130
+15,Arduino Nano,Placa Arduino Nano,99,img/arduino_nano.png,Microcontroladores,40
+16,Placa de desarrollo ESP32 ,Placa ESP32 DevKit con cable tipo C,149,img/esp32.png,Microcontroladores,13
+17,Teclado alfanumérico 4x4,1 pza Keypad matricial 4x4,29,img/keypad.png,Entradas,20
+18,Protoboard 830 puntos,1 pza Protoboard 830 puntos blanca ,56,img/proto.png,General,100
+19,Módulo puente H L298,1 pza Driver de motores L298,85,img/l298.png,Control,15
+20,Display 7 segmentos cátodo común,1 pza Display LED 7 segmentos CC,9,img/7seg_cc.png,Displays,100
+21,Sensor de movimiento PIR,1 pza Sensor de movimiento PIR,49,img/pir.png,Sensores,10
+22,Servomotor Sg90,1 pza Servomotor Sg90 180° 1.6 Kg,55,img/servo.png,Microcontroladores,50
+23,Arduino Mega,1 pza Placa Arduino Mega 2560,368,img/arduino_mega.png,Microcontroladores,5
+24,Display 7 segmentos ánodo común,1 pza Display LED 7 segmentos AC,9,img/7seg_ac.png,Displays,10
+25,Amplificador de Instrumentación AD620,1 pza Amplificador AD620,130,img/ad620.png,Analógicos,20
+26,Amplificador de Instrumentación INA128,1 pza Amplificador INA128,150,img/ina128.png,Analógicos,10
+27,Sensor de línea QTR,1 pza Sensor infrarrojo QTR,65,img/qtr.png,Sensores,20
+28,Led Ultrabrillante 5mm,1 pza Led ultrabrillante rosa azul rojo,3,img/lultra.png,Óptica,40
+29,Sensor de efecto Hall 3144,1 pza Sensor Hall A3144,8,img/hall.png,Sensores,40
+30,Interruptor,1 pza Interruptor  250v 6A 1 polo 1 tiro,10,img/interruptor.png,Control,30
+31,Miniinterruptor,Mini switch SPDT,12,img/miniswitch.png,Control,10
+32,Compuerta NAND 74HC00,1 pza CI lógica Compuerta NAND 74HC00,14,img/74hc00.png,Lógica Digital,20
+33,Compuerta NOR 74HC02,1 pza CI lógica Compuerta NOR 74HC02,14,img/74hc02.png,Lógica Digital,20
+34,Compuerta NOT 74HC04,1 pza CI lógica Compuerta NOT 74HC04,14,img/74hc04.png,Lógica Digital,20
+35,Compuerta AND 74HC08,1 pza CI lógica Compuerta AND 74HC08,14,img/74hc08.png,Lógica Digital,20
+36,Compuerta OR 74HC32,1 pza CI lógica Compuerta OR 74HC32,14,img/74hc32.png,Lógica Digital,20
+37,Compuerta XOR 74HC86,1 pza CI lógica Compuerta XOR 74HC86,14,img/74hc86.png,Lógica Digital,20
+38,Modulo Relevador,1 pza Modulo relevador de 5 v ,47,img/Rele.png,Lógica Digital,30
+39,Capacitor electrolítico 10 uF 50 v,1 pza de capacitor electrolítico de 10 uF a 50 v ,3,img/cap1050.png,Pasivos,100
+40,Capacitor electrolítico 1000 uF 50 v,1 pza de capacitor electrolítico de 1000 uF a 50 v ,14,img/cap100050.png,Pasivos,60
+41,Capacitor electrolítico 1 uF 50 v,1 pza de capacitor electrolítico de 1 uF a 50 v ,3,img/cap150.png,Pasivos,100
+42,Buzzer pasivo ,1 pza de buzzer pasivo 3v-12v 12 mm ,10,img/buz.png,Pasivos,50
+43,Display LCD 16x2 I2C,1 Pza Display LCD pantalla azul 16x2 con I2C,78,img/lcd162.png,,30
+44,PCB perforada 13.2x4.8 cm,1 pza PCB perforada 13.2x4.8 cm,45,img/pcbper.png,Electrónica,30
+45,Diodo rectificadro 1N4007,1 pza Diodo rectificadro 1N4007,2,img/1n4007.png,Electrónica,200
+46,Modulo sensor de Humedad y temperatura DHT11,1 pza Sensor de Humedad y temperatura DHT11,49,img/dht11.png,Sensores,50
+47,Amplificador Operacional LM358,1 pza Qmplificador Operacional LM358,8,img/lm358.png,Circuitos Integrados,100
+48,Dipswitch 8 pines negro,1 pza Dipswitch 8 pines negro,18,img/dip8.png,Electrónica,50
+49,Dipswitch 4 pines negro,1 pza Dipswitch 4 pines negro,11,img/dip4.png,Electrónica,50
+50,Controlador de motor TB6612,1 pza Controlador de motor TB6612,70,img/tb6612.png,Motores,10
+51,Sensor de distancia VL53L0X,1 pza Sensor de distancia VL53L0X,64,img/vl53.png,Sensores,5
+52,Modulo de ECG ,1 pza Modulo de ECG con plug y 3 electrodos,198,img/modeecg.png,Electrónica,15
+53,Modulo de EMG,1 pza Modulo de EMG con plug y 3 electrodos,260,img/modeemg.png,Electrónica,10
+54,Transformador 120 vac a 6 v 1a,1 pza Transformador 120 vac a 6 v 1a,249,img/trans1206.png,Electrónica,10
+55,Push botton,1 pza push botton,2,img/push.png,Interrupor,100
+56,Motoreductor JGA25-370 ,1 pza Motorreductor de alto torque 6v  100 RPM 13:1,160,img/jga25.png,Motores,20
+57,Resistencias 1/2 W,1 resistencia 1/2 W del valor a elegir,1,img/resistencias12w.png,Pasivos,300
+58,Modulo MPU6050,1 pza Modulo acelerometro con giroscopio MPU5060,60,img/mpu.png,Electrónica,30
+59,Modulo HC-05,1 pza de Modulo Bluethooth HC-05,94,img/hc05.png,Electrónica,20
+60,Jumper 10 cm,4 pzas Jumper M-H M-M H-H 10 cm,4,img/jump10.png,Electrónica,200
+61,Jumper 20 cm,4 pzas Jumper M-H M-M H-H 20 cm,6,img/jump20.png,Electrónica,200
+62,Jumper 30 cm,4 pzas Jumper M-H M-M H-H 30 cm,10,img/jump30.png,Electrónica,200
+63,Potenciómetro 1k,1 pza Potenciómetro lineal 1k,9,img/pot.png,Pasivos,70
+64,Potenciómetro 100k,1 pza Potenciómetro lineal 100k,9,img/pot.png,Pasivos,30
+65,Regulador de voltaje Lm317,1 pza Regulador de voltaje variable positivo 317,18,img/317.png,Activo,30
+66,Modulo Max30102,1 pza Modulo sensor de pulso y oxígeno Max30102,62,img/30102.png,Activo,30
+67,Latiguillos ECG,1 pza Latiguillos de ECG con plug 3.5 mm,115,img/latecg.png,Pasivos,30
+68,Modulo interfaz jack,1 pza Modulo intefaz Jack 3.5 mm,32,img/latecg.png,Pasivos,40
+69,Filamento PETG Elegoo,1 kg Filamento PETG Elegoo Negro 1.75,350,img/petg.png,Impresión,4
